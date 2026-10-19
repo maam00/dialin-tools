@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -307,4 +308,154 @@ test('the public templates hold only what the public tree needs', () => {
   const local = JSON.parse(readFileSync(new URL('../../tsconfig.json', import.meta.url), 'utf8'));
   const { types: _a, ...options } = pub.compilerOptions, { types: _b, ...localOptions } = local.compilerOptions;
   assert.deepEqual(options, localOptions);
+});
+
+const MEDIA_MANIFEST = 'release/media-manifest.json';
+const mediaHash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const box = (kind, bytes = Buffer.alloc(0)) => {
+  const header = Buffer.alloc(8); header.writeUInt32BE(bytes.length + 8); header.write(kind, 4);
+  return Buffer.concat([header, bytes]);
+};
+// Tiny synthetic format/container fixtures, not a playable walkthrough or evidence of visual review.
+const MEDIA_FIXTURES = [
+  ['docs/media/workflow.gif', 'image/gif', Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64')],
+  ['docs/media/workflow.mp4', 'video/mp4', Buffer.concat([box('ftyp', Buffer.from('isom\0\0\0\0isommp42', 'latin1')), box('moov'), box('mdat', Buffer.from([1]))])],
+  ['docs/media/workflow-poster.png', 'image/png', geometricPNG(8)],
+];
+
+function reviewedMediaSource(args, fixtures = MEDIA_FIXTURES) {
+  const media = { schema_version: 'dialin.reviewed-media.v1', assets: fixtures.map(([path, mime_type, bytes]) => ({ path, mime_type, bytes: bytes.length, sha256: mediaHash(bytes) })) };
+  for (const [path, , bytes] of fixtures) { mkdirSync(join(args.sourceRoot, path, '..'), { recursive: true }); writeFileSync(join(args.sourceRoot, path), bytes); }
+  mkdirSync(join(args.sourceRoot, 'release'), { recursive: true });
+  writeFileSync(join(args.sourceRoot, MEDIA_MANIFEST), JSON.stringify(media));
+  args.manifest.files.push(MEDIA_MANIFEST, ...media.assets.map((asset) => asset.path));
+  return media;
+}
+
+test('only exact reviewed media ships, unchanged and still under the ordinary size cap', (t) => {
+  const args = setup(t); reviewedMediaSource(args);
+  const receipt = assemble({ ...args, policy: { rules: [{ id: 'must-not-transform-media', from: 'GIF89a', to: 'WRONG!' }] } });
+  assert.equal(receipt.audit.passed, true);
+  for (const [path, , bytes] of MEDIA_FIXTURES) {
+    assert.deepEqual(readFileSync(join(args.output, path)), bytes);
+    assert.deepEqual(receipt.source_records.find((entry) => entry.path === path).transforms, []);
+    if (!WINDOWS) assert.equal(receipt.files.find((entry) => entry.path === path).mode, '644');
+  }
+  assert.equal(auditTree(args.output, receipt.files).passed, true);
+});
+
+test('the public self-export retains its media manifest and reproduces exact reviewed asset bytes', (t) => {
+  const args = generatingSource(t); reviewedMediaSource(args);
+  assemble(args);
+  const manifest = JSON.parse(readFileSync(join(args.output, 'release/source-manifest.json'), 'utf8'));
+  assert.ok(manifest.files.includes(MEDIA_MANIFEST));
+  const second = `${args.output}-again`;
+  const receipt = assemble({ sourceRoot: args.output, output: second, manifest });
+  assert.equal(receipt.audit.passed, true);
+  for (const [path] of MEDIA_FIXTURES) assert.deepEqual(readFileSync(join(second, path)), readFileSync(join(args.output, path)));
+});
+
+test('reviewed media cannot omit the manifest, omit an asset or remap source paths', (t) => {
+  for (const change of ['manifest', 'asset', 'remap']) {
+    const args = setup(t); reviewedMediaSource(args);
+    if (change === 'manifest') args.manifest.files = args.manifest.files.filter((path) => path !== MEDIA_MANIFEST);
+    if (change === 'asset') args.manifest.files = args.manifest.files.filter((path) => path !== MEDIA_FIXTURES[0][0]);
+    if (change === 'remap') args.manifest.files = args.manifest.files.map((path) => path === MEDIA_FIXTURES[0][0] ? { source: path, path: 'docs/media/other.gif' } : path);
+    assert.throws(() => assemble(args), /must ship|without remapping/);
+    assert.equal(existsSync(args.output), false);
+    assert.equal(existsSync(`${args.output}.assembling`), false);
+  }
+});
+
+test('a media manifest rejects unknown paths, type mismatches, duplicates and loose metadata', (t) => {
+  const changes = [
+    (m) => { m.assets[0].path = 'docs/media/other.gif'; },
+    (m) => { m.assets[0].path = '../workflow.gif'; },
+    (m) => { m.assets[0].mime_type = 'video/mp4'; },
+    (m) => { m.assets[1] = m.assets[0]; },
+    (m) => { m.assets[0].sha256 = 'a'.repeat(63); },
+    (m) => { m.assets[0].bytes = String(m.assets[0].bytes); },
+    (m) => { m.assets[0].bytes = 5 * 1024 * 1024 + 1; },
+    (m) => { m.assets[0].private_note = 'unreviewed extra field'; },
+    (m) => { m.schema_version = 'unknown'; },
+    (m) => { m.assets = null; },
+  ];
+  for (const change of changes) {
+    const args = setup(t), media = reviewedMediaSource(args); change(media);
+    writeFileSync(join(args.sourceRoot, MEDIA_MANIFEST), JSON.stringify(media));
+    assert.throws(() => assemble(args), /Invalid reviewed media/);
+    assert.equal(existsSync(args.output), false);
+  }
+});
+
+test('media changes fail exact hash and size checks before any candidate is created', (t) => {
+  for (const alteration of ['byte', 'size']) {
+    const args = setup(t); reviewedMediaSource(args);
+    const [path, , original] = MEDIA_FIXTURES[0], changed = Buffer.from(original);
+    changed[changed.length - 2] ^= 1;
+    writeFileSync(join(args.sourceRoot, path), alteration === 'byte' ? changed : Buffer.concat([original, Buffer.from([0])]));
+    assert.throws(() => assemble(args), /Reviewed media (?:content\/format|size) mismatch/);
+    assert.equal(existsSync(args.output), false);
+  }
+});
+
+test('correct hashes cannot bless invalid magic or broken container boundaries', (t) => {
+  const invalid = [
+    [MEDIA_FIXTURES[0][0], 'image/gif', Buffer.from('GIF89a\0\0\0\0\0\0\0;')],
+    [MEDIA_FIXTURES[1][0], 'video/mp4', box('ftyp', Buffer.from('isom\0\0\0\0isom'))],
+    [MEDIA_FIXTURES[1][0], 'video/mp4', Buffer.concat([MEDIA_FIXTURES[1][2], Buffer.from([0])])],
+    [MEDIA_FIXTURES[2][0], 'image/png', Buffer.from('not a PNG')],
+    [MEDIA_FIXTURES[2][0], 'image/png', Buffer.concat([MEDIA_FIXTURES[2][2], Buffer.from([0])])],
+  ];
+  for (const fixture of invalid) {
+    const args = setup(t); reviewedMediaSource(args, [fixture]);
+    assert.throws(() => assemble(args), /content\/format mismatch/);
+    assert.equal(existsSync(args.output), false);
+  }
+});
+
+test('approved media still receives ordinary secret, private denylist and publisher-content scans', (t) => {
+  const key = ['sk-ant-', 'Z'.repeat(40)].join('');
+  for (const [value, rule, extras] of [[key, 'provider-key', {}],
+    ['PRIVATE_TEST_VISUAL_VALUE', 'private-visual', { policy: { deny: [{ id: 'private-visual', value: 'PRIVATE_TEST_VISUAL_VALUE' }] } }],
+    ['Lighthouse Amber', 'catalog-recipe-title', { recipeCatalog: syntheticCatalog }]]) {
+    const args = setup(t), [path, type, original] = MEDIA_FIXTURES[0];
+    // A GIF comment extension contains a synthetic leak; approving its hash must never suppress privacy checks.
+    const comment = Buffer.from(value);
+    const bytes = Buffer.concat([original.subarray(0, -1), Buffer.from([0x21, 0xfe, comment.length]), comment, Buffer.from([0, 0x3b])]);
+    reviewedMediaSource(args, [[path, type, bytes]]);
+    assert.throws(() => assemble({ ...args, ...extras }), (error) => {
+      assert.ok(error.findings.some((finding) => finding.path === path && finding.rule === rule));
+      assert.ok(!JSON.stringify(error.findings).includes(value));
+      return true;
+    });
+    assert.equal(existsSync(args.output), false);
+    assert.equal(existsSync(`${args.output}.assembling`), false);
+  }
+});
+
+test('final audits recheck reviewed media even without a receipt and refuse unrelated video files', (t) => {
+  const args = setup(t); reviewedMediaSource(args); assemble(args);
+  const [path, , bytes] = MEDIA_FIXTURES[0];
+  const changed = Buffer.from(bytes); changed[changed.length - 2] ^= 1;
+  writeFileSync(join(args.output, path), changed);
+  assert.ok(auditTree(args.output).errors.some((error) => error.rule === 'reviewed-media'));
+  writeFileSync(join(args.output, path), bytes);
+  writeFileSync(join(args.output, 'unreviewed.mp4'), MEDIA_FIXTURES[1][2]);
+  assert.ok(auditTree(args.output).errors.some((error) => error.path === 'unreviewed.mp4' && error.rule === 'forbidden-artifact'));
+  rmSync(join(args.output, MEDIA_MANIFEST));
+  assert.ok(auditTree(args.output).errors.some((error) => error.path === path && error.rule === 'unreviewed-media'));
+});
+
+test('unreviewed walkthrough paths and symlinked approved assets are refused', (t) => {
+  const plain = setup(t), [path, , bytes] = MEDIA_FIXTURES[0];
+  mkdirSync(join(plain.sourceRoot, path, '..'), { recursive: true }); writeFileSync(join(plain.sourceRoot, path), bytes);
+  plain.manifest.files.push(path);
+  assert.throws(() => assemble(plain), /Unreviewed media/);
+  if (WINDOWS) return;
+  const args = setup(t); reviewedMediaSource(args);
+  const outside = join(args.dir, 'outside.gif'); writeFileSync(outside, bytes);
+  rmSync(join(args.sourceRoot, path)); symlinkSync(outside, join(args.sourceRoot, path));
+  assert.throws(() => assemble(args), /Symlink/);
+  assert.equal(existsSync(args.output), false);
 });

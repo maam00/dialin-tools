@@ -9,6 +9,14 @@ import { spawnSync } from 'node:child_process';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const RECEIPT = '.source-export.json';
+const MEDIA_MANIFEST = 'release/media-manifest.json';
+// These three reviewed walkthrough files are the entire media exception, not an extension allowlist.
+const REVIEWED_MEDIA = new Map([
+  ['docs/media/workflow.gif', 'image/gif'],
+  ['docs/media/workflow.mp4', 'video/mp4'],
+  ['docs/media/workflow-poster.png', 'image/png'],
+]);
+const MAX_ARTIFACT_BYTES = 5 * 1024 * 1024;
 /** Public configuration generated from reviewed templates, so private folder names never reach the public tree. The
  *  templates ship (the public tree can rebuild itself); the generated paths are never copied from the source. */
 export const GENERATED_CONFIG = [
@@ -59,6 +67,84 @@ function crc32(buffer) {
   let crc = 0xffffffff;
   for (const byte of buffer) { crc ^= byte; for (let i = 0; i < 8; i++) crc = (crc >>> 1) ^ ((crc & 1) ? 0xedb88320 : 0); }
   return (crc ^ 0xffffffff) >>> 0;
+}
+
+// Format/container checks complement the exact reviewed digest. They do not decode video, establish
+// provenance, or establish visual/metadata privacy; the ordinary privacy audit still scans every byte.
+function mediaFormat(bytes, type) {
+  if (type === 'image/gif') return bytes.length >= 14 && /^(?:GIF87a|GIF89a)$/.test(bytes.subarray(0, 6).toString('latin1'))
+    && bytes.readUInt16LE(6) > 0 && bytes.readUInt16LE(8) > 0 && bytes.at(-1) === 0x3b;
+  if (type === 'image/png') {
+    if (!bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))) return false;
+    let at = 8, image = false;
+    while (at + 12 <= bytes.length) {
+      const length = bytes.readUInt32BE(at), end = at + length + 12;
+      if (end > bytes.length) return false;
+      const kind = bytes.subarray(at + 4, at + 8).toString('latin1');
+      if (bytes.readUInt32BE(end - 4) !== crc32(bytes.subarray(at + 4, end - 4))) return false;
+      if (at === 8 && (kind !== 'IHDR' || length !== 13 || !bytes.readUInt32BE(at + 8) || !bytes.readUInt32BE(at + 12))) return false;
+      if (kind === 'IDAT') image = true;
+      if (kind === 'IEND') return length === 0 && image && end === bytes.length;
+      at = end;
+    }
+    return false;
+  }
+  if (type === 'video/mp4') {
+    let at = 0;
+    const kinds = new Set();
+    while (at + 8 <= bytes.length) {
+      let length = bytes.readUInt32BE(at), header = 8;
+      const kind = bytes.subarray(at + 4, at + 8).toString('latin1');
+      if (length === 1) {
+        if (at + 16 > bytes.length) return false;
+        const large = bytes.readBigUInt64BE(at + 8);
+        if (large > BigInt(bytes.length - at)) return false;
+        length = Number(large); header = 16;
+      } else if (length === 0) length = bytes.length - at;
+      if (length < header || at + length > bytes.length || (at === 0 && kind !== 'ftyp')) return false;
+      if (kind === 'ftyp') {
+        if (at !== 0 || length < header + 8 || (length - header) % 4) return false;
+        const brands = [bytes.subarray(at + header, at + header + 4).toString('latin1')];
+        for (let i = at + header + 8; i < at + length; i += 4) brands.push(bytes.subarray(i, i + 4).toString('latin1'));
+        if (!brands.some((brand) => ['isom', 'iso2', 'mp41', 'mp42', 'avc1'].includes(brand))) return false;
+      }
+      kinds.add(kind); at += length;
+    }
+    return at === bytes.length && kinds.has('ftyp') && kinds.has('moov') && kinds.has('mdat');
+  }
+  return false;
+}
+
+function checkMediaBytes(entry, bytes) {
+  if (bytes.length !== entry.bytes || sha(bytes) !== entry.sha256 || !mediaFormat(bytes, entry.mime_type)) {
+    throw new Error(`Reviewed media content/format mismatch: ${entry.path}`);
+  }
+}
+
+function reviewedMedia(root) {
+  if (!existsSync(join(root, MEDIA_MANIFEST))) return new Map();
+  const file = regularFile(root, MEDIA_MANIFEST);
+  let manifest;
+  try {
+    if (lstatSync(file).size > 16384) throw new Error();
+    manifest = JSON.parse(readFileSync(file, 'utf8'));
+  } catch { throw new Error('Invalid reviewed media manifest'); }
+  const keys = (value, expected) => value && typeof value === 'object' && !Array.isArray(value)
+    && Object.keys(value).sort().join(',') === [...expected].sort().join(',');
+  if (!keys(manifest, ['schema_version', 'assets']) || manifest.schema_version !== 'dialin.reviewed-media.v1'
+    || !Array.isArray(manifest.assets) || manifest.assets.length > REVIEWED_MEDIA.size) throw new Error('Invalid reviewed media manifest');
+  const approved = new Map();
+  for (const entry of manifest.assets) {
+    if (!keys(entry, ['path', 'mime_type', 'bytes', 'sha256']) || !REVIEWED_MEDIA.has(entry.path)
+      || entry.mime_type !== REVIEWED_MEDIA.get(entry.path) || approved.has(entry.path)
+      || !Number.isSafeInteger(entry.bytes) || entry.bytes <= 0 || entry.bytes > MAX_ARTIFACT_BYTES
+      || typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(entry.sha256)) throw new Error('Invalid reviewed media entry');
+    const asset = regularFile(root, entry.path);
+    if (lstatSync(asset).size !== entry.bytes) throw new Error(`Reviewed media size mismatch: ${entry.path}`);
+    checkMediaBytes(entry, readFileSync(asset));
+    approved.set(entry.path, entry);
+  }
+  return approved;
 }
 
 // Original, deterministic geometric placeholder. Only IHDR/IDAT/IEND chunks; no EXIF or other metadata.
@@ -143,6 +229,8 @@ export function publisherTerms(catalog) {
 export function auditTree(root, records, policy = {}, terms = null) {
   const errors = [];
   const actual = paths(root);
+  let media = new Map();
+  try { media = reviewedMedia(root); } catch { errors.push({ path: MEDIA_MANIFEST, rule: 'reviewed-media' }); }
   if (records) {
     for (const entry of records) safePath(entry.path);
     const expected = records.map((x) => x.path).sort();
@@ -155,11 +243,13 @@ export function auditTree(root, records, policy = {}, terms = null) {
   }
   for (const path of actual) {
     try { safePath(path); } catch { errors.push({ path, rule: 'forbidden-path' }); continue; }
-    if (/\.(?:p12|pfx|mobileprovision|pem|key|RAF|raf|HIF|hif|log|zip|gz|mp4|mov)$/i.test(path)) errors.push({ path, rule: 'forbidden-artifact' });
+    const approvedMedia = media.has(path);
+    if (REVIEWED_MEDIA.has(path) && !approvedMedia) errors.push({ path, rule: 'unreviewed-media' });
+    if (/\.(?:p12|pfx|mobileprovision|pem|key|RAF|raf|HIF|hif|log|zip|gz|gif|mp4|mov)$/i.test(path) && !approvedMedia) errors.push({ path, rule: 'forbidden-artifact' });
     const bytes = readFileSync(join(root, path));
-    if (bytes.length > 5 * 1024 * 1024) errors.push({ path, rule: 'oversized-artifact' });
+    if (bytes.length > MAX_ARTIFACT_BYTES) errors.push({ path, rule: 'oversized-artifact' });
     if (bytes.includes(0)) {
-      if (!/\.(?:png|woff2|zlib)$/.test(path)) errors.push({ path, rule: 'unapproved-binary' });
+      if (!approvedMedia && !/\.(?:png|woff2|zlib)$/.test(path)) errors.push({ path, rule: 'unapproved-binary' });
     }
     // Scan ASCII/UTF-8 and UTF-16 strings even in the few allowed binaries.
     const text = bytes.toString('utf8') + '\n' + bytes.toString('utf16le');
@@ -193,6 +283,10 @@ export function assemble({ sourceRoot, output, manifest, policy = {}, generate =
   if (new Set(destinations).size !== destinations.length) throw new Error('Duplicate destination');
   // Complete source validation before creating any output.
   const selected = selections.map((x) => ({ ...x, source: safePath(x.source), sourceFile: regularFile(sourceRoot, x.source) }));
+  const media = reviewedMedia(sourceRoot);
+  if (media.size && !selected.some((x) => x.source === MEDIA_MANIFEST && x.path === MEDIA_MANIFEST)) throw new Error('The reviewed media manifest must ship unchanged with its assets');
+  for (const path of media.keys()) if (!selected.some((x) => x.source === path && x.path === path)) throw new Error('Every reviewed media path must be selected without remapping');
+  for (const entry of selected) if (REVIEWED_MEDIA.has(entry.path) && !media.has(entry.path)) throw new Error(`Unreviewed media: ${entry.path}`);
   mkdirSync(dirname(output), { recursive: true });
   const staging = `${output}.assembling`;
   if (existsSync(staging)) throw new Error('Staging path already exists');
@@ -202,9 +296,11 @@ export function assemble({ sourceRoot, output, manifest, policy = {}, generate =
   try {
     for (const entry of selected) {
       const original = readFileSync(entry.sourceFile);
-      if (original.includes(0) && !entry.path.endsWith('.woff2')) throw new Error(`Unapproved source binary: ${entry.path}`);
-      const result = transform(entry.source, original, policy);
-      write(entry.path, result.bytes, !!(lstatSync(entry.sourceFile).mode & 0o111));
+      const approvedMedia = media.get(entry.path);
+      if (approvedMedia) checkMediaBytes(approvedMedia, original);
+      if (original.includes(0) && !entry.path.endsWith('.woff2') && !approvedMedia) throw new Error(`Unapproved source binary: ${entry.path}`);
+      const result = approvedMedia || entry.path === MEDIA_MANIFEST ? { bytes: original, changes: [] } : transform(entry.source, original, policy);
+      write(entry.path, result.bytes, approvedMedia ? false : !!(lstatSync(entry.sourceFile).mode & 0o111));
       sourceRecords.push({ source: entry.source, path: entry.path, source_sha256: sha(original), transforms: result.changes });
     }
     const generated = [];
