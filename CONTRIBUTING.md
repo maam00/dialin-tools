@@ -2,6 +2,17 @@
 
 Start with the smallest component that solves a photographer's task. Read [AGENTS.md](AGENTS.md) for working rules and [the module contracts](docs/MODULES.md) for file handoffs and exit codes.
 
+## Choose a first contribution
+
+| What you have | Useful contribution | Camera needed? |
+| --- | --- | --- |
+| A computer and a few minutes | Run `npm run dialin -- demo --out .dialin/first-contribution` after setup; report an unclear step or a reproducible setup failure. The demo uses fixtures. | No |
+| Your own JPEG/PNG photographs or recipe file | Try [photo review](modules/photos/README.md) or [recipe validation](modules/recipes/README.md); report where the result failed your task, without uploading private inputs. | No |
+| Another Fujifilm body or firmware | Follow [Add your camera](docs/ADD-YOUR-CAMERA.md) for a current-slot-only report, exact host details and a privacy check. A report does not enable writes. | Yes, for a voluntary read-only report |
+| A reproducible bug or protocol finding | Link the relevant issue and propose the smallest fix, with synthetic tests and source attribution. | Usually no; keep physical evidence separate |
+
+Search existing issues first. For a new camera protocol or support change, share the evidence before expanding the implementation; a body with similar controls may encode them differently. Documentation fixes and focused bug fixes can go straight to a pull request. No outside-photographer recruitment is required to contribute.
+
 ## Set up and run the checks
 
 Node.js 22.12+ and Python 3.10+. From the repository root:
@@ -55,7 +66,11 @@ Describe software tests, coding-agent trials, live API runs, physical camera ope
 
 [What works today](docs/CAPABILITIES.md) is the support summary. When capability evidence changes, update that page, the dated validation record and the affected component guide together. Keep implementation, a single observed result and broader support separate.
 
-For a useful first contribution, try one component on your own task and open a **First-use experience** issue. Report your first result, elapsed time, blockers and whether you used it again; no private photographs or logs are needed. The [launch feedback guide](docs/LAUNCH-FEEDBACK.md) contains a five-person pilot plan and three scoped contributor issue drafts. Use the existing **Bug report** template for reproducible failures and **Camera report** for sanitized read-only device reports.
+For a useful first contribution, try one component on your own task and open a **First-use experience** issue. Report your first result, elapsed time, blockers and whether you used it again; no private photographs or logs are needed. The [launch feedback guide](docs/LAUNCH-FEEDBACK.md) contains optional postlaunch learning ideas. Use **Bug report** for reproducible failures and [**Camera report**](https://github.com/maam00/dialin-tools/issues/new?template=camera_report.yml) for reviewed device evidence. Include the exact model, menu firmware, OS/version, architecture, Node version and Dial In release/commit; never attach a raw backup, serial number or pairing data.
+
+## Public history and attribution
+
+The initial public tree was a selective source export, not the private project's Git history. [Project history](docs/PROJECT-HISTORY.md) explains that boundary and links the reproducible export policy. Keep future changes in focused commits with their tests and evidence; do not reconstruct or backdate private history to make the public graph look older. Preserve upstream notices and distinguish adapted protocol knowledge from new observations.
 
 ## Platforms
 

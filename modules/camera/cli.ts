@@ -18,11 +18,14 @@ Explicit physical USB commands (not run by prepare, inspect, help or demo):
   camera usb backup --backup /private/your-directory/before.json
   camera usb apply --in preparation.json --backup /private/your-directory/new-before.json --confirm-write
 
-Help add another body (docs/ADD-YOUR-CAMERA.md). Read-only: no recipe, name or setting is written, no backup or restore:
-  camera report --out my-camera-report.json [--include-slot-names] [--current-slot-only]
-  camera profile --in my-camera-report.json --out draft.json      (maintainers: read-only draft + diff vs X100VI)
-To read C1–C7 the report moves only the slot edit cursor (which slot USB reads, not the bank you shoot with) and puts it
-back; --current-slot-only moves nothing. No serial, MAC, owner or copyright text is collected; slot names only on request.
+Help add another body (docs/ADD-YOUR-CAMERA.md). Start with a current-slot-only report; this does not enable writes:
+  camera report --current-slot-only --out .dialin/reports/my-camera-report.json
+  camera profile --in .dialin/reports/my-camera-report.json --out .dialin/reports/draft.json   (maintainers: read-only draft)
+The current-slot-only report does not move the edit cursor or write recipe values, back up, restore or transfer photos.
+Omitting --current-slot-only visits other slots by moving the edit cursor (which slot USB reads, not the bank you shoot
+with) and attempts to return it. A timeout can leave its state unknown; share partial results and cursor-return notes.
+The saved report omits identity fields. Leave --include-slot-names off, and review the JSON and errors before sharing.
+Never attach a camera backup, serial number, pairing data or raw device log. Exact model, firmware and host details help.
 
 macOS: the system daemon ptpcamerad usually holds the camera. --release-macos-camera-daemon (usb and report only) lets
 that one command SIGKILL your user's ptpcamerad after a refused claim and retry for about 1 s. launchd restarts it.

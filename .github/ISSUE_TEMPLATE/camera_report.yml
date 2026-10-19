@@ -1,71 +1,86 @@
 name: Camera report
-description: Share a read-only report from a Fujifilm body so it can be considered for support. Nothing on the camera is changed.
+description: Share reviewed device evidence or a report failure; this does not enable camera writes.
 title: "Camera report: <body> <firmware>"
 labels: ["camera report"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you. Dial In writes recipes only to the **X100VI on firmware 1.10**. A report does not make your camera supported for writes; it helps a maintainer draft a read-only profile and see how your body differs. Full guide: `docs/ADD-YOUR-CAMERA.md` in the repository.
+        Dial In's guarded USB writer is qualified only for **X100VI firmware 1.10 on the tested Mac**. Another body, firmware or host may refuse a report. A partial report is useful evidence, not a support claim.
 
-        **What to run**, with the camera in CONNECTION MODE → USB RAW CONV./BACKUP RESTORE and other camera apps closed:
+        Search existing issues for your exact model and firmware first. The [camera contribution guide](https://github.com/maam00/dialin-tools/blob/main/docs/ADD-YOUR-CAMERA.md) explains setup, privacy and the separate requirements for write support. No code contribution is required.
+
+        Start with one camera in **USB RAW CONV./BACKUP RESTORE** mode, if that mode is available, and other camera apps closed:
 
         ```sh
         npm run dialin -- doctor camera
-        npm run dialin -- camera report --out my-camera-report.json
+        npm run dialin -- camera report --current-slot-only --out .dialin/reports/my-camera-report.json
         ```
 
-        macOS: add `--release-macos-camera-daemon` if the camera can't be claimed. `--current-slot-only` shares one slot and doesn't move the slot edit cursor at all.
+        This reads device information, advertised properties and the current edit slot. It does not move the slot edit cursor, write recipe values, back up, restore or transfer photos. If you omit `--current-slot-only`, the report moves the edit cursor between slots and attempts to return it; a failed session can leave its state unknown. Say which mode you used.
 
-        **Collected:** model, firmware, USB mode, the PTP operation and property codes the body supports, and each custom slot's raw setting values.
-        **Not collected:** serial number, Y-number, MAC address, owner name, copyright text, photographs. Slot names only if you added `--include-slot-names`.
+        On macOS, `--release-macos-camera-daemon` is an optional response to a camera-claim failure; it stops the current user's camera service for this operation. Do not use a write command to investigate a report failure.
 
-        The report never writes a recipe, name or setting and never backs up or restores. To read each slot it moves only the slot edit cursor (not the bank you shoot with) and returns it to where it was.
-
-        Open the file and check it before attaching. **Never attach a camera backup**: backup files contain your serial.
+        Leave `--include-slot-names` off. The saved report omits identity fields and checks for known serial representations and MAC-like strings, but **you must review the JSON and error text before sharing**. Never attach camera backups, serials, pairing data, raw USB logs, private photographs, full EXIF, credentials or personal file paths. If no report was produced, a sanitized error is enough.
   - type: input
     id: body
     attributes:
-      label: Camera body
+      label: Exact camera model
       placeholder: X-T5
     validations:
       required: true
   - type: input
     id: firmware
     attributes:
-      label: Firmware, as shown in the camera menu
+      label: Firmware shown in the camera menu
+      description: Copy the exact version; do not infer it from another body's report.
       placeholder: "4.31"
     validations:
       required: true
   - type: input
     id: environment
     attributes:
-      label: Computer
-      description: Operating system and Node.js version.
+      label: Operating system, version and processor architecture
+      description: For example, macOS version + Apple silicon/Intel, or Linux distribution/version + architecture. No serials or system-information screenshots.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Node version and Dial In release or commit
+      description: Run `node --version` and, in a Git checkout, `git rev-parse HEAD`. If using a release archive, give its tag.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command and selected camera USB mode
+      description: Include flags such as --current-slot-only or --release-macos-camera-daemon; replace private paths with placeholders.
+      render: text
     validations:
       required: true
   - type: textarea
     id: report
     attributes:
-      label: Report
-      description: Drag my-camera-report.json here, or paste its contents.
+      label: Reviewed report, if one was produced
+      description: Attach or paste only the reviewed camera-report JSON. A partial report is welcome. Leave empty if the command produced no report; do not substitute a backup or raw log.
       render: json
-    validations:
-      required: true
   - type: textarea
     id: summary
     attributes:
-      label: Command summary
-      description: The short text the command printed (stderr), including any notes about refused slots or a partial report.
+      label: Result or sanitized failure
+      description: Include the short command summary, any partial/refused result, and cursor-return notes if you chose an all-slot report. Say what actually happened, not whether you expect writes to work.
       render: text
+    validations:
+      required: true
   - type: checkboxes
     id: confirm
     attributes:
       label: Confirmations
       options:
-        - label: For this report I ran only `doctor` and `camera report`. No custom slot was changed, and I did not run `camera usb apply` or any other write.
+        - label: To obtain this report I used only setup checks and camera report; I did not run camera usb apply, backup, restore, or a write experiment.
           required: true
-        - label: I opened the report and it contains nothing I want to keep private (no serial number, and slot names only if I chose to share them).
+        - label: I reviewed everything attached or pasted and removed private identity, photo, credential and path information. No raw camera backup or pairing data is attached.
           required: true
-        - label: I understand that sharing a report does not make my camera supported for writes.
+        - label: I understand that a report does not make this body, firmware or host supported for writes.
           required: true

@@ -259,7 +259,7 @@ test('CLI: report accepts only its read-only flags; profile turns a saved report
   const dir = mkdtempSync(join(tmpdir(), 'dialin-camera-profile-')), originalError = console.error, lines: string[] = [];
   try {
     console.error = (m: string) => { lines.push(String(m)); };
-    assert.match(CAMERA_HELP, /camera report --out/);
+    assert.match(CAMERA_HELP, /camera report --current-slot-only --out/);
     for (const args of [['report', '--in', 'x.json'], ['report', '--confirm-write'], ['report', '--backup', join(dir, 'b.json')], ['profile']]) assert.equal(await runCamera(args), 2, args.join(' '));
     assert.ok(lines.some((l) => /--in is not accepted by report/.test(l)) && lines.some((l) => /--confirm-write is not accepted by report/.test(l)));
     const { report } = await run(XT5);
