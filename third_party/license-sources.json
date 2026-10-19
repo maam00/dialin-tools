@@ -60,6 +60,16 @@
       "license_sha256": "c1cec33462b67cd3e84d22b29e816683d50e3efffba427a04f05c18a03565405",
       "code_import_revision": "9e3bbcf",
       "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "Anatomy",
+      "repository": "https://github.com/wheresryan22/anatomy",
+      "license_source_revision": "1482e8469b0a9e0d8cc18ea2740a01423d29ae80",
+      "license_source_url": "https://raw.githubusercontent.com/wheresryan22/anatomy/1482e8469b0a9e0d8cc18ea2740a01423d29ae80/LICENSE",
+      "license_file": "third_party/licenses/anatomy.txt",
+      "license_sha256": "87c078ab9d90a3044f359e6b563d4e6afea7aa060897cf4f21618687b3856796",
+      "code_import_revision": "1482e8469b0a9e0d8cc18ea2740a01423d29ae80",
+      "reviewed_on": "2026-10-19"
     }
   ]
 }

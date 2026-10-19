@@ -1,12 +1,28 @@
 # Dial In
 
-Open-source Fujifilm tools for your terminal and your coding agent (Claude Code or Codex). They do the three jobs around a shoot that photographers would rather not do by hand:
+[![Desktop CI](https://github.com/maam00/dialin-tools/actions/workflows/desktop.yml/badge.svg?branch=main)](https://github.com/maam00/dialin-tools/actions/workflows/desktop.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Release: alpha](https://img.shields.io/github/v/release/maam00/dialin-tools?include_prereleases&label=alpha)](https://github.com/maam00/dialin-tools/releases)
+
+**Your Fuji, with a photography assistant. Describe the shoot. Review seven looks. Load your camera. Come home to a considered photo edit.**
+
+[![30-second Dial In walkthrough: an illustration of seven agent-planned camera looks, followed by the real Best / Series / Sequence gallery](docs/media/workflow.gif)](docs/media/workflow.mp4)
+
+[Watch the 30-second video](docs/media/workflow.mp4) · [Still image and transcript](docs/media/README.md) · [Try a real photo folder](docs/FIRST-SHOOT.md) · [Help add your camera](docs/ADD-YOUR-CAMERA.md)
+
+*An explanatory camera illustration leads into the actual photo gallery. The seven looks passed planning and offline camera checks; the gallery replays a saved NASA-photo review. No camera upload is shown, and the archive photos demonstrate selection, not Fujifilm rendering. [Sources, interactive illustration and exact steps](docs/media/README.md).*
+
+I built Dial In because I love shooting with my Fujifilm, but I don't enjoy choosing recipes, changing every setting and sorting through everything afterward. It gives the technical and organizational work to the coding agent I already use, while I keep the final say on the looks and photographs.
+
+Dial In is a free, open-source toolkit for **Fujifilm photographers who already use Claude Code, Codex or a terminal**. It connects the three jobs around a shoot:
 
 1. **Find the right looks for the light you'll shoot in.** Describe the day, optionally with a scene photo; your agent proposes seven complementary film-simulation recipes, and every setting is checked against what Dial In has written and read back on an X100VI over USB: all 20 film simulations, Auto/Daylight/Kelvin white balance, Color −1 to +3 and noise reduction −4.
 2. **Put them on the camera without menus.** Recipes go into the custom slots you name (C1–C7) over USB, after a backup of all seven slots, with every value read back.
 3. **Get your best photos out of the shoot.** Your agent looks at labeled contact sheets and picks your Best, a Series and a Sequence. One command checks those picks against your own choices, copies the originals into folders, and makes a local gallery you can open in your browser. Originals are never modified.
 
-Each tool works on its own, from ordinary JSON files and folders. No app, account or separate AI API key is needed. Camera writes are supported only on the X100VI, firmware 1.10, over USB on the tested Mac setup. Planning and photo-folder review need no connected camera. Check the [capability table](docs/CAPABILITIES.md) before choosing a camera operation.
+Each tool works on its own, from ordinary JSON files and folders. **No Dial In app, account or separate API key.** Use your existing coding agent; its normal image processing and usage costs still apply. Camera writes are supported only on the **X100VI, firmware 1.10, over USB on the tested Mac setup**. Planning and JPEG/PNG photo-folder review need no connected camera. Check the [capability table](docs/CAPABILITIES.md) before choosing a camera operation.
+
+**Own a different Fuji?** You can use the photo-folder tools now. To help qualify your camera, start with a [current-slot-only report](docs/ADD-YOUR-CAMERA.md), review it for private information, and submit the camera-report issue. A report does not enable writes.
 
 ## Try it in a minute
 
@@ -116,4 +132,4 @@ Every boundary is inspectable JSON and ordinary files, so other tools can enter 
 
 ## Contributing and license
 
-See [CONTRIBUTING.md](CONTRIBUTING.md); `npm test` runs every offline check. Tell us about your [first real use](docs/LAUNCH-FEEDBACK.md), or help qualify another camera through a read-only report. Public source releases are exported from an exact file list ([details](docs/PUBLIC-RELEASE.md)). Original code and examples are [MIT licensed](LICENSE); externally downloaded example photographs retain their stated source terms. [Third-party notices](THIRD_PARTY_NOTICES.md) keep upstream licenses. Security and private-data reports: [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md); `npm test` runs every offline check. Tell us about your [first real use](docs/LAUNCH-FEEDBACK.md), or help qualify another camera through a current-slot-only report. The initial public commit is a reviewed export of earlier private work; [project history](docs/PROJECT-HISTORY.md) explains the boundary and the ongoing public commit history. Public source releases use an exact file list ([details](docs/PUBLIC-RELEASE.md)). Original code and examples are [MIT licensed](LICENSE); the walkthrough's NASA imagery retains its [source terms and credits](docs/media/README.md), as do externally downloaded example photographs. [Third-party notices](THIRD_PARTY_NOTICES.md) keep upstream licenses. Security and private-data reports: [SECURITY.md](SECURITY.md).

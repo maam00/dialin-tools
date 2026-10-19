@@ -1,0 +1,23 @@
+{
+  "schema_version": "dialin.reviewed-media.v1",
+  "assets": [
+    {
+      "path": "docs/media/workflow.gif",
+      "mime_type": "image/gif",
+      "bytes": 1401922,
+      "sha256": "63ca12949361ef022ca4cb17670e99ae63bfbb1b34b841aebceb15f0f3f2e9f5"
+    },
+    {
+      "path": "docs/media/workflow.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 587303,
+      "sha256": "837892b29fcfbdfe475f99ed25ba411b013e78d76a4d0747b55f4f62ff46ce25"
+    },
+    {
+      "path": "docs/media/workflow-poster.png",
+      "mime_type": "image/png",
+      "bytes": 200939,
+      "sha256": "0db6d43f07ce9f26503cb7e6d7136b58363ee6b855259f20bc3fc19608d31e30"
+    }
+  ]
+}

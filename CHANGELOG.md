@@ -2,9 +2,13 @@
 
 ## Unreleased
 
+- Discovery: a 30-second walkthrough, interactive Anatomy illustration and still/transcript, visible CI/license/release badges, clearer camera contribution instructions and an explanation of the initial public export. Reviewed media has an exact hash-pinned export allowlist; private inputs remain excluded.
+
+## 0.1.0-alpha.2 — 2026-10-19
+
 - Photos: labeled original-resolution crops for agent-directed burst focus comparisons. EXIF-oriented regions preserve source pixel resolution; optional review claims bind all candidates to source and crop hashes. Ordinary Best burst picks without a recorded comparison are marked Focus not checked. No automatic eye detection, sharpness scoring or camera operation.
 
-## 0.1.0 — first public release (in preparation)
+## 0.1.0-alpha.1 — 2026-10-19
 
 Open-source Fujifilm tools for a terminal, Claude Code or Codex. No package-registry release; run from this repository.
 
