@@ -1,0 +1,71 @@
+name: Camera report
+description: Share a read-only report from a Fujifilm body so it can be considered for support. Nothing on the camera is changed.
+title: "Camera report: <body> <firmware>"
+labels: ["camera report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Dial In writes recipes only to the **X100VI on firmware 1.10**. A report does not make your camera supported for writes; it helps a maintainer draft a read-only profile and see how your body differs. Full guide: `docs/ADD-YOUR-CAMERA.md` in the repository.
+
+        **What to run**, with the camera in CONNECTION MODE → USB RAW CONV./BACKUP RESTORE and other camera apps closed:
+
+        ```sh
+        npm run dialin -- doctor camera
+        npm run dialin -- camera report --out my-camera-report.json
+        ```
+
+        macOS: add `--release-macos-camera-daemon` if the camera can't be claimed. `--current-slot-only` shares one slot and doesn't move the slot edit cursor at all.
+
+        **Collected:** model, firmware, USB mode, the PTP operation and property codes the body supports, and each custom slot's raw setting values.
+        **Not collected:** serial number, Y-number, MAC address, owner name, copyright text, photographs. Slot names only if you added `--include-slot-names`.
+
+        The report never writes a recipe, name or setting and never backs up or restores. To read each slot it moves only the slot edit cursor (not the bank you shoot with) and returns it to where it was.
+
+        Open the file and check it before attaching. **Never attach a camera backup**: backup files contain your serial.
+  - type: input
+    id: body
+    attributes:
+      label: Camera body
+      placeholder: X-T5
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware, as shown in the camera menu
+      placeholder: "4.31"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Computer
+      description: Operating system and Node.js version.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Report
+      description: Drag my-camera-report.json here, or paste its contents.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Command summary
+      description: The short text the command printed (stderr), including any notes about refused slots or a partial report.
+      render: text
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: For this report I ran only `doctor` and `camera report`. No custom slot was changed, and I did not run `camera usb apply` or any other write.
+          required: true
+        - label: I opened the report and it contains nothing I want to keep private (no serial number, and slot names only if I chose to share them).
+          required: true
+        - label: I understand that sharing a report does not make my camera supported for writes.
+          required: true

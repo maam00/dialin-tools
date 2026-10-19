@@ -1,0 +1,42 @@
+{
+  "recipes": [
+    {
+      "name": "Window color",
+      "film_sim": "Reala Ace",
+      "grain": "Off",
+      "color_chrome": "Weak",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Auto",
+      "kelvin": 0,
+      "wb_shift_r": 0,
+      "wb_shift_b": 0,
+      "dynamic_range": "DR200",
+      "highlight": -1,
+      "shadow": -0.5,
+      "color": 0,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Original illustrative settings for the offline example; photograph quality is untested."
+    },
+    {
+      "name": "Quiet street",
+      "film_sim": "Classic Chrome",
+      "grain": "Weak Small",
+      "color_chrome": "Weak",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Daylight",
+      "kelvin": 0,
+      "wb_shift_r": 1,
+      "wb_shift_b": -1,
+      "dynamic_range": "DR200",
+      "highlight": -0.5,
+      "shadow": 0.5,
+      "color": -1,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Original illustrative settings, not a copied creator recipe or camera result."
+    }
+  ]
+}

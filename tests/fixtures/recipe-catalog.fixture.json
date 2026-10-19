@@ -1,0 +1,1443 @@
+{
+ "schema_version": "dialin.recipe-knowledge.v1",
+ "snapshot": {
+  "observed_at": "2026-10-15T00:00:00Z",
+  "source_index_sha256": "2d8f124c03bb40dea508f242dd947c2e72ad658304fddc30639b321b632ad173",
+  "source_settings_sha256": "92880a9f1788150a1b890f52dd3503a9326d92d82c350d68716c77120c0178e0",
+  "source_analysis_sha256": "1286f9ee18038e46b2927fac1c758a2e181b2c22c970919fae6e8931d9d6ab54"
+ },
+ "content": {
+  "external_references": "discovery_and_setting_facts",
+  "original_analysis": "Dial In AI-assisted desk analysis",
+  "copied_article_text": false,
+  "copied_photographs": false,
+  "raw_settings_tables": false
+ },
+ "limitations": [
+  "Synthetic test fixture. Every recipe name, setting, analysis and URL is invented; recipes.example is a reserved test host and nothing here was published anywhere.",
+  "Load it only with the explicit fixture flag (DIALIN_RECIPE_CATALOG_FIXTURE=1 or { fixture: true }). After editing a record, recompute public_facts_sha256 with publicRecipeFactsHash."
+ ],
+ "counts": {
+  "articles": 17,
+  "recipe_references": 19,
+  "original_analyses": 3
+ },
+ "articles": [
+  {
+   "id": "fixture-facf52443a37",
+   "title": "Harbor Glow 400",
+   "aliases": [
+    "Harbour Glow 400"
+   ],
+   "source_url": "https://recipes.example/2025/01/04/harbor-glow-400/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-d2ceda2965dc",
+   "title": "Harbor Glow 400 v2",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/02/11/harbor-glow-400-v2/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-7b69f3ad2700",
+   "title": "Night Market 400",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/03/02/night-market-400/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-9b8114d8d289",
+   "title": "Lantern Street",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/03/20/lantern-street/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-4b217b80adef",
+   "title": "Tidewater Pro 160",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/04/09/tidewater-pro-160/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-f89ca7f9d5e6",
+   "title": "Tidewater Pro",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/04/15/tidewater-pro/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-b113de8c638c",
+   "title": "Kodak Quayside 320",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/05/01/kodak-quayside-320/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-5dbec61e41bf",
+   "title": "Clean Counter",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/05/18/clean-counter/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-961bc2a69ab3",
+   "title": "Meadow Pop",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/06/02/meadow-pop/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-efa6678b66df",
+   "title": "Ember Kitchen",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/06/21/ember-kitchen/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-b251421fe130",
+   "title": "Slate Rain",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/07/07/slate-rain/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-1258e558c7ac",
+   "title": "Chalk Pier",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/07/19/chalk-pier/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-7d3a054dc763",
+   "title": "Coal Yard",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/08/03/coal-yard/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-cce5279eab23",
+   "title": "Copper Alley",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/08/20/copper-alley/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-cc268cacea9b",
+   "title": "Fog Ledger",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/09/05/fog-ledger/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-7d9e6cd147dc",
+   "title": "Orchard Infrared",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/09/22/orchard-infrared/",
+   "source_groups": [
+    "Full Spectrum IR"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  },
+  {
+   "id": "fixture-9050356a6075",
+   "title": "Paper Moon Video",
+   "aliases": [],
+   "source_url": "https://recipes.example/2025/10/01/paper-moon-video/",
+   "source_groups": [
+    "Video"
+   ],
+   "index_urls": [
+    "https://recipes.example/recipes/"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "title_inferred_from_url": false
+  }
+ ],
+ "references": [
+  {
+   "id": "fixture-facf52443a37",
+   "article_id": "fixture-facf52443a37",
+   "title": "Harbor Glow 400",
+   "article_title": "Harbor Glow 400",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/01/04/harbor-glow-400/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "59d554cbbdff49ab7c88d743b9e478853c6bb4d72402cc5f78b627c53d05f7dc",
+   "source_fact_signature": "fa9d10ec0d74b78db234e1e0a1e80e624b4a98afc7c54c1bceb2eaf80c24e745",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": 0,
+     "wb_shift_b": -1,
+     "dynamic_range": "DR400",
+     "highlight": -1,
+     "shadow": -0.5,
+     "color": 1,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": -1,
+     "grain": "Weak Small",
+     "film_sim": "Reala Ace"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Small",
+     "iso": "Auto",
+     "iso_auto_max": 6400,
+     "exposure_compensation_min": 0,
+     "exposure_compensation_max": 0.6666666666666666
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "718d09e7b71655b876da05eac8525156d4ec727da2cc68878a5e2e00d992a196"
+  },
+  {
+   "id": "fixture-d2ceda2965dc",
+   "article_id": "fixture-d2ceda2965dc",
+   "title": "Harbor Glow 400 v2",
+   "article_title": "Harbor Glow 400 v2",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/02/11/harbor-glow-400-v2/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "1c48f6f05d53742069e2712d7ca05e6b13e3a85f564571024899840234be7e4b",
+   "source_fact_signature": "bbf0111d7956e6e8f77acef0ad20733e1cd296ebcc74d0f19ea620eb387f92b3",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Weak",
+     "white_balance": "Daylight",
+     "wb_shift_r": 1,
+     "wb_shift_b": -2,
+     "dynamic_range": "DR400",
+     "highlight": -1.5,
+     "shadow": 0.5,
+     "color": 2,
+     "sharpness": -2,
+     "noise_reduction": -4,
+     "clarity": -2,
+     "grain": "Weak Large",
+     "film_sim": "Classic Neg"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Large"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "50ddc098eafc0f93a821c4873e1e6f43b9dc143d40d2d688c37855fa983e0f43"
+  },
+  {
+   "id": "fixture-7b69f3ad2700",
+   "article_id": "fixture-7b69f3ad2700",
+   "title": "Night Market 400",
+   "article_title": "Night Market 400",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/03/02/night-market-400/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "1d704f35a6108672045634675aaf796af6f0ddaaa2e9b976db05508b86ff54fc",
+   "source_fact_signature": "de27618bbbe57e4eb86df1c5ad408991ed74af53911c487fc270d1ded54ded59",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Fluorescent 2",
+     "wb_shift_r": -3,
+     "wb_shift_b": 2,
+     "dynamic_range": "DR400",
+     "highlight": 1,
+     "shadow": 1.5,
+     "color": 3,
+     "sharpness": -3,
+     "noise_reduction": -4,
+     "clarity": -3,
+     "grain": "Strong Small",
+     "film_sim": "Eterna"
+    },
+    "native": {
+     "grain_strength": "Strong",
+     "grain_size": "Small"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "04b6a9250382c924863c6e38c2ee3ce24ed9669296e69df89a96d95e1d48e689"
+  },
+  {
+   "id": "fixture-9b8114d8d289--variant-1",
+   "article_id": "fixture-9b8114d8d289",
+   "title": "Lantern Street (Sensor A)",
+   "article_title": "Lantern Street",
+   "variant_name": "Lantern Street (Sensor A)",
+   "source_url": "https://recipes.example/2025/03/20/lantern-street/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "2d6d679e73d369efc679665f9c6759aeeb5a831ee6f14dd06d6ca81dfa3bdeee",
+   "source_fact_signature": "0280a0cb8606a8119e45fbbc424b99d791554b12428dc1e91d34d70c6aadb6e3",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": 1,
+     "wb_shift_b": 1,
+     "dynamic_range": "DR200",
+     "highlight": 0.5,
+     "shadow": 1,
+     "color": -1,
+     "sharpness": 1,
+     "noise_reduction": -4,
+     "clarity": 2,
+     "grain": "Weak Small",
+     "film_sim": "Classic Chrome"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Small"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "2bc2e6c2385e21e6147b11ef45d65b191483cfab6562cb392b8bea561cd7c5c1"
+  },
+  {
+   "id": "fixture-9b8114d8d289--variant-2",
+   "article_id": "fixture-9b8114d8d289",
+   "title": "Lantern Street (Sensor B)",
+   "article_title": "Lantern Street",
+   "variant_name": "Lantern Street (Sensor B)",
+   "source_url": "https://recipes.example/2025/03/20/lantern-street/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "2d6d679e73d369efc679665f9c6759aeeb5a831ee6f14dd06d6ca81dfa3bdeee",
+   "source_fact_signature": "eab551ac79efd15fe6ae387a8f36165ea619fa223fad8d75a1300790a4fb5b15",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": 1,
+     "wb_shift_b": 1,
+     "dynamic_range": "DR200",
+     "highlight": 0.5,
+     "shadow": 1,
+     "color": -1,
+     "sharpness": 1,
+     "noise_reduction": -4,
+     "clarity": 2,
+     "grain": "Weak Small",
+     "film_sim": "Classic Chrome"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Small",
+     "dr_priority": "Off",
+     "smooth_skin": "Weak"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "97c36afcdce1e3669b5d23f1e19a560b07f6a994c31a69df034b3d5329798d36"
+  },
+  {
+   "id": "fixture-4b217b80adef--variant-1",
+   "article_id": "fixture-4b217b80adef",
+   "title": "[unnamed public settings block 1]",
+   "article_title": "Tidewater Pro 160",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/04/09/tidewater-pro-160/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "f14d876ff41ef5c2ff4746fbdfe937291f1b766fd2bff710997a146f0e6715b3",
+   "source_fact_signature": "c35ed462efb7be40d8509d9bc0f818503d3de6eeba8be7f505d531d074c2126d",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": -1,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR200",
+     "highlight": -1,
+     "shadow": -1,
+     "color": -2,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Off",
+     "film_sim": "Pro Neg Std"
+    },
+    "native": {
+     "grain_strength": "Off"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "a0a75e9bab79bc8c963c00aa6c97612f0e762b94c7086f79a9801807042a0dcc"
+  },
+  {
+   "id": "fixture-4b217b80adef--variant-2",
+   "article_id": "fixture-4b217b80adef",
+   "title": "[unnamed public settings block 2]",
+   "article_title": "Tidewater Pro 160",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/04/09/tidewater-pro-160/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "f14d876ff41ef5c2ff4746fbdfe937291f1b766fd2bff710997a146f0e6715b3",
+   "source_fact_signature": "e2f1a1e3d4a9ce210188e2f5821fb14408a7fac719c88d7938c4ed85ae40a1d9",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Shade",
+     "wb_shift_r": -2,
+     "wb_shift_b": 1,
+     "dynamic_range": "DR100",
+     "highlight": -0.5,
+     "shadow": 0,
+     "color": -1,
+     "sharpness": 1,
+     "noise_reduction": -4,
+     "clarity": 1,
+     "grain": "Off",
+     "film_sim": "Pro Neg Hi"
+    },
+    "native": {
+     "grain_strength": "Off"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "233765c38d0260a72cd5755ee99440bec1a75175aa5e87bf764100c617ef666f"
+  },
+  {
+   "id": "fixture-f89ca7f9d5e6",
+   "article_id": "fixture-f89ca7f9d5e6",
+   "title": "Tidewater Pro",
+   "article_title": "Tidewater Pro",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/04/15/tidewater-pro/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "35723d2efb4a42163eb43741bcf7eac04d1a47e4483ac54fcaea7f6196877262",
+   "source_fact_signature": "980300a02fda69c911f5858dcd947784ca8b14778c82be47057497dbe6b2a440",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Daylight",
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR400",
+     "highlight": -2,
+     "shadow": -1.5,
+     "color": -1,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": -1,
+     "grain": "Weak Large",
+     "film_sim": "Pro Neg Std"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Large"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "3a31b1c4b6418b27156fc03ab2cf68fa9034bef88fa4c013eae2ccdcf343a13f"
+  },
+  {
+   "id": "fixture-b113de8c638c",
+   "article_id": "fixture-b113de8c638c",
+   "title": "Kodak Quayside 320",
+   "article_title": "Kodak Quayside 320",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/05/01/kodak-quayside-320/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "2c51abcc7be7bb602ac27741488ac11c927d8358dfe1f71f2a31442d4cce82ca",
+   "source_fact_signature": "1b5034a7577a3aa5c0c7882c3b9158b040eb2c902960d092bf7a1b2a8f10aafa",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Weak",
+     "white_balance": "Auto",
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR200",
+     "highlight": -1,
+     "shadow": 0,
+     "color": 1,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Off",
+     "film_sim": "Provia"
+    },
+    "native": {
+     "grain_strength": "Off",
+     "iso": "Auto",
+     "iso_auto_max": 6400,
+     "exposure_compensation_min": 0,
+     "exposure_compensation_max": 0.6666666666666666
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "2184c113fc88d451166bcdd509dbaea7117d9b089e1fa17137e5687f94cc0300"
+  },
+  {
+   "id": "fixture-5dbec61e41bf",
+   "article_id": "fixture-5dbec61e41bf",
+   "title": "Clean Counter",
+   "article_title": "Clean Counter",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/05/18/clean-counter/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "4be46b53d604a3658061a1ec920a7464558d7ec09dd1cd9728c6a7f4e692b75b",
+   "source_fact_signature": "98f6ad40c8960da8ddf6f4d30269f0d47fbd9ef56202f1cca550cad86636932a",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": -1,
+     "wb_shift_b": 1,
+     "dynamic_range": "DR200",
+     "highlight": -1,
+     "shadow": -0.5,
+     "color": 0,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Off",
+     "film_sim": "Astia"
+    },
+    "native": {
+     "grain_strength": "Off"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "59420d8f947ea3683d2936e7147bc477dd97ae7b703d98d1ca49441fddbba6e4"
+  },
+  {
+   "id": "fixture-961bc2a69ab3",
+   "article_id": "fixture-961bc2a69ab3",
+   "title": "Meadow Pop",
+   "article_title": "Meadow Pop",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/06/02/meadow-pop/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "0ca40ab4b5493dbf62cb433dd8c2d2fb16eeab3cff060beb023eb6bcf4b2cab7",
+   "source_fact_signature": "75db690ebc68f2312742559f3cb8b834be718c2b1dd2f0f0dcd906d6fa2c54a2",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Strong",
+     "white_balance": "Daylight",
+     "wb_shift_r": 0,
+     "wb_shift_b": 1,
+     "dynamic_range": "DR200",
+     "highlight": -0.5,
+     "shadow": 0.5,
+     "color": 2,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Off",
+     "film_sim": "Velvia"
+    },
+    "native": {
+     "grain_strength": "Off"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "5c236cf86b0ecc09493895b6ac51c8301afd1897506d4ad3870cd3b56c343d01"
+  },
+  {
+   "id": "fixture-efa6678b66df",
+   "article_id": "fixture-efa6678b66df",
+   "title": "Ember Kitchen",
+   "article_title": "Ember Kitchen",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/06/21/ember-kitchen/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "90e36cd56ada8fed783a2d7a37f5c23c1e94f0e6ffb4961c53c3b755c6f4299f",
+   "source_fact_signature": "2f7050029472787ba9b8155842b24e68622cabb82e5c6f896d92c40095426d10",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Kelvin",
+     "wb_shift_r": 3,
+     "wb_shift_b": -4,
+     "dynamic_range": "DR400",
+     "highlight": -1,
+     "shadow": 1,
+     "color": 2,
+     "sharpness": -2,
+     "noise_reduction": -4,
+     "clarity": -2,
+     "grain": "Weak Small",
+     "film_sim": "Nostalgic Neg",
+     "kelvin": 7100
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Small"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "5234432b138520c62daa503aa59c7540e5786e69db438f4869efd0e406b31c90"
+  },
+  {
+   "id": "fixture-b251421fe130",
+   "article_id": "fixture-b251421fe130",
+   "title": "Slate Rain",
+   "article_title": "Slate Rain",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/07/07/slate-rain/",
+   "source_groups": [
+    "Sensor Gen 4",
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "256564afec175dcea4ebe300e111964327ffa040703fe97fca3fd615dff3b88f",
+   "source_fact_signature": "2a15cad623f8570cf25200ed4eed57d01ee20b78e7a7b9ac15f1fa4e613b9736",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "white_balance": "Auto",
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 2,
+     "shadow": 2.5,
+     "sharpness": 1,
+     "noise_reduction": -4,
+     "clarity": 3,
+     "grain": "Strong Large",
+     "film_sim": "Acros+R"
+    },
+    "native": {
+     "grain_strength": "Strong",
+     "grain_size": "Large",
+     "mono_wc": 0,
+     "mono_mg": 0
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [
+     "color",
+     "color_chrome",
+     "color_chrome_fx_blue"
+    ],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "28388531933c34fddc2c30280420841a90fee790190c5c7eebf37d0f0874e234"
+  },
+  {
+   "id": "fixture-1258e558c7ac",
+   "article_id": "fixture-1258e558c7ac",
+   "title": "Chalk Pier",
+   "article_title": "Chalk Pier",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/07/19/chalk-pier/",
+   "source_groups": [
+    "Sensor Gen 5"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "0686a946194358b0942fd5deb2955fd64e77a303930ed47cf3d9f1e36577fa1d",
+   "source_fact_signature": "3ecfbaffe406a4aa6d573a08ce81f2f0345a070dd1c0fdae1b35b71c5cf2f96d",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "white_balance": "Daylight",
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR200",
+     "highlight": -1,
+     "shadow": 0,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Weak Small",
+     "film_sim": "Monochrome+G"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Small"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [
+     "color",
+     "color_chrome",
+     "color_chrome_fx_blue"
+    ],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "3ef57dbec93a0d5a1a76f6faffc73efb9d8620bae1d0b59d2c5027955cb3c956"
+  },
+  {
+   "id": "fixture-7d3a054dc763",
+   "article_id": "fixture-7d3a054dc763",
+   "title": "Coal Yard",
+   "article_title": "Coal Yard",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/08/03/coal-yard/",
+   "source_groups": [
+    "Sensor Gen 3"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "33721d94aa1e2fa60d4c3ce55c6c5a036da844c69211c7a75e0abb24a95ff688",
+   "source_fact_signature": "6fd9803a774ab60237c34112643e17b34427ad503c1b2f521f14c5a721a92c9f",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "white_balance": "Auto",
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR400",
+     "highlight": 1,
+     "shadow": 1,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "grain": "Weak Large",
+     "film_sim": "Acros+Ye"
+    },
+    "native": {
+     "grain_strength": "Weak",
+     "grain_size": "Large"
+    },
+    "status": "needs_review",
+    "missing_fields": [
+     "clarity"
+    ],
+    "inactive_fields": [
+     "color",
+     "color_chrome",
+     "color_chrome_fx_blue"
+    ],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": false,
+     "missing_fields": [
+      "clarity"
+     ]
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "3036b9caa212446692657c39e30fff7d5fde38f5def16c3e1132bc6587dd5d32"
+  },
+  {
+   "id": "fixture-cce5279eab23",
+   "article_id": "fixture-cce5279eab23",
+   "title": "Copper Alley",
+   "article_title": "Copper Alley",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/08/20/copper-alley/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "317c3d9a94ee25014164049aa7d54aaa44d0fb44b62b599c57aa236605ac303f",
+   "source_fact_signature": "5d867ecc31ddf1be2fba9af1f28e637e786beac5461a2a1eb087e324f2ced2a4",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "wb_shift_r": 2,
+     "wb_shift_b": -2,
+     "dynamic_range": "DR400",
+     "highlight": 0,
+     "shadow": 1,
+     "color": 1,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": -2,
+     "film_sim": "Classic Neg"
+    },
+    "native": {
+     "grain_strength": "Weak"
+    },
+    "status": "needs_review",
+    "missing_fields": [
+     "grain"
+    ],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": false,
+     "missing_fields": [
+      "grain"
+     ]
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "32544f1cfabf697742f27c4fd7f8829e7e0c5627526bd3346b0afae7a397f2e0"
+  },
+  {
+   "id": "fixture-cc268cacea9b",
+   "article_id": "fixture-cc268cacea9b",
+   "title": "Fog Ledger",
+   "article_title": "Fog Ledger",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/09/05/fog-ledger/",
+   "source_groups": [
+    "Sensor Gen 4"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "b5f79146f8ac894e901fccc3623a6b8511087a10143cbfe09e1bc16fa5781446",
+   "source_fact_signature": "4b1011bf9cd78821a410ad395a52c4c98ee05702dd025dbb66ccf6d1b63a5721",
+   "source_record_status": "ambiguous",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Weak",
+     "white_balance": "Daylight",
+     "wb_shift_r": -1,
+     "wb_shift_b": 2,
+     "dynamic_range": "DR200",
+     "highlight": -1,
+     "shadow": 1,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 1,
+     "grain": "Strong Small"
+    },
+    "native": {
+     "grain_strength": "Strong",
+     "grain_size": "Small",
+     "mono_wc": -3,
+     "mono_mg": 1,
+     "iso": "Auto",
+     "iso_auto_max": 3200
+    },
+    "status": "needs_review",
+    "missing_fields": [
+     "film_sim",
+     "color"
+    ],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": false,
+     "missing_fields": [
+      "film_sim",
+      "color"
+     ]
+    },
+    "issues": [
+     {
+      "code": "source_status",
+      "severity": "needs_review",
+      "field": null
+     },
+     {
+      "code": "unknown_value",
+      "severity": "needs_review",
+      "field": "film_sim"
+     }
+    ]
+   },
+   "public_facts_sha256": "0fc48a1a3d294a12d9fb33fc8a91f79d085d6dd0e7bce6e3cb1ad792dd979a18"
+  },
+  {
+   "id": "fixture-7d9e6cd147dc",
+   "article_id": "fixture-7d9e6cd147dc",
+   "title": "Orchard Infrared",
+   "article_title": "Orchard Infrared",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/09/22/orchard-infrared/",
+   "source_groups": [
+    "Full Spectrum IR"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "f043f3e2922c4f5696a25657ed614a5bac4c5ad8f4ecd7d269026e4675cb8b2a",
+   "source_fact_signature": "06f712f1290369b1c851f9822036c769feb2a677512512042ce8da910e7f7088",
+   "source_record_status": "public_settings",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Strong",
+     "white_balance": "Kelvin",
+     "wb_shift_r": 6,
+     "wb_shift_b": -3,
+     "dynamic_range": "DR200",
+     "highlight": 0,
+     "shadow": -2,
+     "color": 3,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "grain": "Strong Small",
+     "film_sim": "Astia",
+     "kelvin": 8300
+    },
+    "native": {
+     "grain_strength": "Strong",
+     "grain_size": "Small"
+    },
+    "status": "normalized",
+    "missing_fields": [],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": true,
+     "missing_fields": []
+    },
+    "issues": []
+   },
+   "public_facts_sha256": "20a1d9a91c7495ab32edbe25d6032f7f8a902950cf9fb1c64880253eff52cc2b"
+  },
+  {
+   "id": "fixture-9050356a6075",
+   "article_id": "fixture-9050356a6075",
+   "title": "Paper Moon Video",
+   "article_title": "Paper Moon Video",
+   "variant_name": null,
+   "source_url": "https://recipes.example/2025/10/01/paper-moon-video/",
+   "source_groups": [
+    "Video"
+   ],
+   "publisher": "Example Recipe Journal (test fixture)",
+   "recipe_author": null,
+   "entry_kind": "external_recipe_reference",
+   "camera_ready": false,
+   "source_content_sha256": "fbf0740003242a2747f94e390b770f7f6d32c3d75cecc956fee021512655acec",
+   "source_fact_signature": "3a64171a9ad726e23ba49af294d7e4e310ad522dc3dcade9e30a27f3c70aab44",
+   "source_record_status": "linked_only",
+   "source_facts": {
+    "kind": "published_setting_facts",
+    "license_basis": "factual_settings_transcription",
+    "upstream_license": "not_claimed",
+    "fields": {},
+    "native": {},
+    "status": "no_public_settings",
+    "missing_fields": [
+     "film_sim",
+     "grain",
+     "color_chrome",
+     "color_chrome_fx_blue",
+     "white_balance",
+     "wb_shift_r",
+     "wb_shift_b",
+     "dynamic_range",
+     "highlight",
+     "shadow",
+     "color",
+     "sharpness",
+     "noise_reduction",
+     "clarity"
+    ],
+    "inactive_fields": [],
+    "unavailable_fields": [],
+    "published_core": {
+     "complete": false,
+     "missing_fields": [
+      "film_sim",
+      "grain",
+      "color_chrome",
+      "color_chrome_fx_blue",
+      "white_balance",
+      "wb_shift_r",
+      "wb_shift_b",
+      "dynamic_range",
+      "highlight",
+      "shadow",
+      "color",
+      "sharpness",
+      "noise_reduction",
+      "clarity"
+     ]
+    },
+    "issues": [
+     {
+      "code": "source_status",
+      "severity": "needs_review",
+      "field": null
+     }
+    ]
+   },
+   "public_facts_sha256": "cb13cee505a919dcb3ba93d4da861ce60945996d5cd768e4db3c40ccac21c80b"
+  }
+ ],
+ "analyses": [
+  {
+   "record_id": "fixture-facf52443a37",
+   "source_url": "https://recipes.example/2025/01/04/harbor-glow-400/",
+   "source_content_sha256": "59d554cbbdff49ab7c88d743b9e478853c6bb4d72402cc5f78b627c53d05f7dc",
+   "source_fact_signature": "fa9d10ec0d74b78db234e1e0a1e80e624b4a98afc7c54c1bceb2eaf80c24e745",
+   "public_facts_sha256": "718d09e7b71655b876da05eac8525156d4ec727da2cc68878a5e2e00d992a196",
+   "author": "Dial In",
+   "method": "AI-assisted desk analysis",
+   "evidence": "desk_review",
+   "photographic_validation": "not_verified",
+   "analyzed_at": "2026-10-15T00:00:00.000Z",
+   "camera_scope": [
+    "X100VI"
+   ],
+   "intent_tags": [
+    "natural",
+    "everyday"
+   ],
+   "scene_tags": [
+    "harbor",
+    "daylight",
+    "people"
+   ],
+   "avoid_tags": [
+    "vivid product color"
+   ],
+   "rationale": "Fixture analysis: a restrained everyday color starting point with softened highlights.",
+   "tradeoff": "Fixture tradeoff: DR400 raises the ISO floor in dim light."
+  },
+  {
+   "record_id": "fixture-b251421fe130",
+   "source_url": "https://recipes.example/2025/07/07/slate-rain/",
+   "source_content_sha256": "256564afec175dcea4ebe300e111964327ffa040703fe97fca3fd615dff3b88f",
+   "source_fact_signature": "2a15cad623f8570cf25200ed4eed57d01ee20b78e7a7b9ac15f1fa4e613b9736",
+   "public_facts_sha256": "28388531933c34fddc2c30280420841a90fee790190c5c7eebf37d0f0874e234",
+   "author": "Dial In",
+   "method": "AI-assisted desk analysis",
+   "evidence": "desk_review",
+   "photographic_validation": "not_verified",
+   "analyzed_at": "2026-10-15T00:00:00.000Z",
+   "camera_scope": [
+    "X100VI"
+   ],
+   "intent_tags": [
+    "dramatic",
+    "graphic"
+   ],
+   "scene_tags": [
+    "street",
+    "architecture",
+    "rain"
+   ],
+   "avoid_tags": [
+    "gentle portraits"
+   ],
+   "rationale": "Fixture analysis: hard filtered monochrome for graphic rainy streets.",
+   "tradeoff": "Fixture tradeoff: strong grain and Clarity +3 add texture and save time."
+  },
+  {
+   "record_id": "fixture-9b8114d8d289--variant-1",
+   "source_url": "https://recipes.example/2025/03/20/lantern-street/",
+   "source_content_sha256": "2d6d679e73d369efc679665f9c6759aeeb5a831ee6f14dd06d6ca81dfa3bdeee",
+   "source_fact_signature": "0280a0cb8606a8119e45fbbc424b99d791554b12428dc1e91d34d70c6aadb6e3",
+   "public_facts_sha256": "2bc2e6c2385e21e6147b11ef45d65b191483cfab6562cb392b8bea561cd7c5c1",
+   "author": "Dial In",
+   "method": "AI-assisted desk analysis",
+   "evidence": "desk_review",
+   "photographic_validation": "not_verified",
+   "analyzed_at": "2026-10-15T00:00:00.000Z",
+   "camera_scope": [
+    "X100VI"
+   ],
+   "intent_tags": [
+    "documentary",
+    "muted"
+   ],
+   "scene_tags": [
+    "street",
+    "market",
+    "evening"
+   ],
+   "avoid_tags": [
+    "accurate red product"
+   ],
+   "rationale": "Fixture analysis: restrained street color with firmer tones.",
+   "tradeoff": "Fixture tradeoff: Clarity +2 slows saving between frames."
+  }
+ ]
+}

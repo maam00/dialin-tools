@@ -1,0 +1,33 @@
+{
+  "schema_version": "dialin.camera-hardware-evidence.v1",
+  "profile": "X100VI-1.10",
+  "model": "X100VI",
+  "firmware": "1.10",
+  "transport": "usb",
+  "host": "macOS 27 (27.0.1 for the verified re-run)",
+  "date": "2026-10-15",
+  "supervised": true,
+  "operator": "the camera's owner",
+  "backup_before_write": true,
+  "checks": {
+    "write": {
+      "result": "passed",
+      "detail": "camera usb apply wrote the recipe \"Window color\" to C7 and returned verified_current_session with no issues; protected C1-C6 were checked unchanged."
+    },
+    "readback": {
+      "result": "passed",
+      "detail": "Every written property and the name read back independently. Only Grain Off differs (written 1, read 6 or 7), the one documented equivalence."
+    },
+    "exact_restore": {
+      "result": "passed",
+      "detail": "Restoring the decoded original C7 returned verified_current_session; a final read of all seven slots matched the session's first backup byte for byte."
+    },
+    "restart_persistence": {
+      "result": "passed",
+      "detail": "After the camera was switched off and on, the written slot read back as written (maintainer-supervised)."
+    }
+  },
+  "not_covered": ["other firmware", "other bodies", "Linux and Windows hosts", "photographs", "Bluetooth writes"],
+  "private_material": "Raw backups and camera identity stay with the owner and are not part of this fixture.",
+  "sources": ["modules/camera/README.md (Explicit USB use from the computer)"]
+}

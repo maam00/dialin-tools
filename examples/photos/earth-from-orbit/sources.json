@@ -1,0 +1,100 @@
+{
+  "schema_version": "dialin.photo-example.v1",
+  "title": "Earth from orbit",
+  "description": "Eight NASA archive photographs for learning the local photo-review workflow. They are from different expeditions and dates, not one shoot.",
+  "source_policy": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "source_checked": "2026-10-19",
+  "usage": "NASA source photographs used in an informational example under its media usage guidelines; not licensed by Dial In under MIT. No NASA endorsement. Editorial notes are by Codex, not NASA.",
+  "intent": "Build a five-image visual journey from daylight to night: water, land, mountains, the horizon and city lights. Give me the three strongest individual images and a three-image series about the boundary between Earth and sky. This is an editorial sequence of archive images from different dates, not a chronological flight record.",
+  "assets": [
+    {
+      "nasa_id": "iss039e012272",
+      "filename": "iss039e012272.jpg",
+      "subject": "Turquoise banks",
+      "url": "https://images-assets.nasa.gov/image/iss039e012272/iss039e012272~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss039e012272",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss039e012272",
+      "credit": "NASA/Steve Swanson",
+      "bytes": 89766,
+      "sha256": "315ba52f2e3c57a20ed60af34ff2b570f186a3d143568b08864a7888e3057cb7"
+    },
+    {
+      "nasa_id": "iss036e032513",
+      "filename": "iss036e032513.jpg",
+      "subject": "Clouds over blue water",
+      "url": "https://images-assets.nasa.gov/image/iss036e032513/iss036e032513~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss036e032513",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss036e032513",
+      "credit": "NASA/Karen Nyberg",
+      "bytes": 140402,
+      "sha256": "62aee65d4d6c14dbb6f7fcf2890a62bbb8c6f85fda9aa557b75f724890fb7873"
+    },
+    {
+      "nasa_id": "iss007e08259",
+      "filename": "iss007e08259.jpg",
+      "subject": "Dust across the coast",
+      "url": "https://images-assets.nasa.gov/image/iss007e08259/iss007e08259~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss007e08259",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss007e08259",
+      "credit": "NASA",
+      "bytes": 78852,
+      "sha256": "49ac966a3a501ce0b3334e95200934e3b5fcaef2fb2a95855ccb2921ede9aa6b"
+    },
+    {
+      "nasa_id": "iss039e012534",
+      "filename": "iss039e012534.jpg",
+      "subject": "Snow behind clouds",
+      "url": "https://images-assets.nasa.gov/image/iss039e012534/iss039e012534~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss039e012534",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss039e012534",
+      "credit": "NASA/Steve Swanson",
+      "bytes": 78743,
+      "sha256": "82fd4116d2860e83171d17d2880dee6246ad826454c8b5f69a6623a4071a4340"
+    },
+    {
+      "nasa_id": "iss037e026714",
+      "filename": "iss037e026714.jpg",
+      "subject": "Mountains at dusk",
+      "url": "https://images-assets.nasa.gov/image/iss037e026714/iss037e026714~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss037e026714",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss037e026714",
+      "credit": "NASA/Karen Nyberg",
+      "bytes": 81193,
+      "sha256": "f49caf9ee38333215e0a8c9d1ad7c8d8f1ad3a85a8c3478d5f2f6eef4bf40fe0"
+    },
+    {
+      "nasa_id": "iss039e009160",
+      "filename": "iss039e009160.jpg",
+      "subject": "Lights under an aurora",
+      "url": "https://images-assets.nasa.gov/image/iss039e009160/iss039e009160~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss039e009160",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss039e009160",
+      "credit": "NASA/Rick Mastracchio",
+      "bytes": 81237,
+      "sha256": "090c0e3a9d087c52abf26ea46c99aceff9ed2ba9dd6a826165c6610648723e6c"
+    },
+    {
+      "nasa_id": "iss023e057948",
+      "filename": "iss023e057948.jpg",
+      "subject": "Layers at the horizon",
+      "url": "https://images-assets.nasa.gov/image/iss023e057948/iss023e057948~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss023e057948",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss023e057948",
+      "credit": "NASA",
+      "bytes": 50827,
+      "sha256": "980c217478940340aee44fceb9d3efa43c4b5937b9e8aab80987cc4f6eac89ee"
+    },
+    {
+      "nasa_id": "iss022e005258",
+      "filename": "iss022e005258.jpg",
+      "subject": "Repeating sand ridges",
+      "url": "https://images-assets.nasa.gov/image/iss022e005258/iss022e005258~medium.jpg",
+      "source_page": "https://images.nasa.gov/details/iss022e005258",
+      "source_metadata": "https://images-api.nasa.gov/search?nasa_id=iss022e005258",
+      "credit": "NASA/Jeffrey Williams, Expedition 22 Commander",
+      "bytes": 158696,
+      "sha256": "63f3e17fe938629c7dcaa7e8ca6a8551514743c9a98d5262615d56a8a7ebf5d0"
+    }
+  ],
+  "total_bytes": 759716
+}

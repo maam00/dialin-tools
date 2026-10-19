@@ -1,0 +1,64 @@
+name: Bug report
+description: A command, check or document did not behave as described.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic or permission-cleared material. Do not attach private photographs, EXIF dumps, camera backups, serial numbers, pairing data or API keys.
+        For a suspected credential exposure or unsafe camera write, follow SECURITY.md instead of opening a public issue.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [recipes, plan, camera, photos, curate, import, demo, dispatcher / doctor, documentation, other]
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: What you ran
+      description: The exact command(s), with private paths replaced.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result
+      description: Include the error text or the relevant part of the JSON output.
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Setup check
+      description: Output of `node scripts/dialin.mjs doctor <component>` (stdout JSON and the stderr summary). It contains no keys or private paths.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Node.js version, Python version, and how you ran it (terminal, Codex, Claude Code).
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Evidence lane
+      description: Which kind of evidence shows the problem? These are reported separately in this project.
+      multiple: true
+      options:
+        - Software test or command output
+        - Coding-agent (host-agent) planning or photo review
+        - Optional live API mode
+        - Physical camera operation (USB, Bluetooth, Wi-Fi)
+        - Photographic result or preference
+    validations:
+      required: true
+  - type: textarea
+    id: camera
+    attributes:
+      label: Camera details (camera issues only)
+      description: Body and firmware as shown in the camera menu, transport, and the preparation/receipt JSON with serials and identities removed. Never post a backup file.

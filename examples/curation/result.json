@@ -1,0 +1,140 @@
+{
+  "schema": "dialin.curation/1",
+  "status": "complete",
+  "shoot": {
+    "id": "sample-harbor-day",
+    "intent": "A quiet documentary sequence of arriving, crossing the harbor, and returning.",
+    "plan_revision": null
+  },
+  "title": "Across the harbor",
+  "requested_count": 5,
+  "selected_ids": [
+    "arrival",
+    "portrait-b",
+    "boarding",
+    "wake",
+    "return"
+  ],
+  "sequence": [
+    {
+      "id": "arrival",
+      "position": 1,
+      "role": "opener",
+      "selection_reason": "Required by your constraints.",
+      "order_reason": "Fixed by your opener constraint.",
+      "supplied_note": "Wide view of the harbor on arrival.",
+      "captured_at": "2026-10-15T09:00:00-04:00",
+      "upstream_evidence": {
+        "kind": "synthetic",
+        "visual_reviewed": false
+      }
+    },
+    {
+      "id": "portrait-b",
+      "position": 2,
+      "role": "middle",
+      "selection_reason": "Selected using supplied scores; favorites break score ties.",
+      "order_reason": "Position follows supplied capture timestamps.",
+      "supplied_note": "Alternative take of the companion by the railing.",
+      "captured_at": "2026-10-15T09:04:01-04:00",
+      "upstream_evidence": {
+        "kind": "synthetic",
+        "visual_reviewed": false
+      }
+    },
+    {
+      "id": "boarding",
+      "position": 3,
+      "role": "middle",
+      "selection_reason": "Required by your constraints.",
+      "order_reason": "Position follows supplied capture timestamps.",
+      "supplied_note": "Passengers stepping onto the ferry.",
+      "captured_at": "2026-10-15T09:06:00-04:00",
+      "upstream_evidence": {
+        "kind": "synthetic",
+        "visual_reviewed": false
+      }
+    },
+    {
+      "id": "wake",
+      "position": 4,
+      "role": "middle",
+      "selection_reason": "Selected using supplied scores; favorites break score ties.",
+      "order_reason": "Position follows supplied capture timestamps.",
+      "supplied_note": "Water behind the moving ferry.",
+      "captured_at": "2026-10-15T09:12:00-04:00",
+      "upstream_evidence": {
+        "kind": "synthetic",
+        "visual_reviewed": false
+      }
+    },
+    {
+      "id": "return",
+      "position": 5,
+      "role": "closer",
+      "selection_reason": "Required by your constraints.",
+      "order_reason": "Fixed by your closer constraint.",
+      "supplied_note": "Harbor at the end of the day.",
+      "captured_at": "2026-10-15T17:30:00-04:00",
+      "upstream_evidence": {
+        "kind": "synthetic",
+        "visual_reviewed": false
+      }
+    }
+  ],
+  "order": "chronological",
+  "order_explanation": "Capture-time order of the final selected photographs.",
+  "chronology_basis": "timezone_aware",
+  "omitted": [
+    {
+      "id": "portrait-a",
+      "reason": "outside_requested_count"
+    },
+    {
+      "id": "window",
+      "reason": "outside_requested_count"
+    },
+    {
+      "id": "test-frame",
+      "reason": "excluded_by_user"
+    }
+  ],
+  "constraints": {
+    "required": [
+      "arrival",
+      "boarding",
+      "return"
+    ],
+    "excluded": [
+      "test-frame"
+    ],
+    "opener": "arrival",
+    "closer": "return",
+    "allow_same_group": []
+  },
+  "validation": {
+    "known_unique_ids": true,
+    "required_present": true,
+    "excluded_absent": true,
+    "opener_matches": true,
+    "closer_matches": true,
+    "chronology_valid": true
+  },
+  "warnings": [],
+  "evidence": {
+    "mode": "supplied_metadata_only",
+    "visually_inspected_ids": [],
+    "considered_ids": [
+      "arrival",
+      "portrait-a",
+      "portrait-b",
+      "boarding",
+      "wake",
+      "window",
+      "return",
+      "test-frame"
+    ],
+    "upstream_visual_review_claims": [],
+    "limitation": "This module did not view photographs. Scores, groups, notes, and upstream review claims were supplied and were not independently verified. The shoot intent is preserved for visual review, not interpreted by this deterministic pass."
+  }
+}

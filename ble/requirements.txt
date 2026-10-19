@@ -1,0 +1,3 @@
+# fuji_ble: Bluetooth LE client for the X100VI. Python 3.12+ (3.10+ works).
+# macOS pulls pyobjc-framework-CoreBluetooth; Linux/Raspberry Pi pulls dbus-fast (BlueZ).
+bleak==3.0.2

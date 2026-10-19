@@ -1,0 +1,238 @@
+{
+  "schema_version": "dialin.recipes.v1",
+  "title": "Original rehearsal directions",
+  "description": "Original examples for software exploration. They are hypotheses, not camera-rendered or photographer-reviewed recipes.",
+  "recipes": [
+    {
+      "id": "original-1",
+      "title": "Everyday color",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "A restrained baseline connects the day.",
+      "tags": [
+        "natural",
+        "daylight",
+        "family"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Everyday color",
+        "film_sim": "Reala Ace",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -0.5,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A restrained baseline connects the day."
+      }
+    },
+    {
+      "id": "original-2",
+      "title": "Faces in shade",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Gentler tones put faces ahead of bright surroundings.",
+      "tags": [
+        "portrait",
+        "shade",
+        "gentle"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Faces in shade",
+        "film_sim": "Pro Neg Std",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": -0.5,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Gentler tones put faces ahead of bright surroundings."
+      }
+    },
+    {
+      "id": "original-3",
+      "title": "Bright detail",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "A deliberate vivid alternative for colorful details.",
+      "tags": [
+        "foliage",
+        "flowers",
+        "vivid"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Bright detail",
+        "film_sim": "Velvia",
+        "grain": "Off",
+        "color_chrome": "Weak",
+        "color_chrome_fx_blue": "Weak",
+        "white_balance": "Daylight",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": 0,
+        "color": 1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A deliberate vivid alternative for colorful details."
+      }
+    },
+    {
+      "id": "original-4",
+      "title": "Quiet streets",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Restrained color gives market gestures room.",
+      "tags": [
+        "street",
+        "documentary",
+        "market"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Quiet streets",
+        "film_sim": "Classic Chrome",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": 0,
+        "shadow": 0.5,
+        "color": -1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Restrained color gives market gestures room."
+      }
+    },
+    {
+      "id": "original-5",
+      "title": "Warm memory",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Warm highlights offer an album-like alternative.",
+      "tags": [
+        "warm",
+        "memory",
+        "family"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Warm memory",
+        "film_sim": "Nostalgic Neg",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 1,
+        "wb_shift_b": -1,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": -0.5,
+        "color": 1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Warm highlights offer an album-like alternative."
+      }
+    },
+    {
+      "id": "original-6",
+      "title": "Graphic shapes",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Monochrome separates graphic forms from color distractions.",
+      "tags": [
+        "monochrome",
+        "graphic",
+        "geometry"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Graphic shapes",
+        "film_sim": "Acros+R",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR100",
+        "highlight": 0,
+        "shadow": 1,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Monochrome separates graphic forms from color distractions."
+      }
+    },
+    {
+      "id": "original-7",
+      "title": "Soft evening",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "A lower-contrast evening option keeps texture restrained.",
+      "tags": [
+        "evening",
+        "interior",
+        "people"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Soft evening",
+        "film_sim": "Pro Neg Std",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR100",
+        "highlight": -0.5,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A lower-contrast evening option keeps texture restrained."
+      }
+    }
+  ]
+}

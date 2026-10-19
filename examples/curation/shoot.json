@@ -1,0 +1,30 @@
+{
+  "schema": "dialin.curation-input/1",
+  "shoot": {
+    "id": "sample-harbor-day",
+    "intent": "A quiet documentary sequence of arriving, crossing the harbor, and returning.",
+    "plan_revision": null
+  },
+  "selection": {
+    "count": 5,
+    "title": "Across the harbor",
+    "order": "chronological"
+  },
+  "constraints": {
+    "required": ["boarding"],
+    "excluded": ["test-frame"],
+    "opener": "arrival",
+    "closer": "return",
+    "allow_same_group": []
+  },
+  "assets": [
+    {"id": "arrival", "captured_at": "2026-10-15T09:00:00-04:00", "score": 72, "note": "Wide view of the harbor on arrival.", "tags": ["harbor"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "portrait-a", "captured_at": "2026-10-15T09:04:00-04:00", "score": 84, "note": "Companion waiting by the railing.", "group_id": "waiting", "tags": ["people"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "portrait-b", "captured_at": "2026-10-15T09:04:01-04:00", "score": 84, "favorite": true, "note": "Alternative take of the companion by the railing.", "group_id": "waiting", "tags": ["people"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "boarding", "captured_at": "2026-10-15T09:06:00-04:00", "score": 68, "note": "Passengers stepping onto the ferry.", "tags": ["crossing"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "wake", "captured_at": "2026-10-15T09:12:00-04:00", "score": 90, "note": "Water behind the moving ferry.", "tags": ["crossing"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "window", "captured_at": "2026-10-15T09:15:00-04:00", "score": 76, "note": "View through a cabin window.", "tags": ["crossing"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "return", "captured_at": "2026-10-15T17:30:00-04:00", "score": 70, "note": "Harbor at the end of the day.", "tags": ["harbor"], "evidence": {"kind": "synthetic", "visual_reviewed": false}},
+    {"id": "test-frame", "captured_at": "2026-10-15T17:31:00-04:00", "score": 99, "note": "Unwanted setup frame.", "evidence": {"kind": "synthetic", "visual_reviewed": false}}
+  ]
+}

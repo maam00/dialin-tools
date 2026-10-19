@@ -1,0 +1,479 @@
+{
+  "photographic_brief": {
+    "intent": "A beach wedding with natural skin, avoiding Classic Chrome and Nostalgic Neg.",
+    "subjects": [
+      "ceremony",
+      "family formals",
+      "couple",
+      "reception"
+    ],
+    "lighting": [
+      "harsh afternoon sun",
+      "open shade",
+      "golden hour",
+      "string lights"
+    ],
+    "color_priorities": [
+      "natural skin",
+      "white dress detail"
+    ],
+    "rendering_goal": "Natural, gentle color; no Classic Chrome or Nostalgic Neg.",
+    "observations": [
+      "No photo supplied."
+    ],
+    "uncertainties": [
+      "Venue light at the reception is unknown."
+    ]
+  },
+  "primary_look": "Ceremony sun",
+  "summary": "Four natural-skin wedding looks for sun, shade, golden hour and the reception, with no Classic Chrome or Nostalgic Neg.",
+  "count_why": "You asked for four looks.",
+  "stops": [
+    {
+      "name": "Ceremony",
+      "start": "",
+      "end": "",
+      "light": "harsh afternoon sun"
+    },
+    {
+      "name": "Formals",
+      "start": "",
+      "end": "",
+      "light": "open shade"
+    },
+    {
+      "name": "Golden hour",
+      "start": "",
+      "end": "",
+      "light": "low golden sun"
+    },
+    {
+      "name": "Reception",
+      "start": "",
+      "end": "",
+      "light": "warm string lights"
+    }
+  ],
+  "looks": [
+    {
+      "name": "Ceremony sun",
+      "film_sim": "Reala Ace",
+      "grain": "Off",
+      "color_chrome": "Strong",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Auto",
+      "kelvin": 0,
+      "wb_shift_r": 0,
+      "wb_shift_b": 0,
+      "dynamic_range": "DR400",
+      "highlight": -1.5,
+      "shadow": -0.5,
+      "color": 0,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Natural skin and held white dress in harsh sun.",
+      "design": {
+        "purpose": "Ceremony moments in hard afternoon light.",
+        "scene_fit": "Harsh sun and a white dress need highlight room and neutral skin.",
+        "choices": [
+          {
+            "setting": "film_sim",
+            "reason": "Reala Ace keeps skin and flowers believable.",
+            "knowledge_ids": [
+              "sim-reala-ace"
+            ]
+          },
+          {
+            "setting": "white_balance",
+            "reason": "Auto WB, unshifted, avoids added warmth.",
+            "knowledge_ids": [
+              "wb-outcome-uncertainty"
+            ]
+          },
+          {
+            "setting": "dynamic_range",
+            "reason": "DR400 for the white dress; ISO 500 easy outdoors.",
+            "knowledge_ids": [
+              "dr-iso"
+            ]
+          },
+          {
+            "setting": "tone_curve",
+            "reason": "Highlight -1.5 and Shadow -0.5 soften the dress and faces.",
+            "knowledge_ids": [
+              "tone-curve"
+            ]
+          },
+          {
+            "setting": "color",
+            "reason": "Color 0 keeps skin natural.",
+            "knowledge_ids": [
+              "taste-intent"
+            ]
+          },
+          {
+            "setting": "texture",
+            "reason": "No grain for clean wedding skin.",
+            "knowledge_ids": [
+              "texture-restraint"
+            ]
+          },
+          {
+            "setting": "exposure",
+            "reason": "Zero; minus one third if the dress clips.",
+            "knowledge_ids": [
+              "exposure-render"
+            ]
+          }
+        ],
+        "tradeoff": "Hard sun still creates squinting and eye shadows.",
+        "alternative": "Shade family if the ceremony moves under trees.",
+        "uncertainty": "Check the dress for clipping on the histogram."
+      },
+      "ideal_film_sim": "Reala Ace",
+      "stop": "Ceremony",
+      "when": "Ceremony in direct sun",
+      "reuse": "",
+      "based_on": "",
+      "reason": "Your main look: natural skin with the dress under control.",
+      "exposure": {
+        "aperture": "A",
+        "shutter": "A",
+        "iso": "A",
+        "exp_comp": "0",
+        "nd": false
+      },
+      "focus": "C",
+      "drive": "CL",
+      "how": "Focus C for the walk; burst for the kiss.",
+      "reuse_slot": 0,
+      "source_use": {
+        "relationship": "adapted",
+        "references": [
+          {
+            "kind": "book",
+            "id": "ref-saturated-detail"
+          }
+        ],
+        "reason": "Color detail keeps the dress and flowers' saturated gradation without extra overall color; DR200 to DR400 and softer highlights and shadows for harsh afternoon sun."
+      }
+    },
+    {
+      "name": "Shade family",
+      "film_sim": "Pro Neg Std",
+      "grain": "Off",
+      "color_chrome": "Off",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Auto",
+      "kelvin": 0,
+      "wb_shift_r": 0,
+      "wb_shift_b": 0,
+      "dynamic_range": "DR200",
+      "highlight": -1,
+      "shadow": -0.5,
+      "color": 0,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Gentle skin for family groups in open shade.",
+      "design": {
+        "purpose": "Formal family groups in soft open shade.",
+        "scene_fit": "Open shade is soft and even; gentle gradation keeps varied skin natural.",
+        "choices": [
+          {
+            "setting": "film_sim",
+            "reason": "Pro Neg Std renders skin gently.",
+            "knowledge_ids": [
+              "sim-pro-neg-std"
+            ]
+          },
+          {
+            "setting": "white_balance",
+            "reason": "Auto WB follows bluish shade without a warm shift.",
+            "knowledge_ids": [
+              "wb-source",
+              "wb-outcome-uncertainty"
+            ]
+          },
+          {
+            "setting": "dynamic_range",
+            "reason": "DR200 keeps bright background behind the group.",
+            "knowledge_ids": [
+              "dr-iso"
+            ]
+          },
+          {
+            "setting": "tone_curve",
+            "reason": "Soft highlights and shadows flatter groups.",
+            "knowledge_ids": [
+              "tone-curve"
+            ]
+          },
+          {
+            "setting": "color",
+            "reason": "Color 0 for natural skin.",
+            "knowledge_ids": [
+              "taste-intent"
+            ]
+          },
+          {
+            "setting": "texture",
+            "reason": "No grain; clean group portraits.",
+            "knowledge_ids": [
+              "texture-restraint"
+            ]
+          },
+          {
+            "setting": "exposure",
+            "reason": "Plus one third for faces against bright background.",
+            "knowledge_ids": [
+              "exposure-render"
+            ]
+          }
+        ],
+        "tradeoff": "Soft tones can look flat if shade is very even.",
+        "alternative": "Ceremony sun for more presence.",
+        "uncertainty": "Shade color varies; check skin is not blue."
+      },
+      "ideal_film_sim": "Pro Neg Std",
+      "stop": "Formals",
+      "when": "Groups in open shade",
+      "reuse": "",
+      "based_on": "",
+      "reason": "Natural, gentle skin for every family member.",
+      "exposure": {
+        "aperture": "A",
+        "shutter": "A",
+        "iso": "A",
+        "exp_comp": "+⅓",
+        "nd": false
+      },
+      "focus": "S",
+      "drive": "S",
+      "how": "Group everyone in even shade; focus on the front row.",
+      "reuse_slot": 0,
+      "source_use": {
+        "relationship": "exact",
+        "references": [
+          {
+            "kind": "book",
+            "id": "ref-gentle-people"
+          }
+        ],
+        "reason": "Gentle people already serves open-shade groups unchanged."
+      }
+    },
+    {
+      "name": "Golden couple",
+      "film_sim": "Reala Ace",
+      "grain": "Off",
+      "color_chrome": "Weak",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Auto",
+      "kelvin": 0,
+      "wb_shift_r": 1,
+      "wb_shift_b": -2,
+      "dynamic_range": "DR400",
+      "highlight": -1.5,
+      "shadow": -1,
+      "color": 1,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Soft golden warmth for the couple, skin still believable.",
+      "design": {
+        "purpose": "Romantic couple portraits in low golden sun.",
+        "scene_fit": "Low sun is warm already; a mild shift adds glow without orange skin.",
+        "choices": [
+          {
+            "setting": "film_sim",
+            "reason": "Reala Ace keeps skin believable under warm light.",
+            "knowledge_ids": [
+              "sim-reala-ace"
+            ]
+          },
+          {
+            "setting": "white_balance",
+            "reason": "Auto with R+1, B-2 adds mild golden glow.",
+            "knowledge_ids": [
+              "wb-source",
+              "wb-outcome-uncertainty"
+            ]
+          },
+          {
+            "setting": "dynamic_range",
+            "reason": "DR400 holds the sunset behind them.",
+            "knowledge_ids": [
+              "dr-iso"
+            ]
+          },
+          {
+            "setting": "tone_curve",
+            "reason": "Soft highlights and shadows for romantic tone.",
+            "knowledge_ids": [
+              "tone-curve"
+            ]
+          },
+          {
+            "setting": "color",
+            "reason": "Color +1 for gentle richness.",
+            "knowledge_ids": [
+              "chrome-color"
+            ]
+          },
+          {
+            "setting": "texture",
+            "reason": "No grain, soft sharpening.",
+            "knowledge_ids": [
+              "texture-restraint"
+            ]
+          },
+          {
+            "setting": "exposure",
+            "reason": "Plus two thirds for backlit faces.",
+            "knowledge_ids": [
+              "exposure-render"
+            ]
+          }
+        ],
+        "tradeoff": "Strong sunset plus warm shift can still warm skin.",
+        "alternative": "Shade family settings for neutral skin.",
+        "uncertainty": "Sunset strength unknown; check skin color."
+      },
+      "ideal_film_sim": "Reala Ace",
+      "stop": "Golden hour",
+      "when": "Couple in low golden sun",
+      "reuse": "",
+      "based_on": "",
+      "reason": "A gentle golden look that is not the Classic Chrome or Nostalgic style they dislike.",
+      "exposure": {
+        "aperture": "A",
+        "shutter": "A",
+        "iso": "A",
+        "exp_comp": "+⅔",
+        "nd": false
+      },
+      "focus": "S",
+      "drive": "S",
+      "how": "Sun behind them; brighten until faces glow.",
+      "reuse_slot": 0,
+      "source_use": {
+        "relationship": "inspired",
+        "references": [
+          {
+            "kind": "outside",
+            "id": "Sunset Linen (a friend's recipe the couple liked)"
+          }
+        ],
+        "reason": "The couple liked a friend's Sunset Linen look; its settings are not available here, so this is a new soft golden take on Reala Ace, avoiding the Classic Chrome and Nostalgic Neg looks they dislike."
+      }
+    },
+    {
+      "name": "String lights",
+      "film_sim": "Pro Neg Std",
+      "grain": "Off",
+      "color_chrome": "Off",
+      "color_chrome_fx_blue": "Off",
+      "white_balance": "Auto",
+      "kelvin": 0,
+      "wb_shift_r": 0,
+      "wb_shift_b": 0,
+      "dynamic_range": "DR100",
+      "highlight": -0.5,
+      "shadow": -0.5,
+      "color": 1,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0,
+      "why": "Warm string-light ambience with gentle faces.",
+      "design": {
+        "purpose": "Reception dancing and toasts under string lights.",
+        "scene_fit": "String lights are warm and low; Auto WB tames them, gentle tones flatter faces.",
+        "choices": [
+          {
+            "setting": "film_sim",
+            "reason": "Pro Neg Std keeps faces gentle in low light.",
+            "knowledge_ids": [
+              "sim-pro-neg-std"
+            ]
+          },
+          {
+            "setting": "white_balance",
+            "reason": "Auto WB reduces some string-light warmth.",
+            "knowledge_ids": [
+              "wb-mixed",
+              "wb-outcome-uncertainty"
+            ]
+          },
+          {
+            "setting": "dynamic_range",
+            "reason": "DR100 keeps ISO low in dim light.",
+            "knowledge_ids": [
+              "dr-scene-strategy"
+            ]
+          },
+          {
+            "setting": "tone_curve",
+            "reason": "Slightly soft tones for flattering faces.",
+            "knowledge_ids": [
+              "tone-curve"
+            ]
+          },
+          {
+            "setting": "color",
+            "reason": "Color +1 keeps the bulbs' glow.",
+            "knowledge_ids": [
+              "taste-intent"
+            ]
+          },
+          {
+            "setting": "texture",
+            "reason": "No grain; high ISO noise suffices.",
+            "knowledge_ids": [
+              "nr-detail"
+            ]
+          },
+          {
+            "setting": "exposure",
+            "reason": "Zero; bulbs will meter bright.",
+            "knowledge_ids": [
+              "exposure-render"
+            ]
+          }
+        ],
+        "tradeoff": "Skin may still look warm under bare bulbs.",
+        "alternative": "Ceremony sun settings under brighter venue light.",
+        "uncertainty": "Bulb color unknown; check skin on screen."
+      },
+      "ideal_film_sim": "Pro Neg Std",
+      "stop": "Reception",
+      "when": "Reception under warm bulbs",
+      "reuse": "",
+      "based_on": "",
+      "reason": "Keeps the party warm without orange faces.",
+      "exposure": {
+        "aperture": "A",
+        "shutter": "A",
+        "iso": "A",
+        "exp_comp": "0",
+        "nd": false
+      },
+      "focus": "S",
+      "drive": "S",
+      "how": "Get close to people near the brightest bulbs.",
+      "reuse_slot": 0,
+      "source_use": {
+        "relationship": "adapted",
+        "references": [
+          {
+            "kind": "book",
+            "id": "ref-mixed-interior"
+          }
+        ],
+        "reason": "Faces in mixed interiors fits the reception; Color 0 to +1 to keep the bulbs' glow."
+      }
+    }
+  ],
+  "replace": []
+}

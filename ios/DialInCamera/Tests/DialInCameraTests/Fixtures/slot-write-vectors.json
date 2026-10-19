@@ -1,0 +1,370 @@
+[
+  {
+    "recipe": {
+      "color_chrome_fx_blue": "Off",
+      "kelvin": 0,
+      "why": "",
+      "name": "Warm Gold",
+      "film_sim": "Classic Chrome",
+      "grain": "Weak Large",
+      "color_chrome": "Strong",
+      "white_balance": "Daylight",
+      "wb_shift_r": 2,
+      "wb_shift_b": -3,
+      "dynamic_range": "DR400",
+      "highlight": -0.5,
+      "shadow": 1.5,
+      "color": 1,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": -1
+    },
+    "slot": 3,
+    "writes": [
+      {
+        "id": "0xd18c",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd18d",
+        "hex": "0a5700610072006d00200047006f006c0064000000"
+      },
+      {
+        "id": "0xd192",
+        "hex": "0b00"
+      },
+      {
+        "id": "0xd191",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd190",
+        "hex": "9001"
+      },
+      {
+        "id": "0xd195",
+        "hex": "0400"
+      },
+      {
+        "id": "0xd196",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd197",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd198",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd199",
+        "hex": "0400"
+      },
+      {
+        "id": "0xd19a",
+        "hex": "0200"
+      },
+      {
+        "id": "0xd19b",
+        "hex": "fdff"
+      },
+      {
+        "id": "0xd19d",
+        "hex": "fbff"
+      },
+      {
+        "id": "0xd19e",
+        "hex": "0f00"
+      },
+      {
+        "id": "0xd19f",
+        "hex": "0a00"
+      },
+      {
+        "id": "0xd1a0",
+        "hex": "f6ff"
+      },
+      {
+        "id": "0xd1a1",
+        "hex": "0080"
+      },
+      {
+        "id": "0xd1a2",
+        "hex": "f6ff"
+      }
+    ]
+  },
+  {
+    "recipe": {
+      "color_chrome_fx_blue": "Strong",
+      "kelvin": 6300,
+      "why": "",
+      "name": "Golden faces",
+      "film_sim": "Nostalgic Neg",
+      "grain": "Weak Large",
+      "color_chrome": "Strong",
+      "white_balance": "Kelvin",
+      "wb_shift_r": 2,
+      "wb_shift_b": -4,
+      "dynamic_range": "DR400",
+      "highlight": -1.5,
+      "shadow": -0.5,
+      "color": 3,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": -3
+    },
+    "slot": 3,
+    "writes": [
+      {
+        "id": "0xd18c",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd18d",
+        "hex": "0d47006f006c00640065006e002000660061006300650073000000"
+      },
+      {
+        "id": "0xd192",
+        "hex": "1300"
+      },
+      {
+        "id": "0xd191",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd190",
+        "hex": "9001"
+      },
+      {
+        "id": "0xd195",
+        "hex": "0400"
+      },
+      {
+        "id": "0xd196",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd197",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd198",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd199",
+        "hex": "0780"
+      },
+      {
+        "id": "0xd19c",
+        "hex": "9c18"
+      },
+      {
+        "id": "0xd19a",
+        "hex": "0200"
+      },
+      {
+        "id": "0xd19b",
+        "hex": "fcff"
+      },
+      {
+        "id": "0xd19d",
+        "hex": "f1ff"
+      },
+      {
+        "id": "0xd19e",
+        "hex": "fbff"
+      },
+      {
+        "id": "0xd19f",
+        "hex": "1e00"
+      },
+      {
+        "id": "0xd1a0",
+        "hex": "f6ff"
+      },
+      {
+        "id": "0xd1a1",
+        "hex": "0080"
+      },
+      {
+        "id": "0xd1a2",
+        "hex": "e2ff"
+      }
+    ]
+  },
+  {
+    "recipe": {
+      "color_chrome_fx_blue": "Off",
+      "kelvin": 0,
+      "why": "",
+      "name": "Moody B&W",
+      "film_sim": "Acros+R",
+      "grain": "Strong Large",
+      "color_chrome": "Off",
+      "white_balance": "Auto",
+      "wb_shift_r": 0,
+      "wb_shift_b": 0,
+      "dynamic_range": "DR200",
+      "highlight": 1,
+      "shadow": 3,
+      "color": 0,
+      "sharpness": -1,
+      "noise_reduction": -4,
+      "clarity": 0
+    },
+    "slot": 3,
+    "writes": [
+      {
+        "id": "0xd18c",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd18d",
+        "hex": "0a4d006f006f006400790020004200260057000000"
+      },
+      {
+        "id": "0xd192",
+        "hex": "0e00"
+      },
+      {
+        "id": "0xd191",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd190",
+        "hex": "c800"
+      },
+      {
+        "id": "0xd195",
+        "hex": "0500"
+      },
+      {
+        "id": "0xd198",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd199",
+        "hex": "0200"
+      },
+      {
+        "id": "0xd19d",
+        "hex": "0a00"
+      },
+      {
+        "id": "0xd19e",
+        "hex": "1e00"
+      },
+      {
+        "id": "0xd1a0",
+        "hex": "f6ff"
+      },
+      {
+        "id": "0xd1a1",
+        "hex": "0080"
+      },
+      {
+        "id": "0xd1a2",
+        "hex": "0000"
+      }
+    ]
+  },
+  {
+    "recipe": {
+      "color_chrome_fx_blue": "Strong",
+      "kelvin": 0,
+      "why": "",
+      "name": "After sunset",
+      "film_sim": "Eterna",
+      "grain": "Off",
+      "color_chrome": "Strong",
+      "white_balance": "Fluorescent 3",
+      "wb_shift_r": -6,
+      "wb_shift_b": -4,
+      "dynamic_range": "DR100",
+      "highlight": 0,
+      "shadow": 2,
+      "color": 4,
+      "sharpness": -3,
+      "noise_reduction": 2,
+      "clarity": -5
+    },
+    "slot": 3,
+    "writes": [
+      {
+        "id": "0xd18c",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd18d",
+        "hex": "0d410066007400650072002000730075006e007300650074000000"
+      },
+      {
+        "id": "0xd192",
+        "hex": "1000"
+      },
+      {
+        "id": "0xd191",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd190",
+        "hex": "6400"
+      },
+      {
+        "id": "0xd195",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd196",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd197",
+        "hex": "0300"
+      },
+      {
+        "id": "0xd198",
+        "hex": "0100"
+      },
+      {
+        "id": "0xd199",
+        "hex": "0380"
+      },
+      {
+        "id": "0xd19a",
+        "hex": "faff"
+      },
+      {
+        "id": "0xd19b",
+        "hex": "fcff"
+      },
+      {
+        "id": "0xd19d",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd19e",
+        "hex": "1400"
+      },
+      {
+        "id": "0xd19f",
+        "hex": "2800"
+      },
+      {
+        "id": "0xd1a0",
+        "hex": "e2ff"
+      },
+      {
+        "id": "0xd1a1",
+        "hex": "0000"
+      },
+      {
+        "id": "0xd1a2",
+        "hex": "ceff"
+      }
+    ]
+  }
+]

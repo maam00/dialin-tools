@@ -1,0 +1,65 @@
+{
+  "notice": "Pinned revisions identify the verified license text. They do not assert that locally adapted code came from these revisions. Code import revisions not recorded remain explicit.",
+  "sources": [
+    {
+      "component": "fuji-bridge",
+      "repository": "https://github.com/Th0rgal/fuji-bridge",
+      "license_source_revision": "38fc4275574c2016a1f13ece13496b0ad1e9b452",
+      "license_source_url": "https://raw.githubusercontent.com/Th0rgal/fuji-bridge/38fc4275574c2016a1f13ece13496b0ad1e9b452/LICENSE",
+      "license_file": "third_party/licenses/fuji-bridge.txt",
+      "license_sha256": "f3ce033c7c9c96cc9c942b3e7cf433f739a318650a1250e51b2b56c54e80ad39",
+      "code_import_revision": "not_recorded",
+      "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "libfuji",
+      "repository": "https://github.com/petabyt/libfuji",
+      "license_source_revision": "e5183f2254acf264376183dc8002e7545ed7558d",
+      "license_source_url": "https://raw.githubusercontent.com/petabyt/libfuji/e5183f2254acf264376183dc8002e7545ed7558d/LICENSE",
+      "license_file": "third_party/licenses/libfuji.txt",
+      "license_sha256": "78e3bc04042bd289d48068746413ca158d1a92f3e2b26a0ad4c80a9cd181349a",
+      "code_import_revision": "not_recorded",
+      "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "furble",
+      "repository": "https://github.com/gkoh/furble",
+      "license_source_revision": "0cac22aacc3d9ef250be40849118af78a5f39f27",
+      "license_source_url": "https://raw.githubusercontent.com/gkoh/furble/0cac22aacc3d9ef250be40849118af78a5f39f27/LICENSE",
+      "license_file": "third_party/licenses/furble.txt",
+      "license_sha256": "1a2c7b6a902049bd08835ac38d5a0d79e81e9d8b2ea214a403f2b908a9208373",
+      "code_import_revision": "not_recorded",
+      "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "fffw",
+      "repository": "https://github.com/tiredboffin/fffw",
+      "license_source_revision": "b084c998b02a60859288c9b6dc7204e6a94f2e13",
+      "license_source_url": "https://raw.githubusercontent.com/tiredboffin/fffw/b084c998b02a60859288c9b6dc7204e6a94f2e13/LICENSE.md",
+      "license_file": "third_party/licenses/fffw.txt",
+      "license_sha256": "f66a37a552d8f2b5cd10995e6c2d3a567a08a45df01b98925b6aa715260cc846",
+      "code_import_revision": "b084c998b02a60859288c9b6dc7204e6a94f2e13",
+      "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "helios",
+      "repository": "https://github.com/KyleOndy/dotfiles",
+      "license_source_revision": "456fd456ba0c07b359883a680ea2f338c94b0232",
+      "license_source_url": "https://raw.githubusercontent.com/KyleOndy/dotfiles/456fd456ba0c07b359883a680ea2f338c94b0232/LICENSE",
+      "license_file": "third_party/licenses/helios.txt",
+      "license_sha256": "513ac18563ff5aca0dd94da95db32cd0a03c8c2950b02655ec6007eab33ae67a",
+      "code_import_revision": "not_recorded",
+      "reviewed_on": "2026-10-15"
+    },
+    {
+      "component": "FilmKit",
+      "repository": "https://github.com/eggricesoy/filmkit",
+      "license_source_revision": "9e3bbcf858b1f9dc522e90adf7e385554f5969e2",
+      "license_source_url": "https://raw.githubusercontent.com/eggricesoy/filmkit/9e3bbcf858b1f9dc522e90adf7e385554f5969e2/LICENSE",
+      "license_file": "third_party/licenses/FilmKit.txt",
+      "license_sha256": "c1cec33462b67cd3e84d22b29e816683d50e3efffba427a04f05c18a03565405",
+      "code_import_revision": "9e3bbcf",
+      "reviewed_on": "2026-10-15"
+    }
+  ]
+}

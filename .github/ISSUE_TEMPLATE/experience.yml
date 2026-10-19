@@ -1,0 +1,78 @@
+name: First-use experience
+description: Tell us what you tried, what helped, and whether you came back.
+title: "Experience: <component and task>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the experience in your own words. No photographs or logs are needed. Replace private paths and names; do not include EXIF, camera backups, serials, pairing data or keys.
+        Use Bug report for a reproducible failure, or Camera report for a reviewed read-only device report. Never run a camera write just to fill out this form.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which route did you try?
+      options: [Plan a shoot, Bring my recipes, Write camera slots over USB, Import photographs, Review a photo folder, Validate a selection, Fixture demo only]
+    validations:
+      required: true
+  - type: textarea
+    id: intention
+    attributes:
+      label: What did you want to get done?
+      description: One concrete task from your own workflow. If you used only sample inputs, say so.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: How did you run it?
+      description: Release or commit, operating system, and terminal/Codex/Claude Code. Include body and firmware only if you contacted a camera, without its serial.
+    validations:
+      required: true
+  - type: textarea
+    id: first_result
+    attributes:
+      label: First result and time taken
+      description: What usable result did you reach, if any? Estimate setup time and time from starting the task to that result separately. Did someone have to help?
+    validations:
+      required: true
+  - type: textarea
+    id: blocker
+    attributes:
+      label: Where did you get stuck or have to correct it?
+      description: Include confusing instructions, manual work or a wrong selection. "No blocker" is useful too. Link a separate bug issue if appropriate.
+    validations:
+      required: true
+  - type: dropdown
+    id: usefulness
+    attributes:
+      label: Was the result useful for your actual task?
+      options:
+        - Yes, I used the result
+        - Partly, after substantial changes
+        - No
+        - I tried only the fixture demo
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: What made it useful or not useful?
+      description: Describe what you kept, changed or abandoned. No private inputs are needed.
+    validations:
+      required: true
+  - type: dropdown
+    id: return_use
+    attributes:
+      label: Have you used it for a second task?
+      options:
+        - Yes, I came back on my own
+        - Yes, after someone prompted or helped me
+        - No, I have not had another relevant task yet
+        - No, I chose another way
+    validations:
+      required: true
+  - type: textarea
+    id: second_task
+    attributes:
+      label: Second use or reason for not returning
+      description: You can edit this issue after your next shoot. A wish to use it again is different from an actual second use.

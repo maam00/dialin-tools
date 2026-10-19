@@ -1,0 +1,840 @@
+{
+  "schema_version": "dialin.recipes.v1",
+  "title": "Original recipe directions and design knowledge",
+  "description": "All existing independently authored Dial In directions, with source links, photographic intent, tradeoffs, adaptation guidance and limits. Seven camera slots are a per-shoot output limit, not a library limit. These unrendered starting points are not copied creator recipes or measured photographic-quality results.",
+  "recipes": [
+    {
+      "id": "ref-faithful-everyday",
+      "title": "Faithful everyday color",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Start with REALA ACE's varied-subject color and avoid a strong global cast.",
+      "tags": [
+        "faithful",
+        "natural",
+        "believable",
+        "everyday",
+        "family",
+        "people",
+        "daylight",
+        "mixed subjects"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Everyday color",
+        "film_sim": "Reala Ace",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -0.5,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A restrained color baseline for varied subjects."
+      },
+      "design": {
+        "reference_id": "ref-faithful-everyday",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "faithful",
+          "natural",
+          "believable",
+          "everyday",
+          "family"
+        ],
+        "scene_tags": [
+          "people",
+          "daylight",
+          "mixed subjects"
+        ],
+        "avoid_tags": [
+          "monochrome only"
+        ],
+        "rationale": "Start with REALA ACE's varied-subject color and avoid a strong global cast.",
+        "tradeoff": "Its firmer highlights can still be harsh on a bright face; DR200 is not clipping insurance.",
+        "adaptation": "Decide DR and tones from highlight priority; preserve a requested cast instead of automatic neutrality.",
+        "sources": [
+          {
+            "title": "Fujifilm REALA ACE characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/reala-ace/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "X100VI image quality controls",
+            "url": "https://fujifilm-dsc.com/en/manual/x100vi/menu_shooting/image_quality_setting/index.html",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Uncalibrated JPEG color is not exact product-color proof.",
+          "Auto WB adapts; it cannot guarantee skin across different light sources."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-gentle-people",
+      "title": "Gentle people",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Use Pro Neg Std's soft portrait gradation, then judge whether additional softening is necessary.",
+      "tags": [
+        "people",
+        "portrait",
+        "skin",
+        "gentle",
+        "natural",
+        "faces",
+        "window",
+        "controlled light"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Gentle faces",
+        "film_sim": "Pro Neg Std",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": -0.5,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Gentler gradation for people when strong contrast is unwanted."
+      },
+      "design": {
+        "reference_id": "ref-gentle-people",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "people",
+          "portrait",
+          "skin",
+          "gentle",
+          "natural"
+        ],
+        "scene_tags": [
+          "faces",
+          "window",
+          "controlled light"
+        ],
+        "avoid_tags": [
+          "hard silhouette"
+        ],
+        "rationale": "Use Pro Neg Std's soft portrait gradation, then judge whether additional softening is necessary.",
+        "tradeoff": "Can lose useful separation in flat light; it does not smooth away skin texture.",
+        "adaptation": "Consider stronger tone separation for flat light, rather than declaring this the universal skin recipe.",
+        "sources": [
+          {
+            "title": "Fujifilm PRO Neg. Std and Hi characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/pro-neg-std/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "Fujifilm simulation use and filter behavior",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/empower-your-photography-with-fujifilm-film-simulations/",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Pro Neg Hi is a distinct base, not an exact equivalent produced by slider changes.",
+          "Actual skin and lighting still need review."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-quiet-documentary",
+      "title": "Quiet documentary",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Classic Chrome's restraint supports a quiet record without treating every photograph as nostalgia.",
+      "tags": [
+        "documentary",
+        "restrained",
+        "quiet",
+        "muted",
+        "story",
+        "street",
+        "market",
+        "interior",
+        "weathered"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Quiet story",
+        "film_sim": "Classic Chrome",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -0.5,
+        "shadow": 0.5,
+        "color": -1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Restrained color lets gesture and surroundings lead."
+      },
+      "design": {
+        "reference_id": "ref-quiet-documentary",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "documentary",
+          "restrained",
+          "quiet",
+          "muted",
+          "story"
+        ],
+        "scene_tags": [
+          "street",
+          "market",
+          "interior",
+          "weathered"
+        ],
+        "avoid_tags": [
+          "exact red hue",
+          "vivid color"
+        ],
+        "rationale": "Classic Chrome's restraint supports a quiet record without treating every photograph as nostalgia.",
+        "tradeoff": "Muted reds and stronger shadows may cost important clothing color or face detail.",
+        "adaptation": "Protect a face with exposure and gentler tones; choose a different base when the red hue is the subject.",
+        "sources": [
+          {
+            "title": "Fujifilm CLASSIC CHROME characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/classic-chrome/",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Not an exact historical film-stock reproduction.",
+          "A documentary style is interpretation, not colorimetric neutrality."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-warm-memory",
+      "title": "Warm memory",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "A family-memory intention can justify warmth and texture; the numeric recipe here is independently authored.",
+      "tags": [
+        "warm",
+        "nostalgic",
+        "amber",
+        "memory",
+        "album",
+        "family",
+        "travel",
+        "daylight"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Warm memory",
+        "film_sim": "Nostalgic Neg",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 1,
+        "wb_shift_b": -1,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": -0.5,
+        "color": 1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A deliberate warm album interpretation, with restrained texture."
+      },
+      "design": {
+        "reference_id": "ref-warm-memory",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "creator_inspired_direction",
+        "intent_tags": [
+          "warm",
+          "nostalgic",
+          "amber",
+          "memory",
+          "album"
+        ],
+        "scene_tags": [
+          "family",
+          "travel",
+          "daylight"
+        ],
+        "avoid_tags": [
+          "no orange cast",
+          "neutral skin"
+        ],
+        "rationale": "A family-memory intention can justify warmth and texture; the numeric recipe here is independently authored.",
+        "tradeoff": "Amber highlights plus warm WB shifts can push skin orange; warm ambient lamps increase that risk.",
+        "adaptation": "Reduce the added cast before replacing the base if faces are too orange. Keep warmth only when requested.",
+        "sources": [
+          {
+            "title": "Fujifilm NOSTALGIC Neg. characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/nostalgic-neg/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "Nathalie Boucry: family-memory intention and light-dependent tradeoffs",
+            "url": "https://www.fujifilm-x.com/nl-nl/stories/classic-neg-fs-recipe-x-nathalie-boucry/",
+            "role": "creator_tradeoff"
+          },
+          {
+            "title": "Josh Edgoose with Fujifilm: intention and recipe design",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/make-your-own-film-simulation-recipe/",
+            "role": "creator_tradeoff"
+          }
+        ],
+        "limitations": [
+          "Inspired by creative intention/tradeoffs, not Boucry's or Edgoose's published numeric recipe.",
+          "No diffusion-filter softness or halation is implied."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-vivid-nature",
+      "title": "Deliberate vivid nature",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Velvia already supplies strong color; keep extra color density modest until the scene warrants more.",
+      "tags": [
+        "vivid",
+        "colorful",
+        "saturated",
+        "dramatic",
+        "foliage",
+        "flowers",
+        "landscape",
+        "scenery"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Vivid nature",
+        "film_sim": "Velvia",
+        "grain": "Off",
+        "color_chrome": "Weak",
+        "color_chrome_fx_blue": "Weak",
+        "white_balance": "Daylight",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": -0.5,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Color drama for foliage, flowers and scenic frames."
+      },
+      "design": {
+        "reference_id": "ref-vivid-nature",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "vivid",
+          "colorful",
+          "saturated",
+          "dramatic"
+        ],
+        "scene_tags": [
+          "foliage",
+          "flowers",
+          "landscape",
+          "scenery"
+        ],
+        "avoid_tags": [
+          "natural faces",
+          "muted documentary"
+        ],
+        "rationale": "Velvia already supplies strong color; keep extra color density modest until the scene warrants more.",
+        "tradeoff": "Already saturated subjects and skin may become dense; FX Blue can over-darken an important blue surface.",
+        "adaptation": "Choose blue depth separately from red/green detail; fixed Daylight may need changing under new illumination.",
+        "sources": [
+          {
+            "title": "Fujifilm Velvia characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/velvia/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "Fujifilm simulation use and filter behavior",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/empower-your-photography-with-fujifilm-film-simulations/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "X100VI image quality controls",
+            "url": "https://fujifilm-dsc.com/en/manual/x100vi/menu_shooting/image_quality_setting/index.html",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Not automatically appropriate because it is sunny.",
+          "Does not guarantee saturated-channel or highlight recovery."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-saturated-detail",
+      "title": "Saturated color detail",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Separate saturated-color gradation from the overall Color slider and preserve the important hue.",
+      "tags": [
+        "red",
+        "hue",
+        "detail",
+        "fabric",
+        "product",
+        "red fabric",
+        "bright flowers",
+        "signage",
+        "window"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Color detail",
+        "film_sim": "Reala Ace",
+        "grain": "Off",
+        "color_chrome": "Strong",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Explore gradation in saturated objects without extra overall color."
+      },
+      "design": {
+        "reference_id": "ref-saturated-detail",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "red",
+          "hue",
+          "detail",
+          "fabric",
+          "product"
+        ],
+        "scene_tags": [
+          "red fabric",
+          "bright flowers",
+          "signage",
+          "window"
+        ],
+        "avoid_tags": [
+          "exact calibrated color"
+        ],
+        "rationale": "Separate saturated-color gradation from the overall Color slider and preserve the important hue.",
+        "tradeoff": "Stronger Chrome can change density beyond the desired object; compare with it Off.",
+        "adaptation": "Use the mildest strength that serves visible detail; do not claim it removes glare or fixes sensor clipping.",
+        "sources": [
+          {
+            "title": "Fujifilm REALA ACE characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/reala-ace/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "X100VI image quality controls",
+            "url": "https://fujifilm-dsc.com/en/manual/x100vi/menu_shooting/image_quality_setting/index.html",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "A processing effect cannot replace lighting or optical reflection control.",
+          "Precise product color needs a controlled color workflow beyond this proposal."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-mixed-interior",
+      "title": "Faces in mixed interiors",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Begin with adaptable Auto WB; diagnose the dominant subject light before adding a green/magenta correction.",
+      "tags": [
+        "believable face",
+        "cozy",
+        "atmosphere",
+        "no green faces",
+        "mixed",
+        "LED",
+        "fluorescent",
+        "tungsten",
+        "window",
+        "interior"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Mixed interior",
+        "film_sim": "Pro Neg Std",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR100",
+        "highlight": -0.5,
+        "shadow": -0.5,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "An adaptable starting point for faces and retained room atmosphere."
+      },
+      "design": {
+        "reference_id": "ref-mixed-interior",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "believable face",
+          "cozy",
+          "atmosphere",
+          "no green faces"
+        ],
+        "scene_tags": [
+          "mixed",
+          "LED",
+          "fluorescent",
+          "tungsten",
+          "window",
+          "interior"
+        ],
+        "avoid_tags": [
+          "uniform neutral correction"
+        ],
+        "rationale": "Begin with adaptable Auto WB; diagnose the dominant subject light before adding a green/magenta correction.",
+        "tradeoff": "One WB cannot neutralize differently lit regions; keeping ambience may leave some cast.",
+        "adaptation": "DR100 here is provisional for modest contrast, not an indoor rule. Bright windows/signs may justify higher DR.",
+        "sources": [
+          {
+            "title": "Fujifilm PRO Neg. Std and Hi characteristics",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/pro-neg-std/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "X100VI image quality controls",
+            "url": "https://fujifilm-dsc.com/en/manual/x100vi/menu_shooting/image_quality_setting/index.html",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "No precise Kelvin is inferred from a phone JPEG.",
+          "Auto WB and zero shift do not guarantee neutrality under LED spectra."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-gentle-monochrome",
+      "title": "Gentle monochrome separation",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Yellow filtering provides milder blue separation than red, on ACROS's own tonal/texture base.",
+      "tags": [
+        "monochrome",
+        "black and white",
+        "gesture",
+        "form",
+        "gentle",
+        "people",
+        "street",
+        "clouds"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Gentle B&W",
+        "film_sim": "Acros+Ye",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -0.5,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "A quieter monochrome interpretation of gesture and form."
+      },
+      "design": {
+        "reference_id": "ref-gentle-monochrome",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "monochrome",
+          "black and white",
+          "gesture",
+          "form",
+          "gentle"
+        ],
+        "scene_tags": [
+          "people",
+          "street",
+          "clouds"
+        ],
+        "avoid_tags": [
+          "retain color",
+          "all color"
+        ],
+        "rationale": "Yellow filtering provides milder blue separation than red, on ACROS's own tonal/texture base.",
+        "tradeoff": "Loses meaningful hue information; native monochrome tint is not represented by this Recipe.",
+        "adaptation": "Use only where color is optional, and check the camera's tint when neutral B&W matters.",
+        "sources": [
+          {
+            "title": "Fujifilm ACROS texture",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/acros/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "Fujifilm simulation use and filter behavior",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/empower-your-photography-with-fujifilm-film-simulations/",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "The signature is not a neutral-tint guarantee.",
+          "Added grain is distinct from ACROS's embedded ISO-dependent texture."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-dramatic-monochrome",
+      "title": "Dramatic monochrome separation",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "Red filtering darkens blues relative to reds, useful only when those relationships serve the photograph.",
+      "tags": [
+        "monochrome",
+        "black and white",
+        "graphic",
+        "dramatic",
+        "silhouette",
+        "blue sky",
+        "red brick",
+        "geometry",
+        "hard light"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Graphic B&W",
+        "film_sim": "Acros+R",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": 0,
+        "shadow": 1,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "Stronger color-to-tone separation for a deliberate graphic interpretation."
+      },
+      "design": {
+        "reference_id": "ref-dramatic-monochrome",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "monochrome",
+          "black and white",
+          "graphic",
+          "dramatic",
+          "silhouette"
+        ],
+        "scene_tags": [
+          "blue sky",
+          "red brick",
+          "geometry",
+          "hard light"
+        ],
+        "avoid_tags": [
+          "retain color",
+          "soft faces"
+        ],
+        "rationale": "Red filtering darkens blues relative to reds, useful only when those relationships serve the photograph.",
+        "tradeoff": "Harder shadows can lose face detail; a red object becomes lighter relative to a blue one.",
+        "adaptation": "Retain intentional silhouette rather than automatically lifting every face; choose gentler filtering for another goal.",
+        "sources": [
+          {
+            "title": "Fujifilm ACROS texture",
+            "url": "https://www.fujifilm-x.com/en-us/products/film-simulation/acros/",
+            "role": "manufacturer_fact"
+          },
+          {
+            "title": "Fujifilm simulation use and filter behavior",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/empower-your-photography-with-fujifilm-film-simulations/",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Not mandatory for midday, indoors or any particular weather.",
+          "Native monochrome tint remains unknown."
+        ],
+        "new_write_support": "mapped_value_subset"
+      }
+    },
+    {
+      "id": "ref-astia-context",
+      "title": "Gentle skin with surrounding color",
+      "author": "Dial In",
+      "origin": "original",
+      "source_url": null,
+      "description": "ASTIA can treat skin gently while retaining vivid surrounding blues/greens; it is not uniformly muted.",
+      "tags": [
+        "skin",
+        "portrait",
+        "natural",
+        "colorful",
+        "outdoors",
+        "blue sky",
+        "green foliage"
+      ],
+      "photographic_validation": "not_verified",
+      "recipe": {
+        "name": "Skin and color",
+        "film_sim": "Astia",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "color_chrome_fx_blue": "Off",
+        "white_balance": "Auto",
+        "kelvin": 0,
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR200",
+        "highlight": -0.5,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": 0,
+        "why": "An unmapped native alternative for skin and lively surroundings."
+      },
+      "design": {
+        "reference_id": "ref-astia-context",
+        "reference_version": "x100vi-directions-2026-10-14.1",
+        "camera": "X100VI",
+        "generation": "X-Trans V",
+        "photographic_validation": "not_rendered",
+        "exact_creator_copy": false,
+        "origin": "original_direction",
+        "intent_tags": [
+          "skin",
+          "portrait",
+          "natural",
+          "colorful"
+        ],
+        "scene_tags": [
+          "outdoors",
+          "blue sky",
+          "green foliage"
+        ],
+        "avoid_tags": [
+          "fully desaturated"
+        ],
+        "rationale": "ASTIA can treat skin gently while retaining vivid surrounding blues/greens; it is not uniformly muted.",
+        "tradeoff": "Native X100VI support does not establish a permitted new settings-file write in the current map.",
+        "adaptation": "An already-kept ASTIA bank can remain exact; a new mapped substitute must be called a compromise.",
+        "sources": [
+          {
+            "title": "Fujifilm simulation use and filter behavior",
+            "url": "https://www.fujifilm-x.com/en-gb/learning-centre/empower-your-photography-with-fujifilm-film-simulations/",
+            "role": "manufacturer_fact"
+          }
+        ],
+        "limitations": [
+          "Reference-only for new writes until mapping/acceptance evidence exists.",
+          "Pro Neg Std does not become an identical ASTIA rendering by copying these sliders."
+        ],
+        "new_write_support": "reference_only"
+      }
+    }
+  ]
+}

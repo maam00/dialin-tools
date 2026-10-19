@@ -1,0 +1,1590 @@
+{
+ "generator": "ios/DialInCamera/Tests/make-look-patch-vectors.py",
+ "base": {
+  "k": 4660,
+  "seed": 7,
+  "sha256": "96ac77c2cd730042e2eff39af999b6096bb66b34e22c150b844d1ca073c18416"
+ },
+ "cases": [
+  {
+   "name": "colour on Daylight with a WB shift",
+   "slots": [
+    1
+   ],
+   "looks": [
+    {
+     "name": "Shade at noon",
+     "film_sim": "Classic Chrome",
+     "grain": "Weak Small",
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Weak",
+     "white_balance": "Daylight",
+     "kelvin": 0,
+     "wb_shift_r": 2,
+     "wb_shift_b": -4,
+     "dynamic_range": "DR100",
+     "highlight": 1,
+     "shadow": -1.5,
+     "color": 2,
+     "sharpness": -1,
+     "noise_reduction": -4,
+     "clarity": 2,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     73
+    ],
+    [
+     265,
+     153
+    ],
+    [
+     63473,
+     3
+    ],
+    [
+     63503,
+     7
+    ],
+    [
+     63505,
+     13
+    ],
+    [
+     63531,
+     0
+    ],
+    [
+     63534,
+     8
+    ],
+    [
+     63588,
+     15
+    ],
+    [
+     63604,
+     1
+    ],
+    [
+     63606,
+     4
+    ],
+    [
+     63607,
+     5
+    ],
+    [
+     63609,
+     5
+    ],
+    [
+     63611,
+     6
+    ],
+    [
+     63613,
+     1
+    ],
+    [
+     63615,
+     2
+    ],
+    [
+     63616,
+     1
+    ],
+    [
+     63617,
+     1
+    ],
+    [
+     63618,
+     0
+    ],
+    [
+     63619,
+     0
+    ],
+    [
+     63973,
+     83
+    ],
+    [
+     63974,
+     104
+    ],
+    [
+     63975,
+     97
+    ],
+    [
+     63976,
+     100
+    ],
+    [
+     63977,
+     101
+    ],
+    [
+     63978,
+     32
+    ],
+    [
+     63979,
+     97
+    ],
+    [
+     63980,
+     116
+    ],
+    [
+     63981,
+     32
+    ],
+    [
+     63982,
+     110
+    ],
+    [
+     63984,
+     111
+    ],
+    [
+     63985,
+     110
+    ]
+   ],
+   "sha256": "8ddf75ee566946b58adb388e8b3f2e09bef682c61bc7628ae9a017f16d6ab66b",
+   "checksum": 39241,
+   "report": [
+    "C1 'Harbor color' -> 'Shade at noon': film_sim 87->0f dr_priority e8->04 dynamic_range 4c->01 grain_strength 58->01 smooth_skin 62->00 white_balance d6->03 highlight 72->06 shadow ac->01 sharpness 5f->05 nr b6->00 clarity 6c->08 grain_size 6d->00 color be->05 color_chrome 08->02 cc_fx_blue 5c->01 wb_shift_r 3f->07 wb_shift_b 45->0d"
+   ]
+  },
+  {
+   "name": "Kelvin look",
+   "slots": [
+    2
+   ],
+   "looks": [
+    {
+     "name": "Pier at dusk",
+     "film_sim": "Reala Ace",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Kelvin",
+     "kelvin": 6300,
+     "wb_shift_r": 1,
+     "wb_shift_b": -2,
+     "dynamic_range": "DR200",
+     "highlight": -0.5,
+     "shadow": 0.5,
+     "color": 1,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": -1,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     101
+    ],
+    [
+     265,
+     151
+    ],
+    [
+     64396,
+     156
+    ],
+    [
+     64397,
+     24
+    ],
+    [
+     64497,
+     10
+    ],
+    [
+     64523,
+     8
+    ],
+    [
+     64525,
+     11
+    ],
+    [
+     64555,
+     0
+    ],
+    [
+     64558,
+     5
+    ],
+    [
+     64612,
+     18
+    ],
+    [
+     64628,
+     2
+    ],
+    [
+     64630,
+     4
+    ],
+    [
+     64631,
+     6
+    ],
+    [
+     64633,
+     4
+    ],
+    [
+     64635,
+     3
+    ],
+    [
+     64637,
+     5
+    ],
+    [
+     64639,
+     0
+    ],
+    [
+     64640,
+     0
+    ],
+    [
+     64641,
+     2
+    ],
+    [
+     64643,
+     0
+    ],
+    [
+     64997,
+     80
+    ],
+    [
+     64998,
+     105
+    ],
+    [
+     64999,
+     101
+    ],
+    [
+     65000,
+     114
+    ],
+    [
+     65001,
+     32
+    ],
+    [
+     65002,
+     97
+    ],
+    [
+     65003,
+     116
+    ],
+    [
+     65004,
+     32
+    ],
+    [
+     65005,
+     100
+    ],
+    [
+     65006,
+     117
+    ],
+    [
+     65008,
+     107
+    ]
+   ],
+   "sha256": "0fa52dc31e1a47a5e4feb2e11b57098df20293edeb7f19d3d4a025a090faec70",
+   "checksum": 38757,
+   "report": [
+    "C2 'Sunny faces' -> 'Pier at dusk': film_sim a8->12 dr_priority fb->04 dynamic_range ab->02 grain_strength 03->02 smooth_skin 7a->00 white_balance a6->0a highlight 8f->03 shadow eb->05 sharpness bd->04 nr 8f->00 clarity 9b->05 kelvin 9db3->9c18 color 98->06 color_chrome c5->00 cc_fx_blue af->00 wb_shift_r 3e->08 wb_shift_b 35->0b"
+   ]
+  },
+  {
+   "name": "Kelvin 0 means 5500",
+   "slots": [
+    6
+   ],
+   "looks": [
+    {
+     "name": "Kelvin zero",
+     "film_sim": "Velvia",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Kelvin",
+     "kelvin": 0,
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 0,
+     "shadow": 0,
+     "color": 3,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     104
+    ],
+    [
+     265,
+     153
+    ],
+    [
+     68492,
+     124
+    ],
+    [
+     68493,
+     21
+    ],
+    [
+     68593,
+     10
+    ],
+    [
+     68619,
+     9
+    ],
+    [
+     68621,
+     9
+    ],
+    [
+     68651,
+     0
+    ],
+    [
+     68654,
+     6
+    ],
+    [
+     68708,
+     4
+    ],
+    [
+     68724,
+     1
+    ],
+    [
+     68726,
+     4
+    ],
+    [
+     68727,
+     4
+    ],
+    [
+     68729,
+     4
+    ],
+    [
+     68731,
+     4
+    ],
+    [
+     68733,
+     4
+    ],
+    [
+     68736,
+     0
+    ],
+    [
+     68737,
+     2
+    ],
+    [
+     68739,
+     0
+    ],
+    [
+     69093,
+     75
+    ],
+    [
+     69094,
+     101
+    ],
+    [
+     69095,
+     108
+    ],
+    [
+     69096,
+     118
+    ],
+    [
+     69097,
+     105
+    ],
+    [
+     69099,
+     32
+    ],
+    [
+     69100,
+     122
+    ],
+    [
+     69101,
+     101
+    ],
+    [
+     69102,
+     114
+    ],
+    [
+     69103,
+     111
+    ],
+    [
+     69104,
+     0
+    ],
+    [
+     69105,
+     0
+    ]
+   ],
+   "sha256": "f66eff56b17f4420b758c13f35a75f304944fc2e0749a6f60434d19ee1f440d5",
+   "checksum": 39272,
+   "report": [
+    "C6 'Hard noon B&W' -> 'Kelvin zero': film_sim 07->04 dr_priority 13->04 dynamic_range 0e->01 grain_strength db->02 smooth_skin e4->00 white_balance 58->0a highlight 37->04 shadow 55->04 sharpness b0->04 nr bd->00 clarity d5->06 kelvin e794->7c15 color 5e->04 cc_fx_blue 9f->00 wb_shift_r 5a->09 wb_shift_b 7f->09"
+   ]
+  },
+  {
+   "name": "Auto WB with a shift",
+   "slots": [
+    3
+   ],
+   "looks": [
+    {
+     "name": "Warm Auto",
+     "film_sim": "Pro Neg Std",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 3,
+     "wb_shift_b": -5,
+     "dynamic_range": "DR100",
+     "highlight": 2,
+     "shadow": 4,
+     "color": -1,
+     "sharpness": 2,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     166
+    ],
+    [
+     265,
+     153
+    ],
+    [
+     65521,
+     0
+    ],
+    [
+     65523,
+     6
+    ],
+    [
+     65525,
+     14
+    ],
+    [
+     65579,
+     0
+    ],
+    [
+     65582,
+     6
+    ],
+    [
+     65636,
+     13
+    ],
+    [
+     65652,
+     1
+    ],
+    [
+     65654,
+     4
+    ],
+    [
+     65655,
+     8
+    ],
+    [
+     65657,
+     2
+    ],
+    [
+     65659,
+     8
+    ],
+    [
+     65661,
+     12
+    ],
+    [
+     65663,
+     0
+    ],
+    [
+     65664,
+     0
+    ],
+    [
+     65665,
+     2
+    ],
+    [
+     65667,
+     0
+    ],
+    [
+     66021,
+     87
+    ],
+    [
+     66022,
+     97
+    ],
+    [
+     66023,
+     114
+    ],
+    [
+     66024,
+     109
+    ],
+    [
+     66026,
+     65
+    ],
+    [
+     66027,
+     117
+    ],
+    [
+     66028,
+     116
+    ],
+    [
+     66029,
+     111
+    ],
+    [
+     66030,
+     0
+    ],
+    [
+     66031,
+     0
+    ],
+    [
+     66032,
+     0
+    ],
+    [
+     66033,
+     0
+    ]
+   ],
+   "sha256": "b5693be9bad4dc4e13693d6bfb1e8db58b53aae5c27c949a2ff4c050e3efcca2",
+   "checksum": 39334,
+   "report": [
+    "C3 'Deep blue sea' -> 'Warm Auto': film_sim 5f->0d dr_priority 12->04 dynamic_range 88->01 grain_strength c0->02 smooth_skin b8->00 white_balance 0f->00 highlight 30->08 shadow 30->0c sharpness 5c->02 nr 94->00 clarity 3a->06 color 19->08 color_chrome 35->00 cc_fx_blue cb->00 wb_shift_r 6b->06 wb_shift_b b0->0e"
+   ]
+  },
+  {
+   "name": "mono look skips colour",
+   "slots": [
+    4
+   ],
+   "looks": [
+    {
+     "name": "Rainy B&W",
+     "film_sim": "Acros+R",
+     "grain": "Strong Small",
+     "color_chrome": "Strong",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 5,
+     "wb_shift_b": 5,
+     "dynamic_range": "DR100",
+     "highlight": 2,
+     "shadow": 2,
+     "color": 4,
+     "sharpness": 1,
+     "noise_reduction": -4,
+     "clarity": 3,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     167
+    ],
+    [
+     265,
+     152
+    ],
+    [
+     66545,
+     0
+    ],
+    [
+     66603,
+     0
+    ],
+    [
+     66606,
+     9
+    ],
+    [
+     66660,
+     23
+    ],
+    [
+     66676,
+     1
+    ],
+    [
+     66678,
+     4
+    ],
+    [
+     66681,
+     3
+    ],
+    [
+     66683,
+     8
+    ],
+    [
+     66685,
+     8
+    ],
+    [
+     66689,
+     0
+    ],
+    [
+     66690,
+     0
+    ],
+    [
+     66691,
+     0
+    ],
+    [
+     67045,
+     82
+    ],
+    [
+     67046,
+     97
+    ],
+    [
+     67047,
+     105
+    ],
+    [
+     67048,
+     110
+    ],
+    [
+     67049,
+     121
+    ],
+    [
+     67050,
+     32
+    ],
+    [
+     67051,
+     66
+    ],
+    [
+     67052,
+     38
+    ],
+    [
+     67053,
+     87
+    ],
+    [
+     67054,
+     0
+    ],
+    [
+     67055,
+     0
+    ],
+    [
+     67056,
+     0
+    ],
+    [
+     67057,
+     0
+    ]
+   ],
+   "sha256": "02fc38216a7121674397005e9c76f46caffd0ca9a0aac3d2914409b86a681576",
+   "checksum": 39079,
+   "report": [
+    "C4 'Old fisherman' -> 'Rainy B&W': film_sim 45->17 dr_priority d7->04 dynamic_range fb->01 grain_strength 82->00 smooth_skin 5c->00 white_balance 84->00 highlight 55->08 shadow 4d->08 sharpness ed->03 nr 46->00 clarity b2->09 grain_size 5e->00"
+   ]
+  },
+  {
+   "name": "DR400 and grain Weak Large",
+   "slots": [
+    5
+   ],
+   "looks": [
+    {
+     "name": "Dock DR400",
+     "film_sim": "Nostalgic Neg",
+     "grain": "Weak Large",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR400",
+     "highlight": -2,
+     "shadow": -2,
+     "color": 0,
+     "sharpness": -4,
+     "noise_reduction": -4,
+     "clarity": -5,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     158
+    ],
+    [
+     265,
+     152
+    ],
+    [
+     67569,
+     0
+    ],
+    [
+     67571,
+     9
+    ],
+    [
+     67573,
+     9
+    ],
+    [
+     67627,
+     0
+    ],
+    [
+     67630,
+     1
+    ],
+    [
+     67684,
+     17
+    ],
+    [
+     67700,
+     3
+    ],
+    [
+     67702,
+     4
+    ],
+    [
+     67703,
+     0
+    ],
+    [
+     67705,
+     8
+    ],
+    [
+     67707,
+     0
+    ],
+    [
+     67709,
+     0
+    ],
+    [
+     67711,
+     0
+    ],
+    [
+     67712,
+     0
+    ],
+    [
+     67713,
+     1
+    ],
+    [
+     67714,
+     1
+    ],
+    [
+     67715,
+     0
+    ],
+    [
+     68069,
+     68
+    ],
+    [
+     68070,
+     111
+    ],
+    [
+     68071,
+     99
+    ],
+    [
+     68072,
+     107
+    ],
+    [
+     68073,
+     32
+    ],
+    [
+     68074,
+     68
+    ],
+    [
+     68075,
+     82
+    ],
+    [
+     68076,
+     52
+    ],
+    [
+     68077,
+     48
+    ],
+    [
+     68078,
+     48
+    ]
+   ],
+   "sha256": "bf93d175bfffa3375fec1ccbc6172d685b0c296fd1a0c34eead6ad00ed5ca46e",
+   "checksum": 39070,
+   "report": [
+    "C5 'Faded dock' -> 'Dock DR400': film_sim f4->11 dr_priority f4->04 dynamic_range 1f->03 grain_strength 3b->01 smooth_skin ab->00 white_balance 76->00 highlight 02->00 shadow 13->00 sharpness 23->08 nr 29->00 clarity 6d->01 grain_size be->01 color 9a->00 color_chrome b0->00 cc_fx_blue 49->00 wb_shift_r 62->09 wb_shift_b d0->09"
+   ]
+  },
+  {
+   "name": "needs allow_inferred, refused",
+   "slots": [
+    7
+   ],
+   "looks": [
+    {
+     "name": "Classic Neg",
+     "film_sim": "Classic Neg",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Shade",
+     "kelvin": 0,
+     "wb_shift_r": 1,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 0,
+     "shadow": 0,
+     "color": 4,
+     "sharpness": 0,
+     "noise_reduction": 0,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": false,
+   "refused": [
+    "C7 film_sim=17: encoding inferred, not seen on a real file (--allow-inferred)",
+    "C7 white_balance=32774: encoding inferred, not seen on a real file (--allow-inferred)",
+    "C7 nr=0: encoding inferred, not seen on a real file (--allow-inferred)",
+    "C7 color=4.0: encoding inferred, not seen on a real file (--allow-inferred)",
+    "C7 wb_shift_r: WB-table entry 8 never seen (--allow-inferred)",
+    "C7 wb_shift_b: WB-table entry 8 never seen (--allow-inferred)"
+   ]
+  },
+  {
+   "name": "needs allow_inferred, allowed",
+   "slots": [
+    7
+   ],
+   "looks": [
+    {
+     "name": "Classic Neg",
+     "film_sim": "Classic Neg",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Shade",
+     "kelvin": 0,
+     "wb_shift_r": 1,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 0,
+     "shadow": 0,
+     "color": 4,
+     "sharpness": 0,
+     "noise_reduction": 0,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": true,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     149
+    ],
+    [
+     265,
+     152
+    ],
+    [
+     69617,
+     4
+    ],
+    [
+     69651,
+     8
+    ],
+    [
+     69653,
+     9
+    ],
+    [
+     69675,
+     4
+    ],
+    [
+     69678,
+     6
+    ],
+    [
+     69732,
+     16
+    ],
+    [
+     69748,
+     1
+    ],
+    [
+     69750,
+     4
+    ],
+    [
+     69751,
+     3
+    ],
+    [
+     69753,
+     4
+    ],
+    [
+     69755,
+     4
+    ],
+    [
+     69757,
+     4
+    ],
+    [
+     69759,
+     0
+    ],
+    [
+     69760,
+     0
+    ],
+    [
+     69761,
+     2
+    ],
+    [
+     69763,
+     0
+    ],
+    [
+     70117,
+     67
+    ],
+    [
+     70118,
+     108
+    ],
+    [
+     70119,
+     97
+    ],
+    [
+     70120,
+     115
+    ],
+    [
+     70121,
+     115
+    ],
+    [
+     70122,
+     105
+    ],
+    [
+     70123,
+     99
+    ],
+    [
+     70124,
+     32
+    ],
+    [
+     70125,
+     78
+    ],
+    [
+     70126,
+     101
+    ],
+    [
+     70127,
+     103
+    ]
+   ],
+   "sha256": "b8528692c3a63365356a5d1c321b13c45ac8743a607c59c08baa3f42591a1589",
+   "checksum": 39061,
+   "report": [
+    "C7 'Gritty B&W' -> 'Classic Neg': film_sim 17->10 dr_priority de->04 dynamic_range e1->01 grain_strength 57->02 smooth_skin 4b->00 white_balance 9b->04 highlight f8->04 shadow e5->04 sharpness 46->04 nr 85->04 clarity 55->06 color 52->03 color_chrome 8a->00 cc_fx_blue a7->00 wb_shift_r c6->08 wb_shift_b d8->09"
+   ]
+  },
+  {
+   "name": "two looks into C3 and C5",
+   "slots": [
+    3,
+    5
+   ],
+   "looks": [
+    {
+     "name": "Shade & Pier",
+     "film_sim": "Acros+Ye",
+     "grain": "Strong Large",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 1.5,
+     "shadow": 0,
+     "color": 0,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "why": ""
+    },
+    {
+     "name": "Sunset dock",
+     "film_sim": "Reala Ace",
+     "grain": "Off",
+     "color_chrome": "Weak",
+     "color_chrome_fx_blue": "Strong",
+     "white_balance": "Daylight",
+     "kelvin": 0,
+     "wb_shift_r": -3,
+     "wb_shift_b": 2,
+     "dynamic_range": "DR100",
+     "highlight": 0,
+     "shadow": 0,
+     "color": 3,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 1,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     135
+    ],
+    [
+     265,
+     149
+    ],
+    [
+     65521,
+     0
+    ],
+    [
+     65579,
+     0
+    ],
+    [
+     65582,
+     6
+    ],
+    [
+     65636,
+     24
+    ],
+    [
+     65652,
+     1
+    ],
+    [
+     65654,
+     4
+    ],
+    [
+     65657,
+     4
+    ],
+    [
+     65659,
+     7
+    ],
+    [
+     65661,
+     4
+    ],
+    [
+     65665,
+     0
+    ],
+    [
+     65666,
+     1
+    ],
+    [
+     65667,
+     0
+    ],
+    [
+     66021,
+     83
+    ],
+    [
+     66022,
+     104
+    ],
+    [
+     66023,
+     97
+    ],
+    [
+     66024,
+     100
+    ],
+    [
+     66025,
+     101
+    ],
+    [
+     66026,
+     32
+    ],
+    [
+     66027,
+     38
+    ],
+    [
+     66028,
+     32
+    ],
+    [
+     66029,
+     80
+    ],
+    [
+     66030,
+     105
+    ],
+    [
+     66031,
+     101
+    ],
+    [
+     66032,
+     114
+    ],
+    [
+     66033,
+     0
+    ],
+    [
+     67569,
+     3
+    ],
+    [
+     67599,
+     12
+    ],
+    [
+     67601,
+     7
+    ],
+    [
+     67627,
+     0
+    ],
+    [
+     67630,
+     7
+    ],
+    [
+     67684,
+     18
+    ],
+    [
+     67700,
+     1
+    ],
+    [
+     67702,
+     4
+    ],
+    [
+     67703,
+     4
+    ],
+    [
+     67705,
+     4
+    ],
+    [
+     67707,
+     4
+    ],
+    [
+     67709,
+     4
+    ],
+    [
+     67711,
+     1
+    ],
+    [
+     67712,
+     2
+    ],
+    [
+     67713,
+     2
+    ],
+    [
+     67715,
+     0
+    ],
+    [
+     68069,
+     83
+    ],
+    [
+     68070,
+     117
+    ],
+    [
+     68071,
+     110
+    ],
+    [
+     68072,
+     115
+    ],
+    [
+     68073,
+     101
+    ],
+    [
+     68074,
+     116
+    ],
+    [
+     68075,
+     32
+    ],
+    [
+     68076,
+     100
+    ],
+    [
+     68077,
+     111
+    ],
+    [
+     68078,
+     99
+    ],
+    [
+     68079,
+     107
+    ]
+   ],
+   "sha256": "666fd26bfdfc396e33d7a6421faf40c5660e7903c1933775e1350e75ece05ead",
+   "checksum": 38279,
+   "report": [
+    "C3 'Deep blue sea' -> 'Shade & Pier': film_sim 5f->18 dr_priority 12->04 dynamic_range 88->01 grain_strength c0->00 smooth_skin b8->00 white_balance 0f->00 highlight 30->07 shadow 30->04 sharpness 5c->04 nr 94->00 clarity 3a->06 grain_size 8d->01",
+    "C5 'Faded dock' -> 'Sunset dock': film_sim f4->12 dr_priority f4->04 dynamic_range 1f->01 grain_strength 3b->02 smooth_skin ab->00 white_balance 76->03 highlight 02->04 shadow 13->04 sharpness 23->04 nr 29->00 clarity 6d->07 color 9a->04 color_chrome b0->01 cc_fx_blue 49->02 wb_shift_r dd->0c wb_shift_b 8e->07"
+   ]
+  },
+  {
+   "name": "a long name is cut to 14",
+   "slots": [
+    1
+   ],
+   "looks": [
+    {
+     "name": "A very long look name indeed",
+     "film_sim": "Velvia",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 0,
+     "shadow": 0,
+     "color": 1,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": true,
+   "changed": [
+    [
+     264,
+     255
+    ],
+    [
+     265,
+     152
+    ],
+    [
+     63473,
+     0
+    ],
+    [
+     63475,
+     9
+    ],
+    [
+     63477,
+     9
+    ],
+    [
+     63531,
+     0
+    ],
+    [
+     63534,
+     6
+    ],
+    [
+     63588,
+     4
+    ],
+    [
+     63604,
+     1
+    ],
+    [
+     63606,
+     4
+    ],
+    [
+     63607,
+     6
+    ],
+    [
+     63609,
+     4
+    ],
+    [
+     63611,
+     4
+    ],
+    [
+     63613,
+     4
+    ],
+    [
+     63615,
+     0
+    ],
+    [
+     63616,
+     0
+    ],
+    [
+     63617,
+     2
+    ],
+    [
+     63619,
+     0
+    ],
+    [
+     63973,
+     65
+    ],
+    [
+     63974,
+     32
+    ],
+    [
+     63975,
+     118
+    ],
+    [
+     63976,
+     101
+    ],
+    [
+     63977,
+     114
+    ],
+    [
+     63978,
+     121
+    ],
+    [
+     63980,
+     108
+    ],
+    [
+     63982,
+     110
+    ],
+    [
+     63983,
+     103
+    ],
+    [
+     63984,
+     32
+    ],
+    [
+     63985,
+     108
+    ],
+    [
+     63986,
+     111
+    ]
+   ],
+   "sha256": "a50a95de531b690ed88f541c74c5639b2130c4ec8fc8da60299de0b2d4a03de7",
+   "checksum": 39167,
+   "report": [
+    "C1 'Harbor color' -> 'A very long lo': film_sim 87->04 dr_priority e8->04 dynamic_range 4c->01 grain_strength 58->02 smooth_skin 62->00 white_balance d6->00 highlight 72->04 shadow ac->04 sharpness 5f->04 nr b6->00 clarity 6c->06 color be->06 color_chrome 08->00 cc_fx_blue 5c->00 wb_shift_r cf->09 wb_shift_b 97->09"
+   ]
+  },
+  {
+   "name": "unrepresentable highlight",
+   "slots": [
+    1
+   ],
+   "looks": [
+    {
+     "name": "Quarter",
+     "film_sim": "Velvia",
+     "grain": "Off",
+     "color_chrome": "Off",
+     "color_chrome_fx_blue": "Off",
+     "white_balance": "Auto",
+     "kelvin": 0,
+     "wb_shift_r": 0,
+     "wb_shift_b": 0,
+     "dynamic_range": "DR100",
+     "highlight": 0.25,
+     "shadow": 0,
+     "color": 0,
+     "sharpness": 0,
+     "noise_reduction": -4,
+     "clarity": 0,
+     "why": ""
+    }
+   ],
+   "allow_inferred": false,
+   "ok": false,
+   "error": "0.25 isn't representable (value = 0.5*raw - 2 gives raw 4.5)"
+  }
+ ]
+}

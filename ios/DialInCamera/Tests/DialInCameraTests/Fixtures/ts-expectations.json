@@ -1,0 +1,575 @@
+{
+  "_source": "Generated 2026-10-08 by running lib/fuji/recipe.ts (slotName, recipeToPresetValues, presetValuesToText) and lib/fuji/vendor/preset-translate.ts (translateUIToPresetProps with no base, translatePresetToUI) under tsx. 'block' is FilmKit's full encoded D18E-D1A5 block, not the write sequence (see slot-write-vectors.json for that).",
+  "slotNames": [
+    [
+      "Café ☀️ Golden hour forever",
+      "Cafe  Golden h"
+    ],
+    [
+      "  Moody B&W  ",
+      "Moody B&W"
+    ],
+    [
+      "🌊🌊",
+      "AI Look"
+    ],
+    [
+      "Ünïcödé Nights",
+      "Unicode Nights"
+    ],
+    [
+      "Exactly14chars",
+      "Exactly14chars"
+    ],
+    [
+      "Fifteen chars!!",
+      "Fifteen chars!"
+    ],
+    [
+      "tab\there",
+      "tabhere"
+    ]
+  ],
+  "summaries": [
+    {
+      "recipe": {
+        "color_chrome_fx_blue": "Off",
+        "kelvin": 0,
+        "why": "",
+        "name": "Warm Gold",
+        "film_sim": "Classic Chrome",
+        "grain": "Weak Large",
+        "color_chrome": "Strong",
+        "white_balance": "Daylight",
+        "wb_shift_r": 2,
+        "wb_shift_b": -3,
+        "dynamic_range": "DR400",
+        "highlight": -0.5,
+        "shadow": 1.5,
+        "color": 1,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": -1
+      },
+      "block": [
+        {
+          "id": 53646,
+          "hex": "0700"
+        },
+        {
+          "id": 53647,
+          "hex": "0400"
+        },
+        {
+          "id": 53648,
+          "hex": "9001"
+        },
+        {
+          "id": 53649,
+          "hex": "0000"
+        },
+        {
+          "id": 53650,
+          "hex": "0b00"
+        },
+        {
+          "id": 53653,
+          "hex": "0400"
+        },
+        {
+          "id": 53654,
+          "hex": "0300"
+        },
+        {
+          "id": 53655,
+          "hex": "0100"
+        },
+        {
+          "id": 53656,
+          "hex": "0100"
+        },
+        {
+          "id": 53657,
+          "hex": "0400"
+        },
+        {
+          "id": 53658,
+          "hex": "0200"
+        },
+        {
+          "id": 53659,
+          "hex": "fdff"
+        },
+        {
+          "id": 53661,
+          "hex": "fbff"
+        },
+        {
+          "id": 53662,
+          "hex": "0f00"
+        },
+        {
+          "id": 53663,
+          "hex": "0a00"
+        },
+        {
+          "id": 53664,
+          "hex": "f6ff"
+        },
+        {
+          "id": 53665,
+          "hex": "0080"
+        },
+        {
+          "id": 53666,
+          "hex": "f6ff"
+        },
+        {
+          "id": 53667,
+          "hex": "0100"
+        },
+        {
+          "id": 53668,
+          "hex": "0100"
+        },
+        {
+          "id": 53669,
+          "hex": "0700"
+        }
+      ],
+      "summary": "Classic Chrome · DR400 · grain Weak Large · CC Strong/Off · Daylight R2 B-3 · H-0.5 S1.5 C1 Sh-1 NR-4 Cl-1"
+    },
+    {
+      "recipe": {
+        "color_chrome_fx_blue": "Off",
+        "kelvin": 5300,
+        "why": "",
+        "name": "Cinematic",
+        "film_sim": "Nostalgic Neg",
+        "grain": "Strong Small",
+        "color_chrome": "Weak",
+        "white_balance": "Kelvin",
+        "wb_shift_r": 1,
+        "wb_shift_b": -2,
+        "dynamic_range": "DR400",
+        "highlight": 1.5,
+        "shadow": -1,
+        "color": -2,
+        "sharpness": -1,
+        "noise_reduction": -4,
+        "clarity": -3
+      },
+      "block": [
+        {
+          "id": 53646,
+          "hex": "0700"
+        },
+        {
+          "id": 53647,
+          "hex": "0400"
+        },
+        {
+          "id": 53648,
+          "hex": "9001"
+        },
+        {
+          "id": 53649,
+          "hex": "0000"
+        },
+        {
+          "id": 53650,
+          "hex": "1300"
+        },
+        {
+          "id": 53653,
+          "hex": "0300"
+        },
+        {
+          "id": 53654,
+          "hex": "0200"
+        },
+        {
+          "id": 53655,
+          "hex": "0100"
+        },
+        {
+          "id": 53656,
+          "hex": "0100"
+        },
+        {
+          "id": 53657,
+          "hex": "0780"
+        },
+        {
+          "id": 53660,
+          "hex": "b414"
+        },
+        {
+          "id": 53658,
+          "hex": "0100"
+        },
+        {
+          "id": 53659,
+          "hex": "feff"
+        },
+        {
+          "id": 53661,
+          "hex": "0f00"
+        },
+        {
+          "id": 53662,
+          "hex": "f6ff"
+        },
+        {
+          "id": 53663,
+          "hex": "ecff"
+        },
+        {
+          "id": 53664,
+          "hex": "f6ff"
+        },
+        {
+          "id": 53665,
+          "hex": "0080"
+        },
+        {
+          "id": 53666,
+          "hex": "e2ff"
+        },
+        {
+          "id": 53667,
+          "hex": "0100"
+        },
+        {
+          "id": 53668,
+          "hex": "0100"
+        },
+        {
+          "id": 53669,
+          "hex": "0700"
+        }
+      ],
+      "summary": "Nostalgic Neg · DR400 · grain Strong Small · CC Weak/Off · Kelvin 5300K R1 B-2 · H1.5 S-1 C-2 Sh-1 NR-4 Cl-3"
+    },
+    {
+      "recipe": {
+        "color_chrome_fx_blue": "Off",
+        "kelvin": 0,
+        "why": "",
+        "name": "Hard B&W",
+        "film_sim": "Acros+R",
+        "grain": "Strong Small",
+        "color_chrome": "Off",
+        "white_balance": "Auto",
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR100",
+        "highlight": 4,
+        "shadow": 1.5,
+        "color": 0,
+        "sharpness": -3,
+        "noise_reduction": -4,
+        "clarity": 5
+      },
+      "block": [
+        {
+          "id": 53646,
+          "hex": "0700"
+        },
+        {
+          "id": 53647,
+          "hex": "0400"
+        },
+        {
+          "id": 53648,
+          "hex": "6400"
+        },
+        {
+          "id": 53649,
+          "hex": "0000"
+        },
+        {
+          "id": 53650,
+          "hex": "0e00"
+        },
+        {
+          "id": 53653,
+          "hex": "0300"
+        },
+        {
+          "id": 53654,
+          "hex": "0100"
+        },
+        {
+          "id": 53655,
+          "hex": "0100"
+        },
+        {
+          "id": 53656,
+          "hex": "0100"
+        },
+        {
+          "id": 53657,
+          "hex": "0200"
+        },
+        {
+          "id": 53658,
+          "hex": "0000"
+        },
+        {
+          "id": 53659,
+          "hex": "0000"
+        },
+        {
+          "id": 53661,
+          "hex": "2800"
+        },
+        {
+          "id": 53662,
+          "hex": "0f00"
+        },
+        {
+          "id": 53664,
+          "hex": "e2ff"
+        },
+        {
+          "id": 53665,
+          "hex": "0080"
+        },
+        {
+          "id": 53666,
+          "hex": "3200"
+        },
+        {
+          "id": 53667,
+          "hex": "0100"
+        },
+        {
+          "id": 53668,
+          "hex": "0100"
+        },
+        {
+          "id": 53669,
+          "hex": "0700"
+        }
+      ],
+      "summary": "Acros+R · DR100 · grain Strong Small · CC Off/Off · Auto R0 B0 · H4 S1.5 C0 Sh-3 NR-4 Cl5"
+    },
+    {
+      "recipe": {
+        "color_chrome_fx_blue": "Off",
+        "kelvin": 0,
+        "why": "",
+        "name": "Soft B&W",
+        "film_sim": "Monochrome+G",
+        "grain": "Weak Small",
+        "color_chrome": "Off",
+        "white_balance": "Daylight",
+        "wb_shift_r": -3,
+        "wb_shift_b": -1,
+        "dynamic_range": "DR200",
+        "highlight": -1,
+        "shadow": 0.5,
+        "color": 0,
+        "sharpness": 0,
+        "noise_reduction": -4,
+        "clarity": -2
+      },
+      "block": [
+        {
+          "id": 53646,
+          "hex": "0700"
+        },
+        {
+          "id": 53647,
+          "hex": "0400"
+        },
+        {
+          "id": 53648,
+          "hex": "c800"
+        },
+        {
+          "id": 53649,
+          "hex": "0000"
+        },
+        {
+          "id": 53650,
+          "hex": "0900"
+        },
+        {
+          "id": 53653,
+          "hex": "0200"
+        },
+        {
+          "id": 53654,
+          "hex": "0100"
+        },
+        {
+          "id": 53655,
+          "hex": "0100"
+        },
+        {
+          "id": 53656,
+          "hex": "0100"
+        },
+        {
+          "id": 53657,
+          "hex": "0400"
+        },
+        {
+          "id": 53658,
+          "hex": "fdff"
+        },
+        {
+          "id": 53659,
+          "hex": "ffff"
+        },
+        {
+          "id": 53661,
+          "hex": "f6ff"
+        },
+        {
+          "id": 53662,
+          "hex": "0500"
+        },
+        {
+          "id": 53664,
+          "hex": "0000"
+        },
+        {
+          "id": 53665,
+          "hex": "0080"
+        },
+        {
+          "id": 53666,
+          "hex": "ecff"
+        },
+        {
+          "id": 53667,
+          "hex": "0100"
+        },
+        {
+          "id": 53668,
+          "hex": "0100"
+        },
+        {
+          "id": 53669,
+          "hex": "0700"
+        }
+      ],
+      "summary": "Monochrome+G · DR200 · grain Weak Small · CC Off/Off · Daylight R-3 B-1 · H-1 S0.5 C0 Sh0 NR-4 Cl-2"
+    },
+    {
+      "recipe": {
+        "color_chrome_fx_blue": "Off",
+        "kelvin": 0,
+        "why": "",
+        "name": "Kelvin zero",
+        "film_sim": "Provia",
+        "grain": "Off",
+        "color_chrome": "Off",
+        "white_balance": "Kelvin",
+        "wb_shift_r": 0,
+        "wb_shift_b": 0,
+        "dynamic_range": "DR100",
+        "highlight": 0,
+        "shadow": 0,
+        "color": 0,
+        "sharpness": 0,
+        "noise_reduction": 1,
+        "clarity": 0
+      },
+      "block": [
+        {
+          "id": 53646,
+          "hex": "0700"
+        },
+        {
+          "id": 53647,
+          "hex": "0400"
+        },
+        {
+          "id": 53648,
+          "hex": "6400"
+        },
+        {
+          "id": 53649,
+          "hex": "0000"
+        },
+        {
+          "id": 53650,
+          "hex": "0100"
+        },
+        {
+          "id": 53653,
+          "hex": "0100"
+        },
+        {
+          "id": 53654,
+          "hex": "0100"
+        },
+        {
+          "id": 53655,
+          "hex": "0100"
+        },
+        {
+          "id": 53656,
+          "hex": "0100"
+        },
+        {
+          "id": 53657,
+          "hex": "0780"
+        },
+        {
+          "id": 53660,
+          "hex": "7c15"
+        },
+        {
+          "id": 53658,
+          "hex": "0000"
+        },
+        {
+          "id": 53659,
+          "hex": "0000"
+        },
+        {
+          "id": 53661,
+          "hex": "0000"
+        },
+        {
+          "id": 53662,
+          "hex": "0000"
+        },
+        {
+          "id": 53663,
+          "hex": "0000"
+        },
+        {
+          "id": 53664,
+          "hex": "0000"
+        },
+        {
+          "id": 53665,
+          "hex": "0010"
+        },
+        {
+          "id": 53666,
+          "hex": "0000"
+        },
+        {
+          "id": 53667,
+          "hex": "0100"
+        },
+        {
+          "id": 53668,
+          "hex": "0100"
+        },
+        {
+          "id": 53669,
+          "hex": "0700"
+        }
+      ],
+      "summary": "Provia · DR100 · grain Off · CC Off/Off · Kelvin 5500K R0 B0 · H0 S0 C0 Sh0 NR1 Cl0"
+    }
+  ]
+}

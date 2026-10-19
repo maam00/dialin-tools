@@ -1,0 +1,731 @@
+{
+  "tool": "fuji_ble.correlate",
+  "format": 1,
+  "layout": "X100VI-fw1.10",
+  "created": "2026-10-09T13:58:38+00:00",
+  "source": {
+    "provenance": "Independently described X100VI 1.10 field map; private source receipt omitted",
+    "size": 70524,
+    "model": "X100VI",
+    "firmware": "1.10",
+    "truth": "seven looks written by PTP just before the backup, every prop read back identical"
+  },
+  "records": {
+    "method": "layout",
+    "anchors": [
+      63488,
+      64512,
+      65536,
+      66560,
+      67584,
+      68608,
+      69632
+    ],
+    "stride": 1024,
+    "note": "last seven 0x400-aligned blocks; C1 @0xF800 on the 70,524-byte fw 1.10 file; C7 ends at +0x37C",
+    "name": {
+      "rel": 485,
+      "encoding": "ascii",
+      "field_len": 26,
+      "max_chars": 25,
+      "confidence": 0.95,
+      "evidence": "7/7 names, NUL-terminated ASCII; field length assumed 26 like the X-T5 (zeros follow); no X-T5-style tag seen after user names"
+    }
+  },
+  "fields": {
+    "film_sim": {
+      "label": "Film simulation (PTP code)",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": 100,
+      "rel_hex": "+0x64",
+      "interp": "u8",
+      "encoding": {
+        "type": "enum",
+        "map": {
+          "20": 18,
+          "5": 13,
+          "2": 4,
+          "11": 15,
+          "19": 17,
+          "14": 23,
+          "13": 24
+        },
+        "inferred": {
+          "1": 1,
+          "3": 2,
+          "10": 6,
+          "6": 9,
+          "8": 10,
+          "7": 11,
+          "9": 12,
+          "4": 14,
+          "17": 16,
+          "16": 19,
+          "18": 20,
+          "12": 22,
+          "15": 25
+        },
+        "inferred_source": "X-T5 table with Reala Ace at 0x12 and X-T5 codes >= 0x12 shifted +1; explains all 7 observed codes, the rest unconfirmed"
+      },
+      "abs": [
+        63588,
+        64612,
+        65636,
+        66660,
+        67684,
+        68708,
+        69732
+      ],
+      "evidence": "7/7 slots, 7 distinct sims; 4 match the X-T5 code exactly, 3 (Reala, Acros+R, Acros+Ye) fit the shifted table. Location certain; unobserved codes inferred."
+    },
+    "dynamic_range": {
+      "label": "DR % (0 = auto)",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": 116,
+      "rel_hex": "+0x74",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "index",
+        "c0": 0,
+        "c1": 1,
+        "formula": "index = raw"
+      },
+      "abs": [
+        63604,
+        64628,
+        65652,
+        66676,
+        67700,
+        68724,
+        69748
+      ],
+      "evidence": "7/7, DR100/200/400 all seen; X-T5 index encoding"
+    },
+    "dr_priority": {
+      "label": "D-Range Priority (0 off,1 weak,2 strong,0x8000 auto)",
+      "status": "inferred",
+      "confidence": 0.5,
+      "rel": 118,
+      "rel_hex": "+0x76",
+      "interp": "u8",
+      "encoding": {
+        "type": "enum",
+        "map": {
+          "0": 4
+        },
+        "inferred": {
+          "1": 3,
+          "2": 2,
+          "32768": 0
+        }
+      },
+      "abs": [
+        63606,
+        64630,
+        65654,
+        66678,
+        67702,
+        68726,
+        69750
+      ],
+      "evidence": "constant (Off = 4 on all 7 slots, as on the X-T5); position from the X-T5 struct",
+      "observed_values": {
+        "0": 4
+      }
+    },
+    "color": {
+      "label": "Color",
+      "status": "located",
+      "confidence": 0.85,
+      "rel": 119,
+      "rel_hex": "+0x77",
+      "interp": "u8",
+      "encoding": {
+        "type": "enum",
+        "map": {
+          "1.0": 6,
+          "0.0": 0,
+          "2.0": 5,
+          "-1.0": 8,
+          "3.0": 4
+        },
+        "inferred": {
+          "4.0": 3,
+          "-2.0": 9,
+          "-3.0": 10,
+          "-4.0": 11
+        },
+        "decode_aliases": {
+          "7": "0.0"
+        },
+        "note": "Color 0 stored as raw 0 on both slots that had it (X-T5: 7). Other values 7 - v."
+      },
+      "abs": [
+        63607,
+        64631,
+        65655,
+        66679,
+        67703,
+        68727,
+        69751
+      ],
+      "evidence": "7/7 incl. 2 mono slots holding their old Color; 5 distinct values"
+    },
+    "sharpness": {
+      "label": "Sharpness",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": 121,
+      "rel_hex": "+0x79",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 4,
+        "c1": -1,
+        "formula": "value = 4 - raw"
+      },
+      "abs": [
+        63609,
+        64633,
+        65657,
+        66681,
+        67705,
+        68729,
+        69753
+      ],
+      "evidence": "7/7, 4 distinct; X-T5 encoding"
+    },
+    "highlight": {
+      "label": "Highlight",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": 123,
+      "rel_hex": "+0x7b",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -2,
+        "c1": 0.5,
+        "formula": "value = 0.5*raw - 2"
+      },
+      "abs": [
+        63611,
+        64635,
+        65659,
+        66683,
+        67707,
+        68731,
+        69755
+      ],
+      "evidence": "7/7, 5 distinct; X-T5 encoding"
+    },
+    "shadow": {
+      "label": "Shadow",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": 125,
+      "rel_hex": "+0x7d",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -2,
+        "c1": 0.5,
+        "formula": "value = 0.5*raw - 2"
+      },
+      "abs": [
+        63613,
+        64637,
+        65661,
+        66685,
+        67709,
+        68733,
+        69757
+      ],
+      "evidence": "7/7, 6 distinct; X-T5 encoding"
+    },
+    "color_chrome": {
+      "label": "Color chrome 0/1/2",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": 127,
+      "rel_hex": "+0x7f",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 0,
+        "c1": 1,
+        "formula": "value = raw"
+      },
+      "abs": [
+        63615,
+        64639,
+        65663,
+        66687,
+        67711,
+        68735,
+        69759
+      ],
+      "evidence": "7/7, 3 distinct (incl. 2 mono slots' kept value)"
+    },
+    "cc_fx_blue": {
+      "label": "CC FX Blue 0/1/2",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": 128,
+      "rel_hex": "+0x80",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 0,
+        "c1": 1,
+        "formula": "value = raw"
+      },
+      "abs": [
+        63616,
+        64640,
+        65664,
+        66688,
+        67712,
+        68736,
+        69760
+      ],
+      "evidence": "7/7, 3 distinct"
+    },
+    "grain_strength": {
+      "label": "Grain strength 0 off/1 weak/2 strong",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": 129,
+      "rel_hex": "+0x81",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 2,
+        "c1": -1,
+        "formula": "value = 2 - raw"
+      },
+      "abs": [
+        63617,
+        64641,
+        65665,
+        66689,
+        67713,
+        68737,
+        69761
+      ],
+      "evidence": "7/7: off/weak/strong all seen (raw 2/1/0)"
+    },
+    "grain_size": {
+      "label": "Grain size 0 small/1 large",
+      "status": "located",
+      "confidence": 0.85,
+      "rel": 130,
+      "rel_hex": "+0x82",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 0,
+        "c1": 1,
+        "formula": "value = raw"
+      },
+      "abs": [
+        63618,
+        64642,
+        65666,
+        66690,
+        67714,
+        68738,
+        69762
+      ],
+      "evidence": "5/5 slots with grain on; small/large both seen"
+    },
+    "smooth_skin": {
+      "label": "Smooth skin 0/1/2",
+      "status": "inferred",
+      "confidence": 0.5,
+      "rel": 131,
+      "rel_hex": "+0x83",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": 0,
+        "c1": 1,
+        "formula": "value = raw"
+      },
+      "abs": [
+        63619,
+        64643,
+        65667,
+        66691,
+        67715,
+        68739,
+        69763
+      ],
+      "evidence": "constant (Off = 0 on all 7); X-T5 struct position",
+      "observed_values": {
+        "0": 0
+      }
+    },
+    "mono_wc": {
+      "label": "Mono warm/cool",
+      "status": "inferred",
+      "confidence": 0.5,
+      "rel": 114,
+      "rel_hex": "+0x72",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -18,
+        "c1": 1,
+        "formula": "value = raw - 18"
+      },
+      "abs": [
+        63602,
+        64626,
+        65650,
+        66674,
+        67698,
+        68722,
+        69746
+      ],
+      "evidence": "constant (0 = raw 18 on all 7); X-T5 struct position",
+      "observed_values": {
+        "0.0": 18
+      }
+    },
+    "mono_mg": {
+      "label": "Mono magenta/green",
+      "status": "inferred",
+      "confidence": 0.5,
+      "rel": 112,
+      "rel_hex": "+0x70",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -18,
+        "c1": 1,
+        "formula": "value = raw - 18"
+      },
+      "abs": [
+        63600,
+        64624,
+        65648,
+        66672,
+        67696,
+        68720,
+        69744
+      ],
+      "evidence": "constant (0 = raw 18 on all 7); X-T5 struct position",
+      "observed_values": {
+        "0.0": 18
+      }
+    },
+    "nr": {
+      "label": "High ISO NR",
+      "status": "inferred",
+      "confidence": 0.55,
+      "rel": 43,
+      "rel_hex": "+0x2b",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -4,
+        "c1": 1,
+        "formula": "value = raw - 4"
+      },
+      "abs": [
+        63531,
+        64555,
+        65579,
+        66603,
+        67627,
+        68651,
+        69675
+      ],
+      "evidence": "constant (-4 = raw 0 on all 7); right after the WB table like the X-T5",
+      "observed_values": {
+        "-4": 0
+      }
+    },
+    "clarity": {
+      "label": "Clarity",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": 46,
+      "rel_hex": "+0x2e",
+      "interp": "u8",
+      "encoding": {
+        "type": "affine",
+        "variant": "value",
+        "c0": -6,
+        "c1": 1,
+        "formula": "value = raw - 6"
+      },
+      "abs": [
+        63534,
+        64558,
+        65582,
+        66606,
+        67630,
+        68654,
+        69678
+      ],
+      "evidence": "7/7, 4 distinct; X-T5 encoding"
+    },
+    "white_balance": {
+      "label": "White balance (PTP code)",
+      "status": "located",
+      "confidence": 0.85,
+      "rel": -15,
+      "rel_hex": "-0xf",
+      "interp": "u8",
+      "encoding": {
+        "type": "enum",
+        "map": {
+          "2": 0,
+          "4": 3,
+          "32775": 10
+        },
+        "inferred": {
+          "32800": 1,
+          "32801": 2,
+          "32774": 4,
+          "32769": 5,
+          "32770": 6,
+          "32771": 7,
+          "6": 8,
+          "8": 9,
+          "32776": 11
+        }
+      },
+      "abs": [
+        63473,
+        64497,
+        65521,
+        66545,
+        67569,
+        68593,
+        69617
+      ],
+      "evidence": "7/7: Auto 0x00, Daylight 0x03, Kelvin 0x0A = X-T5 codes; other modes inferred"
+    },
+    "kelvin": {
+      "label": "Kelvin",
+      "status": "located",
+      "confidence": 0.95,
+      "rel": -116,
+      "rel_hex": "-0x74",
+      "interp": "u16le",
+      "encoding": {
+        "type": "ptp-wire",
+        "width": 2
+      },
+      "abs": [
+        63372,
+        64396,
+        65420,
+        66444,
+        67468,
+        68492,
+        69516
+      ],
+      "evidence": "7/7 as plain u16 Kelvin (4350, 6300, 5200), incl. slots whose Kelvin was only kept"
+    },
+    "wb_shift_r": {
+      "label": "WB shift R",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": -13,
+      "rel_hex": "-0xd",
+      "interp": "u8",
+      "encoding": {
+        "type": "wb-table",
+        "wb_rel": -15,
+        "base_rel": -13,
+        "entry_stride": 4,
+        "entries": 14,
+        "index_by_raw": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "11": 3,
+          "10": 6,
+          "3": 7,
+          "4": 8,
+          "5": 9,
+          "6": 10,
+          "7": 11,
+          "8": 12,
+          "9": 13
+        },
+        "index_by_ptp": {
+          "2": 0,
+          "32800": 1,
+          "32801": 2,
+          "32776": 3,
+          "32777": 4,
+          "32778": 5,
+          "32775": 6,
+          "4": 7,
+          "32774": 8,
+          "32769": 9,
+          "32770": 10,
+          "32771": 11,
+          "6": 12,
+          "8": 13
+        },
+        "observed_indices": [
+          0,
+          6,
+          7
+        ],
+        "c0": 9,
+        "c1": -1,
+        "formula": "value = 9 - raw"
+      },
+      "abs": [
+        63475,
+        64499,
+        65523,
+        66547,
+        67571,
+        68595,
+        69619
+      ],
+      "evidence": "per-WB-mode table. AFTER truth 6/7 (Auto, Kelvin, Daylight entries); C6 is a mono look that switched Daylight -> Auto without writing a shift, so it now holds its stale Auto entry. The BEFORE backup confirms the table independently: C1's old Kelvin shift R+6/B-8 is still in its Kelvin entry, C3/C5's old Auto shifts and C6's old Daylight shift in theirs"
+    },
+    "wb_shift_b": {
+      "label": "WB shift B",
+      "status": "located",
+      "confidence": 0.9,
+      "rel": -11,
+      "rel_hex": "-0xb",
+      "interp": "u8",
+      "encoding": {
+        "type": "wb-table",
+        "wb_rel": -15,
+        "base_rel": -11,
+        "entry_stride": 4,
+        "entries": 14,
+        "index_by_raw": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "11": 3,
+          "10": 6,
+          "3": 7,
+          "4": 8,
+          "5": 9,
+          "6": 10,
+          "7": 11,
+          "8": 12,
+          "9": 13
+        },
+        "index_by_ptp": {
+          "2": 0,
+          "32800": 1,
+          "32801": 2,
+          "32776": 3,
+          "32777": 4,
+          "32778": 5,
+          "32775": 6,
+          "4": 7,
+          "32774": 8,
+          "32769": 9,
+          "32770": 10,
+          "32771": 11,
+          "6": 12,
+          "8": 13
+        },
+        "observed_indices": [
+          0,
+          6,
+          7
+        ],
+        "c0": 9,
+        "c1": -1,
+        "formula": "value = 9 - raw"
+      },
+      "abs": [
+        63477,
+        64501,
+        65525,
+        66549,
+        67573,
+        68597,
+        69621
+      ],
+      "evidence": "same table, B half (same evidence)"
+    },
+    "image_size": {
+      "label": "Image size (don't write)",
+      "status": "not-found",
+      "distinct_values": 1,
+      "evidence": "not located (constant on the fw 1.10 file); never written"
+    },
+    "image_quality": {
+      "label": "Image quality (don't write)",
+      "status": "not-found",
+      "distinct_values": 1,
+      "evidence": "not located (constant on the fw 1.10 file); never written"
+    },
+    "lmo": {
+      "label": "Lens mod. optimiser (don't write)",
+      "status": "not-found",
+      "distinct_values": 1,
+      "evidence": "not located (constant on the fw 1.10 file); never written"
+    },
+    "color_space": {
+      "label": "Color space (don't write)",
+      "status": "not-found",
+      "distinct_values": 1,
+      "evidence": "not located (constant on the fw 1.10 file); never written"
+    },
+    "grain": {
+      "label": "Grain (PTP 1-5, 6/7 = off read-back)",
+      "status": "not-found",
+      "distinct_values": 1,
+      "evidence": "PTP grain = grain_strength + grain_size here"
+    }
+  },
+  "overall_confidence": 0.85,
+  "checksum": null,
+  "checksum_hypothesis": {
+    "status": "hypothesis (one file cannot prove it; never used automatically)",
+    "field": 264,
+    "width": 2,
+    "endian": "little",
+    "algo": "sum8",
+    "start": 168,
+    "skips": [
+      [
+        264,
+        268
+      ],
+      [
+        63262,
+        63273
+      ]
+    ],
+    "why": "u16 @0xE8 (the X-T5 field) is a repeated table value here; u32 @0x108 sits between 0x245 and 0x21 like the GFX100S checksum at 0xD4; [0xF71E,0xF729) is the frame-counter block at C1-0xE2, where the X-T5 skips [0x7B1E,0x7B29). With the X-T5 bias 0xF936 the skipped bytes would have to sum to 5000 (no window under 20 bytes can), so the bias is NOT shared: it is fitted per file."
+  },
+  "notes": [
+    "WB shift lives in a 14-entry per-WB-mode table; a look's shift goes into the entry of its WB mode.",
+    "Mono looks: the writer skips Color, CC, CC FX Blue and WB shift; the camera keeps the old values.",
+    "Inferred fields/codes need --allow-inferred in apply-plan until a sweep or diff confirms them."
+  ]
+}

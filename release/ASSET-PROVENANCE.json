@@ -1,0 +1,81 @@
+{
+  "schema_version": "dialin.asset-provenance.v1",
+  "assets": [
+    {
+      "path": "ios/DialInCamera/README.md",
+      "method": "Reviewed source-authored public module guide"
+    },
+    {
+      "path": "ios/DialInCamera/IMPORT.md",
+      "method": "Reviewed source-authored public module guide"
+    },
+    {
+      "path": "ble/README.md",
+      "method": "Reviewed source-authored public module guide"
+    },
+    {
+      "path": ".gitignore",
+      "method": "Generated from release/templates/gitignore.public: only the ignore rules the public tree needs"
+    },
+    {
+      "path": "tsconfig.json",
+      "method": "Generated from release/templates/tsconfig.public.json: typechecks lib, modules, scripts and tests only"
+    },
+    {
+      "path": "ios/DialInCamera/Tests/DialInCameraTests/Fixtures/ble-settings-synthetic.zlib",
+      "method": "syntheticBackup: zero-filled bytes, TEST identity, TEST C1-C7 and synthetic checksum"
+    },
+    {
+      "path": "third_party/license-sources.json",
+      "method": "Shipped components only, filtered from the reviewed license records"
+    },
+    {
+      "path": "data/recipe-universe/README.md",
+      "method": "Source-authored note: no recipe catalog or research snapshot is distributed"
+    },
+    {
+      "path": "ios/DialInCamera/Tests/DialInCameraTests/Fixtures/look-patch-vectors.json",
+      "method": "Included synthetic Python generator; fresh tree has no real backups"
+    }
+  ],
+  "sanitized_examples": [],
+  "excluded_source_categories": [
+    {
+      "reason": "regenerated from zero-filled synthetic settings; no source backup copied"
+    },
+    {
+      "reason": "personal shoot; generated metadata-only test fixture replaces it"
+    },
+    {
+      "reason": "private physical receipt checks; does not implement camera behavior"
+    },
+    {
+      "reason": "private physical receipt maintenance; does not implement camera behavior"
+    },
+    {
+      "reason": "private operational-document checks; no public runtime dependency"
+    },
+    {
+      "reason": "private operational preflight fixture checks; retain preflight source"
+    },
+    {
+      "reason": "private evidence-document checks; no public runtime dependency"
+    },
+    {
+      "reason": "private photographic album; generated synthetic demo replaces it"
+    },
+    {
+      "reason": "private photographic album specification; generated template replaces it"
+    },
+    {
+      "reason": "unreviewed binary art replaced by deterministic original geometric image"
+    },
+    {
+      "reason": "private model bake-off harness; needs unexported frames and paid provider calls"
+    },
+    {
+      "reason": "private reference material: third-party recipe catalog and its tooling; no third-party recipes are distributed"
+    }
+  ],
+  "note": "Synthetic fixtures establish software behavior only; no camera, model, image quality or photographer acceptance is claimed."
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>co.dialin.dialin-cam</string>
+	<key>CFBundleName</key>
+	<string>dialin-cam</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>dialin-cam talks to your Fujifilm camera over Bluetooth to download its settings backup.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>dialin-cam reads and writes your Fujifilm camera's custom slots over USB.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>dialin-cam copies photos from your Fujifilm camera over the camera's own Wi-Fi.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>dialin-cam finds your X100VI photos that the Fujifilm app already put in Photos.</string>
+</dict>
+</plist>

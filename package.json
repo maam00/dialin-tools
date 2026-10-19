@@ -1,0 +1,44 @@
+{
+  "name": "dialin",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dialin": "node scripts/dialin.mjs",
+    "doctor": "node scripts/dialin.mjs doctor",
+    "demo": "node scripts/dialin.mjs demo",
+    "recipes": "node scripts/dialin.mjs recipes",
+    "plan": "node scripts/dialin.mjs plan",
+    "cam": "node scripts/dialin.mjs camera",
+    "photos": "node scripts/dialin.mjs photos",
+    "curate": "node scripts/dialin.mjs curate",
+    "test": "npm run check:desktop && npm run test:plan && npm run test:release && npm run test:encoding && npm run test:writer",
+    "check:desktop": "node scripts/check-desktop.mjs",
+    "test:modules": "node --import tsx --test tests/modules/*.test.ts tests/modules/*.test.mjs",
+    "test:plan": "node --import tsx --test tests/plan/*.test.ts",
+    "test:release": "node --test tests/release/export.test.mjs",
+    "test:encoding": "tsx scripts/test-encoding.ts",
+    "test:writer": "tsx scripts/test-writer.ts",
+    "typecheck": "tsc --noEmit",
+    "codes": "tsx scripts/codes.ts",
+    "release:prepare": "node scripts/public-release/export.mjs assemble",
+    "release:audit": "node scripts/public-release/export.mjs audit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.132.1"
+  },
+  "optionalDependencies": {
+    "usb": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@vitejs/plugin-basic-ssl": "^2.1.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
+  }
+}

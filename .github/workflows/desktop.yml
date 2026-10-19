@@ -1,0 +1,73 @@
+name: Desktop components
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  offline:
+    # The portable offline contract: no camera, radio, native build, logged-in model CLI or paid model call.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: ['22.12.0', '22']
+        python: ['3.10', '3.12']
+        exclude:
+          - node: '22.12.0'
+            python: '3.12'
+          - node: '22'
+            python: '3.10'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: node scripts/dialin.mjs --help
+      - run: npm ci --ignore-scripts
+      - run: python -m venv .venv
+      - run: .venv/bin/python -m pip install -r modules/photos/requirements.txt
+      - run: node scripts/dialin.mjs doctor
+      - run: npm run check:desktop
+      - run: npm run test:plan
+      - run: npm run test:release
+      - run: npm run test:encoding
+      - run: npm run test:writer
+      - run: npm run dialin -- demo --out .dialin/ci-demo
+
+  windows-smoke:
+    # Experimental until it has passed on hosted CI. Some module tests still assume POSIX symlinks and file modes,
+    # so this job runs only the dispatcher, setup checks and the connected demo.
+    runs-on: windows-latest
+    continue-on-error: true
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: python -m venv .venv
+      - run: .venv\Scripts\python.exe -m pip install -r modules/photos/requirements.txt
+      - run: node scripts/dialin.mjs doctor demo
+      - run: node --import tsx --test tests/modules/desktop.test.mjs tests/modules/demo.test.mjs
+      - run: npm run dialin -- demo --out .dialin/ci-demo

@@ -1,0 +1,53 @@
+{
+  "schema_version": "dialin.saved-photo-review.v1",
+  "reviewer": "Codex",
+  "reviewed_on": "2026-10-19",
+  "evidence": "Actual image-tool inspection of the prepared contact sheet and all eight individual previews. The notes and selections are Codex editorial judgments, not NASA statements. No image generation, separate model API or external model CLI was used.",
+  "limitations": [
+    "Archive images from different dates, not one photographic outing or a chronological flight record.",
+    "The downloaded medium JPEGs contain no EXIF; dates, camera settings and Fujifilm looks are not inferred.",
+    "Unprofiled previews are assumed sRGB; this is not a calibrated color assessment.",
+    "This is one subjective edit, not measured photographic quality or a photographer preference result."
+  ],
+  "best": {
+    "nasa_ids": [
+      "iss039e012272",
+      "iss023e057948",
+      "iss022e005258"
+    ],
+    "title": "Best",
+    "why": "Three distinct, immediately readable structures: a curved water bank, a narrow horizon and repeating sand ridges."
+  },
+  "series": [
+    {
+      "nasa_ids": [
+        "iss007e08259",
+        "iss023e057948",
+        "iss039e009160"
+      ],
+      "title": "The thin edge",
+      "why": "Three variations on the boundary between Earth and sky: broad daylight, a concentrated band of warm light, then a cool rim above city lights. Different dates; editorial order."
+    }
+  ],
+  "selection": {
+    "nasa_ids": [
+      "iss039e012272",
+      "iss022e005258",
+      "iss037e026714",
+      "iss023e057948",
+      "iss039e009160"
+    ],
+    "order": "input",
+    "title": "Earth from daylight to night"
+  },
+  "notes": {
+    "iss007e08259": "A sweeping blue edge and white cloud bands give a wide, quiet view. The pale land and haze have less separation than the other daylight frames; useful in the horizon series, but not one of the three strongest single pictures.",
+    "iss022e005258": "Warm sand fills the frame with repeating diagonal ridges and fine shadows. Its restrained palette and all-over rhythm make a strong abstract picture and a calm contrast after blue water.",
+    "iss023e057948": "A narrow orange-gold band cuts diagonally through deep blue and black. The large dark areas make the line feel delicate; this is the clearest graphic horizon and the transition into night.",
+    "iss036e032513": "Turquoise shallows and tall strings of white clouds create a lively overhead view. I prefer the simpler curved bank in the other water image for this short edit; keep this as an alternate, not a claimed burst duplicate.",
+    "iss037e026714": "A slanting chain of illuminated ridges recedes into blue haze and black. The detail is quieter than the water and sand pictures, but that gradual darkening bridges the landscape and horizon views.",
+    "iss039e009160": "Warm city lights spread below a curved blue rim and thin green band. Noise, a bright spot and faint reflections remain visible; the sense of inhabited night makes it the strongest closer despite those distractions.",
+    "iss039e012272": "A turquoise crescent wraps around deep blue water, with white cloud lines repeating the curve. The central shape reads immediately; my strongest standalone photograph and a clear, colorful opener.",
+    "iss039e012534": "White clouds overlap snowy ridges, with a few sharp dark valleys breaking through. The cloud and mountain forms compete at this size; retain it as an alternative, but the darker oblique mountain view gives the sequence a clearer transition."
+  }
+}
