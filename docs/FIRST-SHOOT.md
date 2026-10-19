@@ -27,6 +27,20 @@ Open `.dialin/first-results/index.html` in a browser. Best, Series and Sequence 
 
 **No photographs ready?** Try [Earth from orbit](../examples/photos/earth-from-orbit/README.md): eight small NASA archive photographs, an actual saved visual review, and a reproducible local gallery. Downloading is explicit; the photographs total less than 1 MB. You can replay the saved decisions or ask your agent to make its own edit.
 
+## My photographs are still on the camera
+
+For wireless import on the tested X100VI 1.10/Mac setup, Bluetooth starts the camera's Wi-Fi and **Wi-Fi transfers the photographs**. Unplug USB first. The optional helper needs macOS 26+ and Swift 6.2+:
+
+```sh
+node scripts/dialin.mjs doctor import
+node scripts/dialin.mjs native build
+node scripts/dialin.mjs import wifi --last 7 --dest .dialin/first-import --out .dialin/first-import.json
+```
+
+For the first registration, follow [the pairing steps](WIRELESS.md#import-over-wi-fi) and add `--pair` explicitly. The Mac temporarily leaves its usual Wi-Fi. Choose the photo range you want; the command above is a newest-files example. The receipt's `summary.folders` identifies folders containing originals. Continue with **I have photographs** above using one of those folders.
+
+USB-C photo import is also implemented as `import usb`; use USB CARD READER mode and see [the import guide](../modules/import/README.md) for its separate evidence limits. An SD-card reader or OS-imported folder also works. No camera connection is needed once your JPEGs are on the computer.
+
 ## I want to plan my shoot
 
 Paste this:
@@ -62,6 +76,8 @@ node scripts/dialin.mjs camera prepare --in examples/camera/own-recipes.json --s
 ```
 
 The result describes feasibility, exact slot placement and checks required at execution. It does not contact a camera and is not an upload receipt. The model and firmware in this command are an example profile, not a claim about your camera. For your own recipe book, the [camera guide](../modules/camera/README.md) explains stable recipe IDs and the separately authorized execution path. Check [camera support](CAPABILITIES.md) before connecting hardware. Never substitute guessed model, firmware or slot facts.
+
+To load a prepared recipe, the supported path is **USB-C**: follow the [guarded USB write instructions](../modules/camera/README.md#explicit-usb-use-from-the-computer). Bluetooth settings backup and Wi-Fi setup are available too. **Bluetooth recipe loading is experimental**; its supervised single-slot [trial](WIRELESS.md#bluetooth-recipe-trial) is separate from the normal first-shoot path.
 
 ## I just want to check the whole installation
 

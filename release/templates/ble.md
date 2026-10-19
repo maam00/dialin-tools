@@ -2,6 +2,8 @@
 
 This engineering component preserves independently usable GATT, backup decoder, transfer framing, restore guards, capture parsing, synthetic camera and field-map tools. It is separate from the portable desktop photo workflow.
 
+For the desktop workflow on macOS, start with `node scripts/dialin.mjs camera bluetooth --help` or `node scripts/dialin.mjs import --help` from the repository root. Those commands cover Bluetooth settings backup, supervised experimental recipe trials, and Wi-Fi photo import after Bluetooth setup. See [USB-C and wireless](../docs/WIRELESS.md). Production Bluetooth recipe writes remain gated. This Python directory is the lower-level research bench.
+
 Install `ble/requirements.txt` in a local virtual environment if using Bluetooth. Routine tests use synthetic transports and do not need radios:
 
 ```sh

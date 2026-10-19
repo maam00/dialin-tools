@@ -8,6 +8,16 @@ For an SD card, copy its `DCIM` folder (or that day's files) to your computer fi
 
 The repository also contains a camera import engine in `ios/DialInCamera`. Despite the historical folder name, its `dialin-cam` executable is a **macOS desktop tool**. It supports folder, USB, Wi-Fi and Photos-library sources; the Photos-library route looks only for X100VI files. Using the executable does not require building an iPhone app or writing Swift.
 
+## Choose a connection
+
+| Route | Command | What happens |
+| --- | --- | --- |
+| **Bluetooth → Wi-Fi** | `import wifi` | Bluetooth pairs/wakes the camera, then Wi-Fi transfers photographs. Seven full-size JPEGs were verified on one X100VI 1.10/Mac setup. |
+| **USB-C** | `import usb` | The helper reads the camera in USB CARD READER mode. This implemented route has separate compatibility limits; the Wi-Fi test does not qualify it. |
+| **SD card / local folder** | `import folder --from …`, or OS copy | Copy locally, then review your JPEG/PNG folder without a connected camera. |
+
+Bluetooth settings backup and experimental recipe loading are described in [the wireless guide](../../docs/WIRELESS.md). Photo bytes travel over Wi-Fi or USB-C, not Bluetooth.
+
 ## Optional macOS helper
 
 This existing helper requires macOS 26+ and a Swift 6.2+ toolchain. It is an advanced setup path while portable packaging is being improved. From the root:
