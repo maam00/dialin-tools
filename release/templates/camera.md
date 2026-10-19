@@ -2,6 +2,8 @@
 
 `DialInCamera` contains USB/PTP, Bluetooth, Wi-Fi retrieval, slot encoding, backup/readback/recovery, mock transports and the `dialin-cam` executable. It supports Swift 6.2 on macOS/iOS 26. Existing TypeScript USB and Python protocol tools remain independent.
 
+For normal desktop use, run `node scripts/dialin.mjs native build` once, then use `camera bluetooth --help` for settings backup/supervised recipe trials or `import --help` for Wi-Fi, USB-C and folder import. Bluetooth starts the Wi-Fi connection; Wi-Fi carries photographs. USB-C recipe loading remains the supported write route; Bluetooth recipe loading remains experimental. See the [desktop wireless guide](../../docs/WIRELESS.md).
+
 Run software checks from the repository root using the shared build lock:
 
 ```sh

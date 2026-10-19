@@ -17,7 +17,7 @@ I built Dial In because I love shooting with my Fujifilm, but I don't enjoy choo
 Dial In is a free, open-source toolkit for **Fujifilm photographers who already use Claude Code, Codex or a terminal**. It connects the three jobs around a shoot:
 
 1. **Find the right looks for the light you'll shoot in.** Describe the day, optionally with a scene photo; your agent proposes seven complementary film-simulation recipes, and every setting is checked against what Dial In has written and read back on an X100VI over USB: all 20 film simulations, Auto/Daylight/Kelvin white balance, Color −1 to +3 and noise reduction −4.
-2. **Put them on the camera without menus.** Recipes go into the custom slots you name (C1–C7) over USB, after a backup of all seven slots, with every value read back.
+2. **Put them on the camera without menus.** Recipes go into the custom slots you name (C1–C7) over USB-C, after a backup of all seven slots, with every value read back.
 3. **Get your best photos out of the shoot.** Your agent looks at labeled contact sheets and picks your Best, a Series and a Sequence. One command checks those picks against your own choices, copies the originals into folders, and makes a local gallery you can open in your browser. Originals are never modified.
 
 Each tool works on its own, from ordinary JSON files and folders. **No Dial In app, account or separate API key.** Use your existing coding agent; its normal image processing and usage costs still apply. Camera writes are supported only on the **X100VI, firmware 1.10, over USB on the tested Mac setup**. Planning and JPEG/PNG photo-folder review need no connected camera. Check the [capability table](docs/CAPABILITIES.md) before choosing a camera operation.
@@ -26,7 +26,16 @@ Each tool works on its own, from ordinary JSON files and folders. **No Dial In a
 
 ## USB-C and wireless
 
-USB-C recipe loading, Bluetooth settings tools and wireless photo import are included. On macOS 26+ with Swift 6.2+, build the desktop helper once, then import over Wi-Fi:
+Dial In uses USB-C, Bluetooth and Wi-Fi for different parts of the workflow:
+
+| Connection | What you can do | Status |
+| --- | --- | --- |
+| **USB-C** | Load recipes into selected C1–C7 slots, with backup and readback | Supported on X100VI 1.10 and the tested Mac |
+| **Bluetooth** | Pair the Mac, back up camera settings and start the camera's Wi-Fi | Included in the desktop helper; observed on X100VI 1.10 |
+| **Wi-Fi** | Import full-size JPEGs to the Mac after the Bluetooth connection starts Wi-Fi | Verified on X100VI 1.10 and one Mac |
+| **Bluetooth recipe loading** | Run a supervised single-slot write, check and restore trial | Experimental; normal recipe writes remain disabled |
+
+USB-C photo import is also implemented in the helper, but the Wi-Fi test does not qualify that separate route. Other bodies, firmware and hosts still need their own checks. On macOS 26+ with Swift 6.2+, build the desktop helper once, then import over Wi-Fi:
 
 ```sh
 node scripts/dialin.mjs doctor import
@@ -72,7 +81,8 @@ Each component works on its own. Run `npm run dialin -- doctor <component>` firs
 | Plan the looks for a shoot from a description and/or scene photo | [Planner](modules/planner/README.md) | Node.js and your coding agent (API key optional) |
 | Explore the recipe guidance or check my own recipe book | [Recipes](modules/recipes/README.md) | Node.js |
 | Put recipes into chosen camera slots | [Camera](modules/camera/README.md) | Node.js; an X100VI on firmware 1.10 for the USB write |
-| Get photographs off the camera | [Import](modules/import/README.md) | An SD-card reader, or the optional macOS helper |
+| Get photographs off the camera | [Import](modules/import/README.md) | Wi-Fi via Bluetooth setup on the tested Mac, the USB-C helper, or SD-card/OS import |
+| Back up settings or supervise a Bluetooth recipe trial | [Bluetooth and wireless](docs/WIRELESS.md) | Optional macOS helper; recipe loading remains experimental |
 | Get my Best, Series and Sequence from a photo folder, and see which look each photo was shot with | [Photos](modules/photos/README.md) | Python + Pillow and your agent's image viewing |
 | Validate a selection and sequence from another tool | [Curation](modules/curation/README.md) | Python standard library |
 | Try the photo workflow without my own photos | [Synthetic demo shoot](examples/photos/README.md) | Python + Pillow; original drawings labeled SYNTHETIC |
@@ -111,9 +121,9 @@ Scene description / photo / both
            ↓
 Your agent + Dial In guidance → validated seven-look plan     ← or bring your own recipes
            ↓
-Offline camera preparation → guarded USB write (backup, readback) → shoot
+Offline camera preparation → guarded USB-C write (backup, readback) → shoot
            ↓
-SD card, or the macOS helper (USB / Wi-Fi) → local photo folder
+Bluetooth setup → Wi-Fi photo import, or USB-C / SD card → local photo folder
            ↓
 Contact sheets with moments, burst hints and each photo's look → your agent picks
            ↓

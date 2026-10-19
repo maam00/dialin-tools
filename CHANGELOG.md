@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Documentation: consistent USB-C, Bluetooth and Wi-Fi connection guides across the README, first-shoot walkthrough, capability table, module/native guides and export templates. Bluetooth settings backup/Wi-Fi setup are distinguished from experimental Bluetooth recipe loading.
+
 - Desktop wireless: explicit `native build`/`status`, `import wifi|usb|folder` with JSON receipts and partial-transfer reporting, and `camera bluetooth` backup/supervised single-slot trials. Unknown import options and invalid ranges now fail before connecting; backups refuse overwrite. Production Bluetooth recipe writes remain gated pending physical acceptance.
 
 - Discovery: a 30-second walkthrough, interactive Anatomy illustration and still/transcript, visible CI/license/release badges, clearer camera contribution instructions and an explanation of the initial public export. Reviewed media has an exact hash-pinned export allowlist; private inputs remain excluded.
