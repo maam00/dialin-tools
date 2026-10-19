@@ -25,7 +25,7 @@ enum ImportCLI {
         common: --dest <dir> (default ~/Pictures/Dial In)  --no-raw  --movies  --no-thumbs  --dry-run  --limit N
                 --last N (only the newest N files on the card, any date; RAF and JPEG count separately)
                 --reimport  --timeout <s> (wait for the camera, default 60)  --catalog <s> (USB card listing, default 180)
-                --verbose
+                --verbose  --result-file <new JSON file> (machine summary, including partial transfers)
         """
 
     struct Args {
@@ -33,17 +33,21 @@ enum ImportCLI {
         var positional: [String] = []
         var flags: Set<String> = []
         var values: [String: String] = [:]
+        var invalid: [String] = []
 
         static let valued: Set<String> = [
             "--since", "--dest", "--ssid", "--password", "--interface", "--host", "--port", "--name", "--timeout",
-            "--catalog", "--client-state", "--function", "--limit", "--local-ip", "--last",
+            "--catalog", "--client-state", "--function", "--limit", "--local-ip", "--last", "--result-file",
         ]
 
         init(_ argv: [String]) {
             var it = argv.makeIterator()
             while let a = it.next() {
                 if Self.valued.contains(a) {
-                    values[a] = it.next() ?? ""
+                    if values[a] != nil { invalid.append("duplicate \(a)") }
+                    let value = it.next() ?? ""
+                    if value.isEmpty || value.hasPrefix("--") { invalid.append("missing value for \(a)") }
+                    values[a] = value
                 } else if a.hasPrefix("-") {
                     flags.insert(a == "-v" ? "--verbose" : a)
                 } else if command.isEmpty {
@@ -57,6 +61,28 @@ enum ImportCLI {
         var verbose: Bool { flags.contains("--verbose") }
         func int(_ k: String) -> Int? { values[k].flatMap { Int($0) } }
         func seconds(_ k: String, _ d: Int) -> Duration { .seconds(int(k) ?? d) }
+
+        func validate() throws {
+            let commonFlags: Set<String> = ["--all", "--no-raw", "--movies", "--no-thumbs", "--thumbs-only", "--dry-run", "--reimport", "--verbose"]
+            let commonValues: Set<String> = ["--since", "--dest", "--limit", "--last", "--result-file"]
+            let routeFlags: Set<String> = command == "import-wifi" ? ["--pair", "--no-join", "--keep-network", "--rehearse"] : command == "import-usb" ? ["--ptp"] : command == "import-photos" ? ["--deep"] : []
+            let routeValues: Set<String> = command == "import-wifi" ? ["--ssid", "--password", "--interface", "--host", "--port", "--name", "--timeout", "--client-state", "--function", "--local-ip"] : command == "import-usb" ? ["--timeout", "--catalog"] : []
+            let unknown = flags.subtracting(commonFlags.union(routeFlags)).union(Set(values.keys).subtracting(commonValues.union(routeValues)))
+            guard invalid.isEmpty, unknown.isEmpty else { throw ImportError.invalid("Invalid import options: \((invalid + unknown.sorted()).joined(separator: ", ")). No device contacted.") }
+            guard positional.count == (command == "import-folder" ? 1 : 0) else { throw ImportError.invalid("Only import-folder takes exactly one source folder.") }
+            for key in ["--limit", "--last", "--timeout", "--catalog", "--port", "--function", "--client-state"] {
+                if let raw = values[key] {
+                    let maximum = ["--port", "--function"].contains(key) ? 65535 : 100000
+                    guard let n = Int(raw), n > 0, n <= maximum else { throw ImportError.invalid("\(key) must be 1–\(maximum).") }
+                }
+            }
+            guard !(flags.contains("--all") && values["--since"] != nil) else { throw ImportError.invalid("Choose --all or --since, not both.") }
+            if flags.contains("--rehearse") && (flags.contains("--pair") || flags.contains("--keep-network") || flags.contains("--no-join") || !Set(values.keys).isDisjoint(with: routeValues)) {
+                throw ImportError.invalid("Rehearsal cannot accept pairing or live network options.")
+            }
+            if let path = values["--result-file"], FileManager.default.fileExists(atPath: path) { throw ImportError.invalid("Result file exists; choose a new file.") }
+            if let ip = values["--local-ip"], FujiPTPIP.ipv4(ip) == nil { throw ImportError.invalid("--local-ip must be an IPv4 address.") }
+        }
     }
 
     static func run(_ argv: [String]) async throws {
@@ -65,6 +91,8 @@ enum ImportCLI {
             print(usage)
             return
         }
+        try a.validate()
+        _ = try options(a) // Reject dates and counts BEFORE connecting, pairing or changing networks.
         switch a.command {
         case "import-usb": try await usb(a)
         case "import-wifi": try await wifi(a)
@@ -89,7 +117,7 @@ enum ImportCLI {
             print("connected: \(transport.cameraName ?? "camera") (raw PTP)")
             let card = PTPCardSource(transport: transport, layout: .standard, route: .usb, log: say)
             do {
-                try report(try await importRun(card, a, library))
+                try report(try await importRun(card, a, library), a)
             } catch {
                 await card.close()
                 await transport.close()
@@ -113,7 +141,7 @@ enum ImportCLI {
                 if !src.catalogComplete {
                     print("  ! the camera hadn't finished listing its card; today's photos may be missing. If so: --catalog 600, or --ptp")
                 }
-                try report(try await importRun(src, a, library))
+                try report(try await importRun(src, a, library), a)
             } catch {
                 await src.close()
                 throw error
@@ -160,12 +188,7 @@ enum ImportCLI {
         do {
             // (a) Bluetooth: wake the camera's Wi-Fi and read its name/password.
             if join && creds == nil {
-                if BLETrialCLI.fujifilmUSBAttached() == true {
-                    throw ImportError.wifiJoin("""
-                        A Fujifilm camera is attached over USB. With its cable in, the camera won't start its Wi-Fi \
-                        (it answers busy). Unplug the cable from the camera, then run the same command again. Nothing was changed.
-                        """)
-                }
+                try BLETrialCLI.requireNoUSBCamera()
                 let link = FujiBluetoothLink(clientName: name, log: say)
                 ble = link
                 if a.flags.contains("--pair") {
@@ -184,7 +207,7 @@ enum ImportCLI {
                 }
                 let function = UInt16(a.int("--function") ?? Int(FujiWifiWake.inCameraViewing))
                 creds = try await FujiWifiWake.run(link, function: function, log: say)
-                print("camera Wi-Fi: \(creds!)")
+                print("Camera Wi-Fi credentials received (kept private).")
             }
 
             // (b) Join the camera's network (macOS).
@@ -204,7 +227,7 @@ enum ImportCLI {
                     try j.join(creds)
                 } catch {
                     print("  ! \(error)")
-                    print("  Join it by hand now: Wi-Fi menu › Other Network… › Network Name \(creds.ssid)\(creds.password.isEmpty ? " (no password)" : ", WPA2/WPA3 Personal, password \(creds.password)"). Waiting 2 minutes…")
+                    print("  Join it by hand now using the camera's network details. The Wi-Fi password is not printed in logs. Waiting 2 minutes…")
                     waitFor = .seconds(120)
                 }
                 if let got = await CameraNetwork.waitForAddress(near: host, interface: iface, changedFrom: before, timeout: waitFor) {
@@ -256,7 +279,7 @@ enum ImportCLI {
                 let g = try await cam.connect()
                 print("connected to \(g.cameraName ?? "the camera") over Wi-Fi: \(g.handles.count) photos on the card"
                       + (g.clientState == nil ? " (camera refused gallery mode; trying anyway)" : ""))
-                try report(try await importRun(cam, a, library))
+                try report(try await importRun(cam, a, library), a)
             } catch {
                 failure = error
             }
@@ -298,14 +321,14 @@ enum ImportCLI {
         let library = try library(a)
         let url = URL(fileURLWithPath: (path as NSString).expandingTildeInPath)
         guard url.standardizedFileURL.path != library.root.standardizedFileURL.path else { throw ImportError.invalid("That's the import folder itself.") }
-        try report(try await importRun(FolderSource(root: url), a, library))
+        try report(try await importRun(FolderSource(root: url), a, library), a)
     }
 
     static func photos(_ a: Args) async throws {
         let library = try library(a)
         print("Photos library: looking for X100VI photos (EXIF Make FUJIFILM, Model X100VI). macOS may ask to allow Photos access for your terminal.")
         let src = PhotoLibrarySource(deepScan: a.flags.contains("--deep"), log: { print("  · \($0)") })
-        try report(try await importRun(src, a, library))
+        try report(try await importRun(src, a, library), a)
     }
 
     // MARK: Shared
@@ -391,7 +414,23 @@ enum ImportCLI {
         }
     }
 
-    static func report(_ s: ImportSummary) throws {
+    static func report(_ s: ImportSummary, _ a: Args) throws {
+        if let path = a.values["--result-file"] {
+            // A provisional undated folder can hold thumbnails only, before EXIF dates the originals.
+            // Only hand original-bearing folders to photo preparation; retain preview locations separately.
+            let originals = s.folders.filter { FileManager.default.fileExists(atPath: $0.appendingPathComponent("manifest.json").path) }
+            let result: [String: Any] = [
+                "schema_version": "dialin.import-summary.v1", "route": s.route.rawValue,
+                "saved": s.saved.count, "bytes": s.bytes, "seconds": s.seconds, "thumbnails": s.thumbnails,
+                "folders": originals.map(\.path), "preview_folders": s.folders.filter { !originals.contains($0) }.map(\.path),
+                "planned": s.plan.toFetch, "already_imported": s.plan.already,
+                "failures": s.failures.map { ["name": $0.name, "reason": $0.reason] },
+                "interrupted": s.interrupted, "interruption": s.interruption as Any? ?? NSNull(),
+                "dry_run": a.flags.contains("--dry-run"), "rehearsal": a.flags.contains("--rehearse"),
+            ]
+            try JSONSerialization.data(withJSONObject: result, options: [.prettyPrinted, .sortedKeys])
+                .write(to: URL(fileURLWithPath: path), options: [.withoutOverwriting])
+        }
         if s.plan.toFetch == 0 {
             if s.plan.inRange == 0 && s.plan.tooOld > 0 {
                 print("Nothing from that date on the camera (\(s.plan.tooOld) older photos). Try --since YYYY-MM-DD or --all.")

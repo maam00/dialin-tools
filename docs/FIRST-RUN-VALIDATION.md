@@ -4,6 +4,15 @@ On 2026-10-15, separate coding-agent sessions tested independent components and 
 
 For the current support summary, see [What works today](CAPABILITIES.md). The dated records below describe the revisions and environments actually exercised; they are not a test receipt for a later release candidate.
 
+## Desktop wireless integration (2026-10-19)
+
+A clean checkout of the public repository was extended with the desktop import and Bluetooth trial commands. No camera was available and no physical operation was run.
+
+- Full offline `npm test`: 224 Node component tests, 90 Python photo/curation tests, 20 offline example tests, 299 planner tests and 33 exporter tests passed, plus TypeScript, encoding and fake-writer checks.
+- The macOS helper built through the shared lock; its 411 tests in 54 suites passed using software inputs and fake transports.
+- `npm run test:native-wireless` exercised the actual compiled helper against a loopback fake camera: invalid options fail before connection, a forced mid-file disconnect reconnects/resumes, the desktop receipt identifies a fixture rehearsal, and repeating the import preserves original file hashes and manifests. Preview-only folders are excluded from the original-photo handoff.
+- Production Bluetooth recipe writes remain disabled. Trial restart confirmation, restoration/recovery acceptance and a real-camera check of the new desktop handoff are still required. No software check upgrades the October 16 hardware evidence.
+
 ## Gallery and release preparation (2026-10-19)
 
 The local gallery, real-photo example and updated support guides were exported through the reviewed positive file list. Two isolated validation copies installed dependencies afresh and passed `npm test`:

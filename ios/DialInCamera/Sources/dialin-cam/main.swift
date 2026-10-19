@@ -421,10 +421,15 @@ enum CLI {
     }
 
     static func bleBackup(_ o: Options) async throws {
-        if BLETrialCLI.fujifilmUSBAttached() == true {
-            throw CameraError.invalid("a Fujifilm camera is attached over USB; with its cable in, the camera answers Bluetooth backups busy. Unplug the cable from the camera, then run this again")
+        try rejectUnknownFlags(o, allowed: ["--pair", "--name"])
+        guard o.positional.count <= 1 else { throw CameraError.invalid("ble-backup accepts one new backup path") }
+        let path = o.positional.first ?? "\(o.backupsDir)/ble-settings-\(SlotBackup.fileStamp()).dat"
+        guard !FileManager.default.fileExists(atPath: path), !FileManager.default.fileExists(atPath: path + ".wire.zlib") else {
+            throw CameraError.invalid("Backup destination exists; choose a new path. No camera contacted.")
         }
+        try BLETrialCLI.requireNoUSBCamera()
         let link = FujiBluetoothLink(clientName: o.values["--name"] ?? "Dial In", log: { print("  · \($0)") })
+        defer { link.disconnect() }
         let pairing = o.flags.contains("--pair")
         if pairing {
             print("pairing: open camera MENU › NETWORK/USB SETTING › Bluetooth/SMARTPHONE SETTING › PAIRING REGISTRATION and leave it open. Older firmware registers without a six-digit code; confirm a code only if the camera and macOS request it.")
@@ -436,14 +441,18 @@ enum CLI {
         let result = try await link.backupSettings { bytes in
             if bytes % 4096 < 120 { print("  \(bytes) bytes…") }
         }
-        let path = o.positional.first ?? "\(o.backupsDir)/ble-settings-\(SlotBackup.fileStamp()).dat"
         try makeParent(path)
-        try result.data.write(to: URL(fileURLWithPath: path))
+        try result.data.write(to: URL(fileURLWithPath: path), options: [.withoutOverwriting])
+        try FileManager.default.setAttributes([.posixPermissions: 0o600], ofItemAtPath: path)
         if result.compressed {
-            try result.wireData.write(to: URL(fileURLWithPath: path + ".wire.zlib"))
+            try result.wireData.write(to: URL(fileURLWithPath: path + ".wire.zlib"), options: [.withoutOverwriting])
+            try FileManager.default.setAttributes([.posixPermissions: 0o600], ofItemAtPath: path + ".wire.zlib")
             print("preserved compressed wire file: \(path).wire.zlib (\(result.wireData.count) bytes; transport checksum applies to these bytes)")
         }
         let h = result.header
+        guard result.checksumOK == true, h.magicOK, h.lengthConsistent else {
+            throw CameraError.invalid("Backup saved for inspection but its checksum/header was not verified. Do not use it for a write.")
+        }
         print("""
             \(result.name): \(result.data.count) bytes (camera said \(result.reportedSize.map(String.init) ?? "?")) in \(ms(since: t))
               transfer checksum \(result.checksumOK == true ? "OK" : result.checksumOK == false ? "BAD" : "not sent"), \(result.chunks) chunks (\(result.seqReport))

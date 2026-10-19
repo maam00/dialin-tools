@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Desktop wireless: explicit `native build`/`status`, `import wifi|usb|folder` with JSON receipts and partial-transfer reporting, and `camera bluetooth` backup/supervised single-slot trials. Unknown import options and invalid ranges now fail before connecting; backups refuse overwrite. Production Bluetooth recipe writes remain gated pending physical acceptance.
+
 - Discovery: a 30-second walkthrough, interactive Anatomy illustration and still/transcript, visible CI/license/release badges, clearer camera contribution instructions and an explanation of the initial public export. Reviewed media has an exact hash-pinned export allowlist; private inputs remain excluded.
 
 ## 0.1.0-alpha.2 — 2026-10-19

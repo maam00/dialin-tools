@@ -84,3 +84,7 @@ macOS and Linux run the full offline suite (CI configuration above). The [2026-1
 | `npm run release:prepare`, `release:audit` | Public source export; read [docs/PUBLIC-RELEASE.md](docs/PUBLIC-RELEASE.md) first |
 
 Native builds are optional, have their own compiler/platform requirements, and must run through `scripts/with-build-lock.sh`. Invoking a logged-in model CLI requires the explicit local setting `DIALIN_MODEL_TRANSPORT=cli` and is disabled in deployed mode; the normal host-agent route needs neither that setting nor an API key.
+
+## Optional native wireless checks
+
+On macOS 26+ with Swift 6.2+, run `node scripts/dialin.mjs native build`, then `npm run test:native-wireless`. This separately requested software check uses a loopback fake camera only; it neither uses Bluetooth nor changes Wi-Fi. The existing library suite runs under `scripts/with-build-lock.sh -- swift test --package-path ios/DialInCamera`. These checks are separate from portable `npm test` and from physical acceptance. See [the wireless guide](docs/WIRELESS.md) before an explicitly authorized hardware trial.

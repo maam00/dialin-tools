@@ -26,7 +26,8 @@
     "typecheck": "tsc --noEmit",
     "codes": "tsx scripts/codes.ts",
     "release:prepare": "node scripts/public-release/export.mjs assemble",
-    "release:audit": "node scripts/public-release/export.mjs audit"
+    "release:audit": "node scripts/public-release/export.mjs audit",
+    "test:native-wireless": "node tests/native/wireless-smoke.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.132.1"
