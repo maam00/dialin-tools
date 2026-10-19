@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Photos: labeled original-resolution crops for agent-directed burst focus comparisons. EXIF-oriented regions preserve source pixel resolution; optional review claims bind all candidates to source and crop hashes. Ordinary Best burst picks without a recorded comparison are marked Focus not checked. No automatic eye detection, sharpness scoring or camera operation.
+
 ## 0.1.0 — first public release (in preparation)
 
 Open-source Fujifilm tools for a terminal, Claude Code or Codex. No package-registry release; run from this repository.

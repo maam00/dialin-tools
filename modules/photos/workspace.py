@@ -286,7 +286,7 @@ def prepare(input_dir: str, output_dir: str, *, intent: str = "", count: int = 1
         write_json(output / "curation-input.json", manifest)
         write_json(output / "review-sheet.json", {"schema": SHEET_SCHEMA,
             "workspace": {"id": output.name, "photos": len(assets), "fingerprint": _fingerprint([a["id"] for a in assets])},
-            "reviewer": "", "requested_count": count,
+            "reviewer": "", "requested_count": count, "focus_checks": [],
             "best": {"labels": [], "title": "Best", "why": ""},
             "series": [],
             "selection": {"labels": [], "order": "input", "title": "Photo edit"},
@@ -359,8 +359,15 @@ To check the shoot against the looks meant to be on the camera:
 `{cli} photos looks --workspace {ws} --against <camera-preparation.json or plan.json>`.
 
 1. Read `workspace.json` coverage. Tell the photographer about unreadable, duplicate and unsupported files.
-2. Open EVERY contact sheet listed there with your image tool. Open individual `previews/` for uncertain
-   focus, expressions and detail. Embedded color profiles were converted to sRGB; unprofiled images have
+2. Open EVERY contact sheet listed there with your image tool. Open individual `previews/` for expressions
+   and composition; these are at most 1600 pixels, not original-resolution focus evidence. Before claiming
+   a focus-checked keeper from a burst, choose the relevant eye/subject region in EACH candidate and run
+   `photos crops --workspace {ws} --regions <regions.json> --out {ws}/focus-v1`.
+   The regions JSON maps labels to normalized centers, e.g. {{"3":[0.5,0.4],"4":[0.52,0.41]}}.
+   Open every labeled PNG individually at native resolution, then record `focus_checks` as described in
+   modules/photos/README.md. No eye detection or sharpness scoring is automatic. If detail is ambiguous,
+   preserve an alternate and state uncertainty; do not claim focus checked from a contact sheet.
+   Embedded color profiles were converted to sRGB; unprofiled images have
    an assumed-sRGB basis. Do not treat their appearance as a calibrated color or white-balance measurement.
 3. Discuss the intention, meaningful moments, technical usability and how pictures work together.
    Do not assume a blurry or dark photograph is bad. Name bursts/near-duplicates and useful alternatives.
@@ -430,7 +437,7 @@ def _new_json(path: Path, value) -> Path:
 
 
 SHEET_FIELDS = {"schema", "workspace", "reviewer", "requested_count", "selection", "constraints", "photos", "best", "series",
-                "moments", "suggested_groups"}
+                "moments", "suggested_groups", "focus_checks"}
 
 
 def _load_sheet(workspace: Path, sheet_file: str):
@@ -542,6 +549,8 @@ def apply_review(workspace_dir: str, sheet_file: str, output_file: str) -> dict:
     workspace = Path(workspace_dir).expanduser().resolve()
     manifest, sheet, _ = _load_sheet(workspace, sheet_file)
     result, chosen, seen = _reviewed(manifest, sheet, sheet.get("selection") or {}, "selection")
+    from .focus import validate_focus_checks
+    result["review_sheet"]["focus_checks"] = validate_focus_checks(workspace, manifest, sheet)
     target = _new_json(Path(output_file), result)
     edit = target.with_name(target.stem.replace("reviewed", "edit") if "reviewed" in target.stem else f"{target.stem}-edit.json")
     if edit.suffix != ".json":
@@ -606,6 +615,10 @@ def finish(workspace_dir: str, sheet_file: str, output_dir: str) -> dict:
             raise PhotoError(f"{name} did not validate: {'; '.join(edit.get('warnings') or ['incomplete'])}")
         proposals.append({"kind": kind, "name": name, "folder": folder, "title": reviewed["selection"]["title"],
                           "why": reviewed["review_sheet"]["why"], "labels": chosen, "edit": edit})
+    from .focus import validate_focus_checks, burst_focus_summary
+    checked = validate_focus_checks(workspace, manifest, sheet)
+    for proposal in proposals:
+        proposal["focus_review"] = burst_focus_summary(sheet, proposal["labels"], checked) if proposal["kind"] == "best" else []
     assets = report["assets"]
     labels_by_id = {asset["id"]: asset["label"] for asset in manifest["assets"]}
     ids = sorted({photo_id for proposal in proposals for photo_id in proposal["edit"]["selected_ids"]})
@@ -622,6 +635,7 @@ def finish(workspace_dir: str, sheet_file: str, output_dir: str) -> dict:
             folder = output / proposal["folder"]
             folder.mkdir()
             files = []
+            focus_by_label = {c["keeper"]: c for c in proposal["focus_review"]}
             for index, entry in enumerate(proposal["edit"]["sequence"], 1):
                 source = Path(assets[entry["id"]]["source"])
                 name = f"{index:02d}-{source.name}"
@@ -629,12 +643,16 @@ def finish(workspace_dir: str, sheet_file: str, output_dir: str) -> dict:
                 if digest(folder / name) != assets[entry["id"]]["sha256"]:
                     raise PhotoError("Copy verification failed; incomplete export removed.")
                 files.append({"label": labels_by_id[entry["id"]], "id": entry["id"], "file": f"{proposal['folder']}/{name}",
-                              "sha256": assets[entry["id"]]["sha256"], "note": entry.get("supplied_note", "")})
+                              "sha256": assets[entry["id"]]["sha256"], "note": entry.get("supplied_note", ""),
+                              "focus_review": focus_by_label.get(labels_by_id[entry["id"]])})
             proposal["files"] = files
             heading = proposal["name"] if proposal["title"] == proposal["name"] else f"{proposal['name']}: {proposal['title']}"
             summary += [f"## {heading}", ""]
             if proposal["why"]:
                 summary += [proposal["why"], ""]
+            for comparison in proposal["focus_review"]:
+                prefix = "Original-resolution comparison reported by reviewer" if comparison["status"] == "reviewer_reported" else "Focus not checked"
+                summary += [f"{prefix} for {comparison['group']} (keeper {comparison['keeper']}): {comparison['note']}", ""]
             summary += [f"{n}. `{f['file']}` (label {f['label']}): {f['note'] or 'no note'}" for n, f in enumerate(files, 1)] + [""]
         from .gallery import write_gallery
         gallery = write_gallery(output, proposals, intent=manifest.get("shoot", {}).get("intent") or "",
@@ -642,6 +660,7 @@ def finish(workspace_dir: str, sheet_file: str, output_dir: str) -> dict:
         summary += ["Open [index.html](index.html) for the local gallery. Keep this folder together when moving it.", ""]
         result = {"schema_version": "dialin.photo-results.v1", "workspace": str(workspace),
                   "sheet_sha256": sheet_sha256,
+                  "focus_checks": checked,
                   "proposals": [{k: v for k, v in p.items()} for p in proposals],
                   "gallery": gallery,
                   "originals_modified": False, "original_metadata_preserved": True}
@@ -650,6 +669,7 @@ def finish(workspace_dir: str, sheet_file: str, output_dir: str) -> dict:
         return {"schema_version": "dialin.photo-finish.v1", "output": str(output),
                 "proposals": [{"folder": p["folder"], "title": p["title"], "photos": len(p["files"])} for p in proposals],
                 "summary": str(output / "RESULTS.md"), "gallery": str(output / gallery["file"]),
+                "focus_unchecked_groups": [c["group"] for p in proposals for c in p["focus_review"] if c["status"] == "not_checked"],
                 "gallery_previews": len(gallery["previews"])}
     except BaseException:
         _discard(output)

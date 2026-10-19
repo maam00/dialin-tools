@@ -6,10 +6,11 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from modules.photos import PhotoError, prepare, apply_review, export_selection, finish, scene_preview, shot_looks
+from modules.photos import PhotoError, prepare, apply_review, export_selection, finish, scene_preview, shot_looks, crops
 from modules.photos.looks import summary_line
 
 STEPS = """steps: prepare -> your agent opens the contact sheets and fills review-sheet.json
+       -> crops (inspect original-resolution regions before claiming a focus-checked burst keeper)
        -> finish (validates Best, Series and Sequence; copies originals and creates a local gallery)
    or: apply-review -> curate (one validated edit) -> export
   looks: compare the Fujifilm looks recorded in the photos with the slots meant to be on the camera
@@ -29,6 +30,11 @@ def main(argv=None):
     p.add_argument("--intent", default="", help="the photographer's brief, kept with the edit")
     p.add_argument("--count", type=int, default=12, help="requested number of photos in the edit (default 12)")
     p.add_argument("--limit", type=int, default=500, help="refuse folders with more supported photos (default 500, max 5000)")
+    c = commands.add_parser("crops", help="Create labeled 1:1 pixel crops from originals for burst focus review; no automatic judgment")
+    c.add_argument("--workspace", required=True, help="folder created by prepare")
+    c.add_argument("--regions", required=True, help='JSON mapping labels to normalized [x,y] centers, e.g. {"3":[0.5,0.4]}')
+    c.add_argument("--size", type=int, default=512, help="crop edge in source pixels (128..768; default 512); no resizing")
+    c.add_argument("--out", required=True, help="new packet subdirectory inside the workspace")
     r = commands.add_parser("apply-review", help="Turn a filled review-sheet.json (contact-sheet labels) into reviewed.json for curate")
     r.add_argument("--workspace", required=True, help="folder created by prepare")
     r.add_argument("--sheet", help="filled sheet (default: <workspace>/review-sheet.json)")
@@ -49,6 +55,8 @@ def main(argv=None):
     try:
         if args.command == "prepare":
             result = prepare(args.input, args.out, intent=args.intent, count=args.count, limit=args.limit)
+        elif args.command == "crops":
+            result = crops(args.workspace, args.regions, args.out, size=args.size)
         elif args.command == "looks":
             report = shot_looks(args.workspace, args.against)
             print(f"photos looks: {summary_line(report)}", file=sys.stderr)

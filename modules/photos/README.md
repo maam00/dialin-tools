@@ -34,6 +34,44 @@ Ask: “Review this shoot. Give me my best 10, the best series of about 5, and t
 
 For big shoots the sheet also carries suggestions, never decisions: `moments` (M1, M2, … split where the recorded clock pauses longer than max(3 min, 3× the shoot's median interval), capped at 30 min, separately per time basis; undated photos in `undated`) and `suggested_groups` (B1, B2, … frames taken seconds apart whose tiny preview fingerprints match). Each photo lists its `moment` and `suggested_group`, and tiles read `M3 · B2? · film simulation`. The reviewer copies a suggestion into `group` only after checking it; nothing is grouped or excluded automatically. Exact-byte duplicates are still handled separately.
 
+## Check focus before choosing a burst keeper
+
+Contact sheets and 1600-pixel previews are useful for composition and expression, but they are not a 100% focus check. Before confidently preferring a burst frame for focus, the agent must inspect original-resolution crops of the relevant eye/subject in **every candidate**, including rejected alternates. The agent chooses regions; there is no automatic face/eye detection, optical sharpness score or automatic winner.
+
+Save a regions file, for example `.dialin/my-shoot/regions-b1.json`:
+
+```json
+{"3": [0.50, 0.35], "4": [0.53, 0.36], "5": [0.56, 0.37]}
+```
+
+Each label maps to a normalized `[x, y]` center in the **EXIF-oriented** image: `[0,0]` is top left and `[1,1]` bottom right. Choose a different center when the subject moves. Then run:
+
+```sh
+node scripts/dialin.mjs photos crops --workspace .dialin/my-shoot --regions .dialin/my-shoot/regions-b1.json --size 512 --out .dialin/my-shoot/focus-b1
+```
+
+The new folder contains one labeled PNG per candidate, `crops.json` and viewing instructions. The command fully decodes the original, applies EXIF orientation and sRGB color conversion, and extracts the region **without spatial resizing**. Each crop pixel corresponds to one source pixel; a separate caption shows the photo label, identity prefix and source coordinates. `--size` is 128–768 source pixels (default 512); edges are clamped and small originals are never enlarged. A packet accepts up to 20 candidates; use multiple packets for a longer burst. Existing packets and originals are never overwritten. Source EXIF is omitted from crops.
+
+Open each PNG individually with the host agent's image tool at original/native resolution. If the viewer downsizes it, request a smaller region; a scaled montage is not the focus evidence. Confirm that each region actually contains the intended subject. Consider focus alongside expression, motion and the photographer's intention. If the evidence is ambiguous, preserve an alternate and say so rather than asserting a sharpest frame.
+
+After inspection, add a comparison to `review-sheet.json` (copy the `packet` reference and actual SHA-256 from the command output):
+
+```json
+"focus_checks": [{
+  "group": "gull",
+  "keeper": "4",
+  "packets": [{"file": "focus-b1/crops.json", "sha256": "COPY_THE_RETURNED_HASH"}],
+  "seen": ["3", "4", "5"],
+  "note": "The eye detail is clearer in 4 than 3; 5 has a similar eye but a less useful wing position."
+}]
+```
+
+All three photos must share the reviewer-confirmed `group: "gull"` and be marked `seen: true`. The comparison must cover every member of that group; keep additional packet references when needed. `finish` and `apply-review` reject stale packet hashes, altered crop files, wrong source/label/workspace identities, missing candidates and changed originals. `finish` also rejects a Best pick that contradicts the recorded keeper. Regenerate and inspect a new packet when evidence changes; don't merely update a hash to bypass a stale-record error.
+
+These are **reviewer-reported comparisons**, not proof that a person or agent viewed an image or that a focus judgment is correct. The tools do not judge pixels. Ordinary selections and older sheets remain usable without `focus_checks`; a Best pick from a confirmed multi-frame group then says **Focus not checked** in the gallery, text summary and result record. Ungrouped single photographs do not need this extra step. Suggested groups alone never create a focus claim.
+
+## Finish the edit
+
 Every listed label must be marked `seen`, the sheet must belong to this workspace, and unknown labels or fields fail. Then one command validates all three and copies the originals:
 
 ```sh
@@ -77,10 +115,11 @@ For a single scene photograph used in planning, `node scripts/dialin.mjs photos 
 ## Use from Python
 
 ```python
-from modules.photos import prepare, finish, apply_review, export_selection
+from modules.photos import prepare, crops, finish, apply_review, export_selection
 
 prepare("/path/to/photos", ".dialin/my-shoot", intent="A quiet travel story", count=8)
-# The agent visually reviews previews and fills review-sheet.json.
+# For a burst: crops(workspace, regions_json, new_packet_dir), then inspect each PNG.
+# The agent visually reviews images and records any focus_checks in review-sheet.json.
 finish(".dialin/my-shoot", ".dialin/my-shoot/review-sheet.json", ".dialin/my-shoot-finished-v1")
 # Or one edit at a time:
 apply_review(".dialin/my-shoot", ".dialin/my-shoot/review-sheet.json", ".dialin/my-shoot/reviewed.json")

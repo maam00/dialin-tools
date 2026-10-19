@@ -18,7 +18,7 @@ Commands:
                                  Recipe books, original guidance, optional private catalog (recipes --help)
   plan --help                    Plan with Codex/Claude Code, a fixed fixture, or your own API key
   camera --help                  Prepare recipes for chosen slots; USB writes are separate explicit commands
-  photos --help                  Photo folder → previews → agent review → copied selects
+  photos --help                  Photo folder → previews/focus crops → agent review → copied selects
   curate --help                  Validate and sequence supplied photo judgments
   demo --out <new-directory>     Connected offline rehearsal with fixture data
 

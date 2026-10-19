@@ -127,9 +127,14 @@ def write_gallery(output: Path, proposals: list[dict], *, intent: str, reviewer:
             label = escape(str(entry["label"]))
             alt = escape(f"{proposal['name']}, photograph {entry['label']}, position {position}", quote=True)
             note = escape(entry.get("note") or "No review note supplied.")
+            focus = entry.get("focus_review")
+            focus_note = ""
+            if focus:
+                prefix = "Original-resolution comparison reported by reviewer" if focus["status"] == "reviewer_reported" else "Focus not checked"
+                focus_note = f'<p class="note">{prefix}: {escape(focus["note"])}</p>'
             figures.append(f'''<li><figure>
 <a class="photo" href="{_url(preview['file'])}" aria-label="Enlarge {alt}"><img src="{_url(preview['file'])}" width="{preview['width']}" height="{preview['height']}" alt="{alt}" loading="lazy" decoding="async"></a>
-<figcaption><div class="caption-top"><span class="position">{position:02d} / Photo {label}</span><a class="original" href="{_url(entry['file'])}" aria-label="Original photograph {label}" download>Original</a></div><p class="note">{note}</p></figcaption>
+<figcaption><div class="caption-top"><span class="position">{position:02d} / Photo {label}</span><a class="original" href="{_url(entry['file'])}" aria-label="Original photograph {label}" download>Original</a></div><p class="note">{note}</p>{focus_note}</figcaption>
 </figure></li>''')
         why = f'<p class="why">{escape(proposal["why"])}</p>' if proposal.get("why") else ""
         kind = "series" if proposal["kind"] == "series" else "edit"

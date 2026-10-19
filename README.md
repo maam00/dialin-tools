@@ -33,6 +33,8 @@ Open the repository in Codex or Claude Code and ask, for example:
 
 Your agent supplies the visual and editorial judgment; the tools validate settings, preserve photo identities, enforce your constraints and save results as ordinary files. [Agent instructions](docs/AGENT-WORKFLOW.md) list the exact commands and handoffs.
 
+For close burst decisions, the agent can generate [labeled 100% crops from the originals](modules/photos/README.md#check-focus-before-choosing-a-burst-keeper), inspect the relevant eye/subject in each candidate, and record its comparison before claiming focus checked. Region selection and judgment come from the agent; the tool does not automatically detect eyes or score sharpness.
+
 ## Pick a component
 
 Each component works on its own. Run `npm run dialin -- doctor <component>` first: it checks only that component's prerequisites, makes no network, model or camera call, and tells you the fix for anything missing.
