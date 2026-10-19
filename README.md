@@ -24,6 +24,18 @@ Each tool works on its own, from ordinary JSON files and folders. **No Dial In a
 
 **Own a different Fuji?** You can use the photo-folder tools now. To help qualify your camera, start with a [current-slot-only report](docs/ADD-YOUR-CAMERA.md), review it for private information, and submit the camera-report issue. A report does not enable writes.
 
+## USB-C and wireless
+
+USB-C recipe loading, Bluetooth settings tools and wireless photo import are included. On macOS 26+ with Swift 6.2+, build the desktop helper once, then import over Wi-Fi:
+
+```sh
+node scripts/dialin.mjs doctor import
+node scripts/dialin.mjs native build
+node scripts/dialin.mjs import wifi --last 7 --dest .dialin/imported --out .dialin/import.json
+```
+
+Unplug USB before Wi-Fi; use `--pair` for an explicitly requested first registration. Bluetooth wakes the camera and Wi-Fi transfers the photos, temporarily taking the Mac off its usual network. **Bluetooth recipe loading is experimental and remains disabled in production.** The supervised single-slot trial is included, with backup, readback and restore steps. [Setup, commands and exact limits](docs/WIRELESS.md).
+
 ## Try it in a minute
 
 Needs Node.js 22.12+ and Python 3.10+. No camera, account or API key.

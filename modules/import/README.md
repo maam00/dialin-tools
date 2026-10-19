@@ -14,11 +14,21 @@ This existing helper requires macOS 26+ and a Swift 6.2+ toolchain. It is an adv
 
 ```sh
 node scripts/dialin.mjs doctor import
-scripts/with-build-lock.sh -- swift build --package-path ios/DialInCamera
-swift build --package-path ios/DialInCamera --show-bin-path
+node scripts/dialin.mjs native build
+node scripts/dialin.mjs import --help
 ```
 
-The last command prints the directory containing `dialin-cam`. Run `dialin-cam import-folder --help` before choosing an operation; it prints the usage for every import route (`import-folder`, `import-usb`, `import-wifi`, `import-photos`). Defaults matter: each route takes only **today's** photos unless you pass `--since YYYY-MM-DD`, `--all` or `--last N`, and writes to `~/Pictures/Dial In/<date>/` unless you pass `--dest <dir>`. `--last N` selects the newest N files regardless of date when used alone; RAF and JPEG count separately when the source offers both. The importer can copy RAF files (`--no-raw` skips them), but Wi-Fi RAF delivery is not physically qualified. `--dry-run` shows the plan without copying; for device routes it still contacts the camera and Wi-Fi may still change the Mac's network.
+Use the desktop dispatcher for normal imports:
+
+```sh
+node scripts/dialin.mjs import wifi --last 7 --dest .dialin/imported --out .dialin/import.json
+node scripts/dialin.mjs import usb --since 2026-10-19 --dest .dialin/imported
+node scripts/dialin.mjs import folder --from /path/to/DCIM --all --dest .dialin/imported
+```
+
+Choose exactly one range (`--last`, `--since`, `--all`) and an explicit destination. The wrapper defaults to JPEG/HEIF; `--include-raw` adds RAF. JSON receipts distinguish completed, planned, synthetic and incomplete outcomes; incomplete imports exit nonzero. Each receipt must be a new file. Follow [the wireless guide](../../docs/WIRELESS.md) for first pairing, network changes, synthetic rehearsal and Bluetooth trial commands. `native status` checks whether the helper matches the current source; run `native build` again after native changes.
+
+The lower-level `dialin-cam` executable remains available to developers. `native status` reports its path. Run `dialin-cam import-folder --help` before choosing an operation; it prints the usage for every import route (`import-folder`, `import-usb`, `import-wifi`, `import-photos`). Defaults matter: each route takes only **today's** photos unless you pass `--since YYYY-MM-DD`, `--all` or `--last N`, and writes to `~/Pictures/Dial In/<date>/` unless you pass `--dest <dir>`. `--last N` selects the newest N files regardless of date when used alone; RAF and JPEG count separately when the source offers both. The importer can copy RAF files (`--no-raw` skips them), but Wi-Fi RAF delivery is not physically qualified. `--dry-run` shows the plan without copying; for device routes it still contacts the camera and Wi-Fi may still change the Mac's network.
 
 The day folder holds original-byte copies, a `manifest.json` and hidden camera thumbnails in `.thumbs/`. Pass that day folder to `photos prepare`: hidden thumbnails are ignored, and `manifest.json` and RAF files appear in the coverage report as unsupported files.
 

@@ -18,6 +18,8 @@ Commands:
                                  Recipe books, original guidance, optional private catalog (recipes --help)
   plan --help                    Plan with Codex/Claude Code, a fixed fixture, or your own API key
   camera --help                  Prepare recipes for chosen slots; USB writes are separate explicit commands
+  import --help                  Import over Wi-Fi/USB or from a folder with the macOS helper
+  native <build|status>          Explicit helper setup; no camera access
   photos --help                  Photo folder → previews/focus crops → agent review → copied selects
   curate --help                  Validate and sequence supplied photo judgments
   demo --out <new-directory>     Connected offline rehearsal with fixture data
@@ -67,6 +69,9 @@ export async function main(argv) {
   if (command === 'curate') return runPython('../modules/curation/cli.py', args);
   if (command === 'plan') return (await typescriptModule('../modules/planner/cli.ts')).runPlanner(args);
   if (command === 'recipes') return (await typescriptModule('../modules/recipes/cli.ts')).runRecipes(args);
+  if (command === 'import') return (await import('../modules/import/cli.mjs')).runImport(args);
+  if (command === 'native') return (await import('../modules/native-helper.mjs')).runNative(args);
+  if (command === 'camera' && args[0] === 'bluetooth') return (await import('../modules/camera/bluetooth.mjs')).runBluetooth(args.slice(1));
   if (command === 'camera') return (await typescriptModule('../modules/camera/cli.ts')).runCamera(args);
   if (command === 'demo') return (await import('../modules/demo.mjs')).runDemo(args);
   throw new Error(`Unknown command '${command}'. Run node scripts/dialin.mjs --help.`);

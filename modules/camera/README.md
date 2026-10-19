@@ -169,3 +169,7 @@ npm run typecheck
 ```
 
 The tests use original synthetic recipes, synthetic camera identities, fake ports, and temporary private backup files. `camera-report.test.ts` drives the report against fake X-T5-like, 4-slot and X100VI bodies that record every PTP command, and checks that only edit-cursor moves are sent, the cursor returns, the slots are unchanged and the JSON holds no serial, MAC, owner or copyright text. They cover validation, slot intent, tampered artifact claims, identity changes, incomplete backups, cursor mismatches, refused acknowledgements, missing readbacks, interrupted writes, protected-slot changes, output refusal, and exact preparation semantics. They make no network or camera calls.
+
+## Desktop Bluetooth tools
+
+`node scripts/dialin.mjs camera bluetooth --help` exposes the existing native backup and supervised single-slot trial through the desktop dispatcher. Build the helper explicitly with `node scripts/dialin.mjs native build`. See [the wireless guide](../../docs/WIRELESS.md) for preparation, experimental write, post-restart check and restoration. `camera bluetooth status` is offline; `camera bluetooth apply` refuses before device access. Production recipe writes remain gated. The trial requires a new private workspace and explicit lab flags and does not qualify other bodies, firmware or multi-slot writes.

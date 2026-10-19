@@ -41,3 +41,11 @@ An agent request has not generated a plan. A validated plan has not configured a
 The connected demo uses original synthetic examples. A real photography session instead uses actual image review, a verified device operation when requested, and the photographer's judgment. Use the same interfaces, preserve their provenance, and avoid copying all private state into a public export.
 
 The optional [Earth from orbit example](../examples/photos/earth-from-orbit/README.md) explicitly downloads pinned NASA images into a local workspace. It is separate from the offline fixture demo and routine tests. Replaying its saved review reproduces earlier editorial decisions; it does not perform a new visual review. A fresh agent review must open the images itself.
+
+## Desktop native boundary
+
+`modules/native-helper.mjs` implements explicit `native build`/`status`, serialized builds and source-fingerprint checks. Native camera commands never build automatically. `modules/import/cli.mjs` exposes `import wifi|usb|folder`: explicit range and destination, original-file preservation, JSON on stdout/new `--out`, helper diagnostics on stderr. Its `dialin.import.v1` receipt embeds the native `dialin.import-summary.v1` with saved/failed counts, folders and interruption state; it distinguishes `completed`, `planned`, `fixture_rehearsal`, `incomplete` and `failed`. A process success without a machine summary is not a completed import.
+
+`modules/camera/bluetooth.mjs` exposes backup and the supervised single-slot trial as `camera bluetooth …`, returning `dialin.bluetooth.v1`. Artifacts live in a new private `--workspace`; `--out` is a separate new receipt file. `status` is offline and `apply` refuses. Trial flags are never inserted implicitly. `trial-check` compares a readback but requires separate owner confirmation of the physical restart. Production writes stay gated.
+
+Wrapper exits: 0 completed operation (including offline blocked-status and synthetic rehearsal reports); 2 invalid input/setup error; 3 blocked or unverified outcome. Native nonzero operation codes are preserved (including 1 for connection/partial import failures); interruption returns 130/143. A failure never deletes completed imports or backup artifacts. Neither JSON receipt proves general compatibility or Wi-Fi restoration. [Workflow and limits](WIRELESS.md).

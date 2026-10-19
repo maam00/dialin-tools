@@ -27,3 +27,7 @@ The native macOS helper is optional. No iPhone build is required for the desktop
 The executable USB write list is [`modules/camera/profiles.ts`](../modules/camera/profiles.ts); the production Bluetooth gate is in [`BLESlotWriter.swift`](../ios/DialInCamera/Sources/DialInCamera/SlotWrite/BLESlotWriter.swift). Documentation does not override either. See the [protocol reference](FUJIFILM-PROTOCOL.md#7-what-is-not-known) for unresolved questions and [fresh-user validation](FIRST-RUN-VALIDATION.md#remaining-physical-and-quality-checks) for unfinished acceptance checks.
 
 Keep private backups, pairing identities, photographs and raw metadata with their owner. Publish only reviewed, sanitized outcomes. New evidence should update this summary, the relevant validation section and the component guide together.
+
+## Desktop wireless commands
+
+The optional macOS helper is built with `native build`; `native status` checks its source fingerprint. `import wifi|usb|folder` and `camera bluetooth backup|trial-*` are available through `scripts/dialin.mjs`, with JSON receipts and private artifact directories. See [USB-C and wireless](WIRELESS.md). This software integration adds no physical-camera evidence and does not unlock production Bluetooth writes.

@@ -12,6 +12,7 @@ Run as npm run dialin -- camera <command> (or node scripts/dialin.mjs camera <co
   camera prepare --in .dialin/my-shoot/plan.json --model X100VI --firmware 1.10 --transport usb --out .dialin/my-shoot/camera.json
   camera inspect --in preparation.json
   camera capabilities
+  camera bluetooth --help       Bluetooth backup and supervised single-slot trial; production writes remain blocked
 
 Explicit physical USB commands (not run by prepare, inspect, help or demo):
   camera usb info

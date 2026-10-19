@@ -28,6 +28,12 @@ For a recipe book, `camera prepare --in book.json --ids first-id,second-id --slo
 
 Check the model, firmware and operation in [the capability table](CAPABILITIES.md). If the body or firmware isn't a verified write profile, don't prepare a write; offer `camera report` and `docs/ADD-YOUR-CAMERA.md`. It contacts the camera, so run it only when the photographer has connected it and asked.
 
+## Retrieve photographs or test Bluetooth
+
+Read [USB-C and wireless](WIRELESS.md). `doctor import` checks native prerequisites; `native build` explicitly builds the optional macOS helper without contacting a camera. Ask for missing camera/range facts before `import wifi --last N --dest …`; first registration requires explicit `--pair`. Wi-Fi temporarily changes the Mac's network. The JSON receipt supplies the dated folders for `photos prepare`; incomplete import exits nonzero. `--dry-run` still contacts hardware. Only `--rehearse` uses a local fake camera and must be described as a fixture rehearsal.
+
+`camera bluetooth backup` and `trial-*` expose the existing supervised experiment. Keep production recipe writes blocked. Before a trial, confirm exact body, firmware and one permitted slot; use fresh private workspaces, review the offline preparation, preserve the safety backup and readback, and have the owner perform and confirm the restart. Never manufacture hardware evidence or run live commands when the camera is unavailable.
+
 ## Edit photographs
 
 1. Run `photos prepare` on the user's JPEG/PNG folder with their brief and desired count. Use a new output directory; do not alter originals. Unsupported files and unreadable images must stay visible in the coverage report.
