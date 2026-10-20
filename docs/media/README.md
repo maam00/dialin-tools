@@ -1,16 +1,16 @@
-# Walkthrough media and credits
+# Animation sources and credits
 
-The 30-second edited walkthrough shows two separate demonstrations: an Anatomy diagram of seven proposed camera looks, then the real generated Best, Series and Sequence gallery from the NASA archive example. It is an edited explanation, not an uninterrupted recording of a shoot.
+The README animation combines two examples: an Anatomy diagram of seven proposed camera looks, then the generated Best, Series and Sequence gallery from the NASA archive example. It is a conceptual illustration followed by a saved gallery review, not a recording of the owner using a camera.
 
-[Watch or download the MP4](workflow.mp4) · [Animated GIF](workflow.gif) · [Interactive illustration source](anatomy.html)
+[Animated GIF](workflow.gif) · [Interactive illustration source](anatomy.html)
 
 ![Dial In's seven-look illustration, paused on C1 Morning soft using Astia](workflow-poster.png)
 
 To interact with the illustration after cloning, open `docs/media/anatomy.html` in your browser. It is a standalone file; no install or server is needed. Choose C1–C7, use arrow keys, pause the tour or switch themes. Reduced-motion preferences disable the automatic tour.
 
-## Transcript
+## Animation sequence
 
-There is no audio. The MP4 is 30 seconds; the GIF uses the same sequence.
+The GIF is a silent, 30-second loop.
 
 | Time | What you see | What it means |
 |---|---|---|

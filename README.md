@@ -6,9 +6,9 @@
 
 **Your Fuji, with a photography assistant. Describe the shoot. Review seven looks. Load your camera. Come home to a considered photo edit.**
 
-[![30-second Dial In walkthrough: an illustration of seven agent-planned camera looks, followed by the real Best / Series / Sequence gallery](docs/media/workflow.gif)](docs/media/workflow.mp4)
+<img src="docs/media/workflow.gif" width="600" alt="Conceptual illustration of seven proposed camera looks, followed by an example Best / Series / Sequence photo gallery">
 
-[Watch the 30-second video](docs/media/workflow.mp4) · [Still image and transcript](docs/media/README.md) · [Try a real photo folder](docs/FIRST-SHOOT.md) · [Help add your camera](docs/ADD-YOUR-CAMERA.md)
+[Try a real photo folder](docs/FIRST-SHOOT.md) · [Help add your camera](docs/ADD-YOUR-CAMERA.md)
 
 *An explanatory camera illustration leads into the actual photo gallery. The seven looks passed planning and offline camera checks; the gallery replays a saved NASA-photo review. No camera upload is shown, and the archive photos demonstrate selection, not Fujifilm rendering. [Sources, interactive illustration and exact steps](docs/media/README.md).*
 
