@@ -65,7 +65,7 @@ For a real visual review, follow [Your first shoot](docs/FIRST-SHOOT.md). It inc
 
 The finished gallery keeps your Best, Series and Sequence together with the reasoning behind each choice. Here are two of the three Best picks from the [Earth from orbit example](examples/photos/earth-from-orbit/README.md):
 
-<img src="docs/media/gallery-preview.png" width="600" alt="The generated gallery's Best section, showing a turquoise water bank and a glowing atmospheric horizon">
+<img src="docs/media/gallery-preview.png?v=87379cc" width="600" alt="The generated gallery's Best section, showing a turquoise water bank and a glowing atmospheric horizon">
 
 *NASA archive photographs, selected in a saved review replay. This demonstrates photo selection, not the rendering of the proposed camera looks. [Sources and credits](docs/media/README.md#nasa-gallery-example).*
 

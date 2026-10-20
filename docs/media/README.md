@@ -56,7 +56,7 @@ Rendering uses locally installed Georgia and Avenir Next, with serif/sans fallba
 
 ## NASA gallery example
 
-<img src="gallery-preview.png" width="600" alt="Two Best picks from the generated NASA example gallery: a water bank and an atmospheric horizon">
+<img src="gallery-preview.png?v=87379cc" width="600" alt="Two Best picks from the generated NASA example gallery: a water bank and an atmospheric horizon">
 
 This separate still is an unretouched browser capture of the generated gallery's Best section, showing two of its three picks. It was captured at 1200 × 532 pixels and displayed at 600 pixels wide. It shows actual output from the [Earth from orbit example](../../examples/photos/earth-from-orbit/README.md), with the saved review replay: three Best photographs, the three-image Series “The thin edge,” and a five-image Sequence. The original visual review was authored after opening all eight previews on October 19, 2026. Capturing this preview is not a new photographic review.
 
