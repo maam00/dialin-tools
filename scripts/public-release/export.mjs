@@ -15,7 +15,7 @@ const REVIEWED_MEDIA = new Map([
   ['docs/media/workflow.gif', 'image/gif'],
   ['docs/media/workflow.mp4', 'video/mp4'],
   ['docs/media/workflow-poster.png', 'image/png'],
-  ['docs/media/gallery-preview.png', 'image/png'],
+  ['docs/media/gallery-best.png', 'image/png'],
 ]);
 const MAX_ARTIFACT_BYTES = 5 * 1024 * 1024;
 /** Public configuration generated from reviewed templates, so private folder names never reach the public tree. The
