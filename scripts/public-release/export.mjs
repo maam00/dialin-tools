@@ -10,11 +10,12 @@ import { spawnSync } from 'node:child_process';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const RECEIPT = '.source-export.json';
 const MEDIA_MANIFEST = 'release/media-manifest.json';
-// These three reviewed walkthrough files are the entire media exception, not an extension allowlist.
+// These exact illustration and gallery files are the entire media exception, not an extension allowlist.
 const REVIEWED_MEDIA = new Map([
   ['docs/media/workflow.gif', 'image/gif'],
   ['docs/media/workflow.mp4', 'video/mp4'],
   ['docs/media/workflow-poster.png', 'image/png'],
+  ['docs/media/gallery-preview.png', 'image/png'],
 ]);
 const MAX_ARTIFACT_BYTES = 5 * 1024 * 1024;
 /** Public configuration generated from reviewed templates, so private folder names never reach the public tree. The

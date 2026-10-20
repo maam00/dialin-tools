@@ -1,34 +1,18 @@
-# Animation sources and credits
+# Illustration and gallery sources
 
-The README animation combines two examples: an Anatomy diagram of seven proposed camera looks, then the generated Best, Series and Sequence gallery from the NASA archive example. It is a conceptual illustration followed by a saved gallery review, not a recording of the owner using a camera.
+The README has two separate visuals: a seven-second camera illustration and a still of the generated photo gallery. Neither is a recording of the owner using a camera.
 
-[Animated GIF](workflow.gif) · [Interactive illustration source](anatomy.html)
+## Seven-look illustration
 
-![Dial In's seven-look illustration, paused on C1 Morning soft using Astia](workflow-poster.png)
+![Stationary camera and seven proposed looks, paused on C1 Morning soft](workflow-poster.png)
 
-To interact with the illustration after cloning, open `docs/media/anatomy.html` in your browser. It is a standalone file; no install or server is needed. Choose C1–C7, use arrow keys, pause the tour or switch themes. Reduced-motion preferences disable the automatic tour.
+The camera stays fixed while C1–C7 highlight in order, one second per slot, with a short crossfade. The loop contains no controls, conveyor movement or gallery footage. The GIF is rendered from vector paths at **1200 × 640**, **25 fps**, and displayed at **600 × 320** in the README. The MP4 encodes the same seven-second illustration; it is not a separate overview.
 
-## Animation sequence
+The README supplies this static poster for reduced-motion preferences. The standalone `anatomy.html` uses CSS for the same slot-highlighting sequence and keeps C1 selected when reduced motion is requested. Open that file locally after cloning. There is no JavaScript, installation, server or camera connection involved in viewing it. The static [SVG source](workflow.svg) stays sharp at any size.
 
-The GIF is a silent, 30-second loop.
-
-| Time | What you see | What it means |
-|---|---|---|
-| 0–14s | The seven-cartridge camera illustration moves from C1 toward C5. The name and film simulation follow the aligned cartridge. | A description became seven proposed looks assigned to explicit camera slots. This is an explanatory drawing of the validated offline plan, not camera hardware or an upload screen. |
-| 14–19s | The generated gallery's Best section shows the water-bank and horizon photographs. | The saved review selected three individual favorites; two are visible in this viewport. |
-| 19–23s | The three-image Series, “The thin edge.” | The saved edit groups photographs around a shared visual idea. |
-| 23–27s | “Earth from daylight to night,” the five-image Sequence. | A deliberate editorial order, with its first two frames visible. |
-| 27–30s | The last photograph and the gallery's source credits. | NASA photographs remain attributed; the exported originals were copied unchanged. |
-
-The first segment is a browser recording assembled from timestamped screen captures at normal speed. The gallery views are held screenshots of the generated output. Encoding changes frame rate, size and padding; it does not create photographs or simulate a successful device operation. The poster is a still of the conceptual illustration. Exact release bytes are recorded in [the reviewed-media manifest](../../release/media-manifest.json).
-
-## Seven-look figure
-
-The interactive `anatomy.html` figure illustrates a fictional brief:
+The illustration uses seven proposals from the original fictional brief:
 
 > A day in Miami: soft morning portraits, colorful streets at noon, shaded cafe, sunset by the water, indoor dinner, night neon, and one black-and-white documentary look.
-
-On 2026-10-19, the host agent read Dial In's generated request, engine instructions, output schema and original recipe guidance, then authored a new answer for this brief. Finalization produced a complete seven-look proposal with zero validation warnings. Offline camera preparation accepted all seven explicit placements for the **declared demo profile X100VI / firmware 1.10 / USB**. All rendering settings were unchanged between the answer, finalized plan and preparation.
 
 | Slot | Proposed name | Film simulation |
 |---|---|---|
@@ -40,34 +24,47 @@ On 2026-10-19, the host agent read Dial In's generated request, engine instructi
 | C6 | Dinner light | Pro Neg Std |
 | C7 | Neon color | Eterna |
 
-The diagram's colors and moving parts explain slot selection; they do not simulate the photographic rendering. These look designs remain untested aesthetic proposals. The original run used no photograph, private recipe catalog, separate model API or camera connection. The public figure contains only the fictional brief and small demonstration model, not the complete local request or computer paths.
+On October 19, 2026, the host agent authored these proposals using Dial In's request, engine instructions, schema and original recipe guidance. Finalization and offline camera preparation accepted the seven placements without changing their rendering settings, for the declared demo profile **X100VI / firmware 1.10 / USB**. The original run used no photograph, private recipe catalog, separate model API or camera connection. The proposals remain untested aesthetic choices.
 
-The preparation receipt records zero camera, provider and network operations, `backup`, `upload` and `readback` as `NOT_RUN`, and `transfer_authorized: false`. Neither the figure nor the walkthrough shows an upload. Actual USB writes are separately qualified only for the X100VI on firmware 1.10 under the [documented device workflow](../../modules/camera/README.md#explicit-usb-use-from-the-computer). A proposal does not establish a connected camera's identity, current slots or photographic quality.
+The preparation receipt recorded zero camera, provider and network operations; backup, upload and readback were not run. Highlighting a slot is an illustration of a proposal, not evidence of a camera write. See the [planner guide](../../modules/planner/README.md) and [documented USB workflow](../../modules/camera/README.md#explicit-usb-use-from-the-computer).
 
-The original commands, saved answer and receipt are retained with the local authoring run. To create your own plan, use the [planner guide](../../modules/planner/README.md). Replaying a saved answer validates that proposal again; it is not a new agent answer.
+## Vector source and rebuild
 
-## Anatomy source and rebuild
+The camera geometry uses [Anatomy by Ryan](https://github.com/wheresryan22/anatomy), pinned to commit [`1482e8469b0a9e0d8cc18ea2740a01423d29ae80`](https://github.com/wheresryan22/anatomy/tree/1482e8469b0a9e0d8cc18ea2740a01423d29ae80). Anatomy is MIT-licensed, copyright 2026 Ryan; its [complete license](../../third_party/licenses/anatomy.txt) is included and inlined into the SVG and HTML. Dial In's layout, animation, colors and seven-look model are original additions. Anatomy does not validate or endorse the plan.
 
-The figure uses [Anatomy by Ryan](https://github.com/wheresryan22/anatomy), pinned to commit [`1482e8469b0a9e0d8cc18ea2740a01423d29ae80`](https://github.com/wheresryan22/anatomy/tree/1482e8469b0a9e0d8cc18ea2740a01423d29ae80). Anatomy is MIT-licensed, copyright 2026 Ryan; its [complete license](../../third_party/licenses/anatomy.txt) is included. Dial In's seven-slot model and explanatory copy are original additions. Anatomy does not validate or endorse the camera plan.
+The builder reads an explicitly supplied checkout of that revision. It makes no camera, model or network calls and refuses an existing output directory. Its static camera geometry passes the kit's clearance, support and depth-order audit. The source plan SHA-256 remains `ee31e01853f5dde41be774251fb218f2a23e7679157793b81c13079d3692071e`.
 
-The build reads an explicitly supplied local checkout of that revision. It generates SVG geometry with the kit and inlines its CSS and license into the standalone HTML; it does not bundle a kit JavaScript runtime. The small model records the normalized slots above and the source plan SHA-256, `ee31e01853f5dde41be774251fb218f2a23e7679157793b81c13079d3692071e`. It does not install a skill globally or contact a camera or model provider.
+To regenerate SVG and standalone HTML:
 
 ```sh
 git clone https://github.com/wheresryan22/anatomy.git .dialin/anatomy-source
 git -C .dialin/anatomy-source checkout --detach 1482e8469b0a9e0d8cc18ea2740a01423d29ae80
 node docs/media/build-anatomy.mjs --anatomy-root .dialin/anatomy-source \
-  --out docs/media/anatomy.html --audit
+  --out-dir .dialin/illustration --audit
 ```
 
-The clone command explicitly downloads the upstream source. Keep the Anatomy copyright and permission notice with the inlined code and redistributed figure. The standalone HTML is the conceptual figure; the walkthrough's gallery segment comes from the separate photo workflow below.
+The clone explicitly downloads upstream source. For PNG, GIF and MP4 output, install the optional renderer in a separate local folder and make FFmpeg available on your path:
 
-## NASA gallery and replay
+```sh
+npm install --prefix .dialin/media-render-tools --ignore-scripts --no-audit --no-fund @resvg/resvg-js@2.6.2
+node docs/media/build-anatomy.mjs --anatomy-root .dialin/anatomy-source \
+  --out-dir .dialin/illustration-rendered --audit \
+  --renderer .dialin/media-render-tools/node_modules/@resvg/resvg-js/index.js
+```
 
-The gallery segment shows actual output from the [Earth from orbit example](../../examples/photos/earth-from-orbit/README.md), using eight exact, hash-pinned NASA archive JPEGs. The original photographs come from different dates and expeditions. They are not Miami photographs, Fujifilm samples, a chronological flight record or output from the seven proposed looks.
+Rendering uses locally installed Georgia and Avenir Next, with serif/sans fallbacks. Font availability and FFmpeg versions can change raster bytes; review regenerated output before updating its exact hashes in [the media manifest](../../release/media-manifest.json). Neither the optional renderer nor a browser is part of installation or routine tests.
 
-The recording uses the saved review replay: three Best photographs, the three-image Series “The thin edge,” and a five-image Sequence. That replay maps the previously saved Codex review to exact image hashes and runs the normal finish/export path. The original review was authored after viewing all eight previews on 2026-10-19; replaying it for this walkthrough performs no fresh visual or image-quality review and makes no model call. See the example's [download and replay commands](../../examples/photos/earth-from-orbit/README.md#download-and-prepare) and [saved decisions](../../examples/photos/earth-from-orbit/saved-review.json).
+## NASA gallery example
 
-The [source manifest](../../examples/photos/earth-from-orbit/sources.json) is the source of truth for image URLs, credits, byte counts and SHA-256 hashes. The finished gallery carries `CREDITS.md` and `SOURCES.json`. Credits for the complete eight-image example are:
+<img src="gallery-preview.png" width="600" alt="Two Best picks from the generated NASA example gallery: a water bank and an atmospheric horizon">
+
+This separate still is an unretouched browser capture of the generated gallery's Best section, showing two of its three picks. It was captured at 1200 × 532 pixels and displayed at 600 pixels wide. It shows actual output from the [Earth from orbit example](../../examples/photos/earth-from-orbit/README.md), with the saved review replay: three Best photographs, the three-image Series “The thin edge,” and a five-image Sequence. The original visual review was authored after opening all eight previews on October 19, 2026. Capturing this preview is not a new photographic review.
+
+To recreate the gallery, follow the example's [download and replay commands](../../examples/photos/earth-from-orbit/README.md#download-and-prepare). The capture shows the beginning of the Best section; it is not the complete gallery. The visible photographs are `iss039e012272` (NASA / Steve Swanson) and `iss023e057948` (NASA).
+
+The archive photographs come from different dates and expeditions. They are not Miami photographs, Fujifilm samples, a chronological flight record or output from the proposed camera looks. Originals are unchanged. The [source manifest](../../examples/photos/earth-from-orbit/sources.json) records URLs, credits and pinned image hashes; the gallery carries its own `CREDITS.md` and `SOURCES.json`.
+
+Credits for the complete example:
 
 | NASA archive image | Credit |
 |---|---|
@@ -80,4 +77,4 @@ The [source manifest](../../examples/photos/earth-from-orbit/sources.json) is th
 | [iss023e057948](https://images.nasa.gov/details/iss023e057948) | NASA |
 | [iss022e005258](https://images.nasa.gov/details/iss022e005258) | NASA / Jeffrey Williams, Expedition 22 Commander |
 
-NASA image portions in the video and GIF remain subject to [NASA's media usage guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/); they are not relicensed under Dial In's MIT license. This is an informational example with source acknowledgment, not NASA endorsement. NASA's guidelines distinguish its content from marked third-party copyrighted material and separately protect its branding. Preserve the credits when sharing. The editorial judgments are by Codex, not NASA. No source photograph was generated or retouched by AI; the walkthrough contains ordinary gallery screenshots and video encoding.
+NASA image portions in the gallery preview remain subject to [NASA's media usage guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/); they are not relicensed under Dial In's MIT license. This is an informational example with source acknowledgment, not NASA endorsement. NASA's guidelines distinguish its content from marked third-party copyrighted material and separately protect its branding. Preserve the credits when sharing. The editorial judgments are by Codex, not NASA. No source photograph was generated or retouched by AI; the gallery preview is an ordinary browser screenshot.

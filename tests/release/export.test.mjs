@@ -321,6 +321,7 @@ const MEDIA_FIXTURES = [
   ['docs/media/workflow.gif', 'image/gif', Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64')],
   ['docs/media/workflow.mp4', 'video/mp4', Buffer.concat([box('ftyp', Buffer.from('isom\0\0\0\0isommp42', 'latin1')), box('moov'), box('mdat', Buffer.from([1]))])],
   ['docs/media/workflow-poster.png', 'image/png', geometricPNG(8)],
+  ['docs/media/gallery-preview.png', 'image/png', geometricPNG(12)],
 ];
 
 function reviewedMediaSource(args, fixtures = MEDIA_FIXTURES) {

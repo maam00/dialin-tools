@@ -6,11 +6,14 @@
 
 **Your Fuji, with a photography assistant. Describe the shoot. Review seven looks. Load your camera. Come home to a considered photo edit.**
 
-<img src="docs/media/workflow.gif" width="600" alt="Conceptual illustration of seven proposed camera looks, followed by an example Best / Series / Sequence photo gallery">
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/workflow-poster.png">
+  <img src="docs/media/workflow.gif" width="600" alt="A stationary camera beside seven proposed looks, with slots C1 through C7 highlighted in turn">
+</picture>
 
 [Try a real photo folder](docs/FIRST-SHOOT.md) · [Help add your camera](docs/ADD-YOUR-CAMERA.md)
 
-*An explanatory camera illustration leads into the actual photo gallery. The seven looks passed planning and offline camera checks; the gallery replays a saved NASA-photo review. No camera upload is shown, and the archive photos demonstrate selection, not Fujifilm rendering. [Sources, interactive illustration and exact steps](docs/media/README.md).*
+*Illustration of an offline plan. [Still image and sources](docs/media/README.md).*
 
 I built Dial In because I love shooting with my Fujifilm, but I don't enjoy choosing recipes, changing every setting and sorting through everything afterward. It gives the technical and organizational work to the coding agent I already use, while I keep the final say on the looks and photographs.
 
@@ -57,6 +60,14 @@ npm run dialin -- demo --out .dialin/demo
 Then read `.dialin/demo/SUMMARY.md`: a seven-look plan run through the real planner engine, its offline camera-slot preparation, and a validated photo sequence. It is a rehearsal with bundled fixture data: no AI planning, camera write or photo review happens, and the summary says so.
 
 For a real visual review, follow [Your first shoot](docs/FIRST-SHOOT.md). It includes a small, explicitly downloaded NASA photograph set, or you can bring your own folder. Your agent opens the photographs, makes an edit and produces a local `index.html` gallery with Best, Series and Sequence.
+
+## Example photo gallery
+
+The finished gallery keeps your Best, Series and Sequence together with the reasoning behind each choice. Here are two of the three Best picks from the [Earth from orbit example](examples/photos/earth-from-orbit/README.md):
+
+<img src="docs/media/gallery-preview.png" width="600" alt="The generated gallery's Best section, showing a turquoise water bank and a glowing atmospheric horizon">
+
+*NASA archive photographs, selected in a saved review replay. This demonstrates photo selection, not the rendering of the proposed camera looks. [Sources and credits](docs/media/README.md#nasa-gallery-example).*
 
 ## Use it with your coding agent
 
@@ -154,4 +165,4 @@ Every boundary is inspectable JSON and ordinary files, so other tools can enter 
 
 ## Contributing and license
 
-See [CONTRIBUTING.md](CONTRIBUTING.md); `npm test` runs every offline check. Tell us about your [first real use](docs/LAUNCH-FEEDBACK.md), or help qualify another camera through a current-slot-only report. The initial public commit is a reviewed export of earlier private work; [project history](docs/PROJECT-HISTORY.md) explains the boundary and the ongoing public commit history. Public source releases use an exact file list ([details](docs/PUBLIC-RELEASE.md)). Original code and examples are [MIT licensed](LICENSE); the walkthrough's NASA imagery retains its [source terms and credits](docs/media/README.md), as do externally downloaded example photographs. [Third-party notices](THIRD_PARTY_NOTICES.md) keep upstream licenses. Security and private-data reports: [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md); `npm test` runs every offline check. Tell us about your [first real use](docs/LAUNCH-FEEDBACK.md), or help qualify another camera through a current-slot-only report. The initial public commit is a reviewed export of earlier private work; [project history](docs/PROJECT-HISTORY.md) explains the boundary and the ongoing public commit history. Public source releases use an exact file list ([details](docs/PUBLIC-RELEASE.md)). Original code and examples are [MIT licensed](LICENSE); the gallery preview's NASA imagery retains its [source terms and credits](docs/media/README.md), as do externally downloaded example photographs. [Third-party notices](THIRD_PARTY_NOTICES.md) keep upstream licenses. Security and private-data reports: [SECURITY.md](SECURITY.md).
